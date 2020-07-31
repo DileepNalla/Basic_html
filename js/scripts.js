@@ -77,7 +77,7 @@ function allowlogin(usermail){
                        // "userHash": hash.toString()// optional transient for HMAC identification
                     });
                     
-                     window.location = "/Index.HTML";
+                     window.location = "https://dileepnalla.github.io/Basic_html/Index.HTML";
            
       }
     else
