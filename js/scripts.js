@@ -160,3 +160,16 @@ console.log(ev1.type, ev1.detail);
 aptrinsic('track', 'transactionsuccess', {Amountdeducted:ev1.detail.Amountdeducted,Paymentstatus:ev1.detail.Paymentstatus});       
 }
 
+
+
+// Clearing cookies on the page load
+function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name;
+    }
+}
