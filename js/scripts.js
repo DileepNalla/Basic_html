@@ -48,7 +48,6 @@ function allowlogin(usermail){
       {
          alert("valid User");
          b = a.substr(8, 5);
-         alert("Logged in user id :" + b);
          var id = b;
         // var hash = CryptoJS.HmacSHA256(id, "9rmLVS939teSt3cILUccAPiqBBxSsQNmREc8CwpAj");
        
@@ -60,7 +59,7 @@ function allowlogin(usermail){
                         "email": a,
                        // "userHash": hash.toString()// optional transient for HMAC identification
                     });
-                    
+                    alert("Logged in user id :" + b); 
                      window.location = "https://dileepnalla.github.io/Basic_html/Index.HTML";
            
       }
