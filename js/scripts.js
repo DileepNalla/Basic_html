@@ -4,40 +4,23 @@
  /*----------------------------------------------------------------------------------------------------------------*/
   // Global function to initialize Gainsight PX
   
-function initializeGainsightPX() {
-    if (this.isGainsightPXInitialized) return;
-    
-    // Gainsight PX Tag
-    (function (n, t, a, e, x) {   
-        let i = "aptrinsic"; n[i] = n[i] || function () {
-            (n[i].q = n[i].q || []).push(arguments)
-        }, n[i].p = e, n[i].c = x;
-        
-        let r = t.createElement("script");
-        r.async = !0;
-        r.src = a + "?a=" + e;        
-        
-        let c = t.getElementsByTagName("script")[0];
-        c.parentNode.insertBefore(r, c);
-    })(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-YK6YGOF9CBVL-2",{ "iframeModeEnabled": false });
-    // End Gainsight PX Tag    
-    
-    this.isGainsightPXInitialized = true;
-}
-
-initializeGainsightPX();
+  (function(n,t,a,e){var i="aptrinsic";n[i]=n[i]||function(){
+    (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;
+  var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
+  var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
+})(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-6WAJA3OATHHI-2")
 /*Script for Login Validation */
 
 var configone={ filterUrls: ["*/About.HTML"], filterType: "mask"};
 (function(n,t,a,e,x){
   var i="aptrinsic";n[i]=n[i]||function(){ (n[i].q=n[i].q||[]).push(arguments)},
-  n[i].p = e; n[i].c = x; var r= t.createElement("script"); r.async=!0, r.src=a+"?a="+e; var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)}) (window, document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-YK6YGOF9CBVL-2",configone);
+  n[i].p = e; n[i].c = x; var r= t.createElement("script"); r.async=!0, r.src=a+"?a="+e; var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)}) (window, document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-6WAJA3OATHHI-2",configone);
 
  var configtwo={ fullDomainCookie: true};
  
 (function(n,t,a,e,x){
   var i="aptrinsic";n[i]=n[i]||function(){ (n[i].q=n[i].q||[]).push(arguments)},
-  n[i].p = e; n[i].c = x; var r= t.createElement("script"); r.async=!0, r.src=a+"?a="+e; var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)}) (window, document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-YK6YGOF9CBVL-2",configtwo);
+  n[i].p = e; n[i].c = x; var r= t.createElement("script"); r.async=!0, r.src=a+"?a="+e; var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)}) (window, document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-6WAJA3OATHHI-2",configtwo);
 
 function callglobal()  //https://share.vidyard.com/watch/9DHjPPiqZQc7czUnjorcxA?
 {
