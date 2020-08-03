@@ -44,7 +44,7 @@ function allowlogin(usermail){
     
     if(a!= "")
     {
-        if(a=="dileepnalla29@gmail.com"||a=="y09me034@gmail.com" ||a=="dnalla@gainsight.com")
+        if(a=="dileepnalla29@gmail.com"||a=="y09me034@gmail.com" ||a=="dnalla@gainsight.com"||a=="demouser@gmail.com")
       {
          alert("valid User");
          b = a.substr(8, 5);
@@ -64,10 +64,10 @@ function allowlogin(usermail){
            
       }
     else
-        alert("Invalid User,enter \"dileepnalla29@gmail.com\"");
+        alert("Invalid User,enter \"demouser@gmail.com\"");
     }
     else
-    alert("enter \"dileepnalla29@gmail.com\"");
+    alert("enter \"demouser@gmail.com\"");
 
     
       return b;
