@@ -152,8 +152,6 @@ function deleteAllCookies() {
 
 function showKCB()
 {
-    aptrinsic('bot', 'start', {});
-    aptrinsic('bot', 'get', {});
-    aptrinsic('bot', 'show', {});
+    aptrinsic('bot', 'start', {fetchDefault: true}); // We can also specific ID
     
 }
