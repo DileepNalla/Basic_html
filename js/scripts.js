@@ -149,3 +149,11 @@ aptrinsic('track', 'transactionsuccess', {Amountdeducted:ev1.detail.Amountdeduct
 function deleteAllCookies() {
     window.aptrinsic('reset');
 }
+
+function showKCB()
+{
+    aptrinsic('bot', 'start', {});
+    aptrinsic('bot', 'get', {});
+    aptrinsic('bot', 'show', {});
+    
+}
