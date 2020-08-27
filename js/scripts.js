@@ -74,6 +74,7 @@ function allowlogin(usermail){
       return b;
 }
 
+var counter = 0;
 
 // Section - 1: Defining the purchse Process
 
