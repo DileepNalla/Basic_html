@@ -155,3 +155,24 @@ function showKCB()
     aptrinsic('bot', 'start', {fetchDefault: true}); // We can also specific ID
     
 }
+
+
+function captureonlyforsession()
+{
+    var checkcookie = document.cookie.match('sid=([^;]*)');
+    var getexistingcookieid = checkcookie && checkcookie[1];
+    var counter = 0;
+    if (counter==0)
+    {
+        for (counter=0; counter<1;counter++)
+        {
+            aptrinsic('track', 'Click captutre only for session', {sessionid: getexistingcookieid });
+        }
+    }
+
+    else{
+        console.log("Event already captured in this session, clear the session and give a try!")
+    }   
+    
+       
+}
