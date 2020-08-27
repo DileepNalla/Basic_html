@@ -168,6 +168,7 @@ function captureonlyforsession()
         {
             aptrinsic('track', 'Click captutre only for session', {sessionid: getexistingcookieid });
         }
+        return counter;
     }
 
     else{
