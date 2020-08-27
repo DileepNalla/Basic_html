@@ -28,7 +28,7 @@ function callglobal()  //https://share.vidyard.com/watch/9DHjPPiqZQc7czUnjorcxA?
     aptrinsic('set', 'globalContext', {"TrailUser":true,"LoanAmount" :19000 });
 }
 
-var counter = 0;
+
 
 function allowlogin(usermail){
     //var a = document.form.usermail.value;
@@ -149,6 +149,7 @@ aptrinsic('track', 'transactionsuccess', {Amountdeducted:ev1.detail.Amountdeduct
 // Clearing cookies on the page load
 function deleteAllCookies() {
     window.aptrinsic('reset');
+    counter = 0;
 }
 
 function showKCB()
