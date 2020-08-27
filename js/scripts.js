@@ -28,6 +28,7 @@ function callglobal()  //https://share.vidyard.com/watch/9DHjPPiqZQc7czUnjorcxA?
     aptrinsic('set', 'globalContext', {"TrailUser":true,"LoanAmount" :19000 });
 }
 
+var counter = 0;
 
 function allowlogin(usermail){
     //var a = document.form.usermail.value;
@@ -161,7 +162,7 @@ function captureonlyforsession()
 {
     var checkcookie = document.cookie.match('sid=([^;]*)');
     var getexistingcookieid = checkcookie && checkcookie[1];
-    var counter = 0;
+    
     if (counter==0)
     {
         for (counter=0; counter<1;counter++)
