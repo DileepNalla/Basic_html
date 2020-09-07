@@ -30,11 +30,11 @@ function callglobal()  //https://share.vidyard.com/watch/9DHjPPiqZQc7czUnjorcxA?
 
 function loadContactPage()
 {
-    aptrinsic('set', 'globalContext', {"page": Contactpage });
+    aptrinsic('set', 'globalContext', {"page": "Contactpage" });
 }
 function loadAboutusPage()
 {
-    aptrinsic('set', 'globalContext', {"page": AboutusPage });
+    aptrinsic('set', 'globalContext', {"page": "AboutusPage" });
 }
 
 
