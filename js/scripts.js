@@ -28,6 +28,15 @@ function callglobal()  //https://share.vidyard.com/watch/9DHjPPiqZQc7czUnjorcxA?
     aptrinsic('set', 'globalContext', {"TrailUser":true,"LoanAmount" :19000 });
 }
 
+function loadContactPage()
+{
+    aptrinsic('set', 'globalContext', {"page": Contactpage });
+}
+function loadAboutusPage()
+{
+    aptrinsic('set', 'globalContext', {"page": AboutusPage });
+}
+
 
 
 function allowlogin(usermail){
