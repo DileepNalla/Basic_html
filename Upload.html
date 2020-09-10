@@ -8,12 +8,31 @@
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script type="text/javascript" src="js/scripts.js"></script> 
+  <script>
+    function getuserdata(){
+    var userid = document.getElementById("useridentify").value;
+    var myHeaders = new Headers();
+    myHeaders.append("X-Requested-With", "XMLHttpRequest");
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("X-APTRINSIC-API-KEY", "1f3046e3-12e1-4c2b-9d2f-335e2cad66e9");
     
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+    
+    fetch("https://app-be.aptrinsic.com/v1/users/"+userid, requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+        }
+      </script>
 </head>
-<body id="Payment-body">
+
+<body id="loader-page">
 <div class="container">
   <header class="header">
-    <header class="header">
       <a class="Link-title" href="./Index.HTML">Website Page</a>
     </header>
     
@@ -26,37 +45,34 @@
       <a href="./Payment.html">Payment</a> &nbsp;&nbsp;&nbsp;
       <a href="./Upload.html">DataLoader</a> &nbsp;&nbsp;&nbsp;
       <a href="./Login.HTML" onclick="deleteAllCookies()">Logout</a>
-    </nav>
-
-     <!-- Bootstrap CSS CDN https://getbootstrap.com/ -->
-  
-</head>
-<body>
-    <div><p><b>Custom Events</b></p></div>
- <main>  
-<span id="paymentbutton"></span>
-
-<div>
-  <input type="button" id="KCBbot" value="KC Bot 1" onclick="showKCB1()"></li>
-
-  <input type="button" id="apiKCBOT" value="KC Bot 2" onclick="showKCB2()"></li>
-</div>
-
+    </nav> 
 
 <div>
   <br>
-  <input type="button" id="SessionButton" value="Click Capture only for session" onclick="captureonlyforsession()">
+  <span><label for="User ID" >User ID:</label></span>
+  <span><input type="text" id="useridentify" name="Enter the User Id" placeholder="Enter User ID"></span>
+  <br>
 </div>
 
+<div>
+  <table cellspacing="0" rules="all" border="1" id="tableReports" style="width: 1000px; border-collapse: collapse;">
+    <tbody></tbody>
+</table>
+</div>
 
-</main>
-<article class="main">   
-   
+<div>
+  <br>
+  <span><input type="button" id="GET button" value="Fetch" onclick= getuserdata() ></span>
+  <span><input type="button" id="GET button" value="Update" ></span>
+  <span><input type="button" id="GET button" value="Delete" ></span>
+  <br>
+</div>
+<br>
     <footer>
      &copy; 2019 Miminal Website  &nbsp;<span class="seperator">|</span> Design by Dileep Nalla <a href="http://www.NLIT.com">NLIT</a>
     </footer>
     
     </article>
 </body>
-<!-- <script src="Pay_script.js"></script> -->
+
 </html>
