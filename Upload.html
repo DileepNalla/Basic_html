@@ -9,14 +9,15 @@
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script type="text/javascript" src="js/scripts.js"></script> 
   <script>
+    
     function getuserdata(){
     var userid = document.getElementById("useridentify").value;
     var myHeaders = new Headers();
     myHeaders.append("X-Requested-With", "XMLHttpRequest");
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("X-APTRINSIC-API-KEY", "1f3046e3-12e1-4c2b-9d2f-335e2cad66e9");
-    
-    var requestOptions = {
+ 
+     var requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow'
@@ -24,9 +25,39 @@
     
     fetch("https://app-be.aptrinsic.com/v1/users/"+userid, requestOptions)
       .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
+      .then(result => document.getElementById('printhere').innerHTML += result + '<br>')
+      .catch(error => document.getElementById('printhere').innerHTML += result + '<br>');
         }
+
+
+    function deleteuserdata()
+    {
+      var userid = document.getElementById("useridentify").value;
+      var myHeaders = new Headers();
+      myHeaders.append("X-Requested-With", "XMLHttpRequest");
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append("X-APTRINSIC-API-KEY", "1f3046e3-12e1-4c2b-9d2f-335e2cad66e9");
+
+      var raw = "";
+
+      var requestOptions = {
+        method: 'DELETE',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+
+      fetch("https://app-be.aptrinsic.com/v1/users/"+ userid, requestOptions)
+        .then(response => response.text())
+        .then(result => document.getElementById('printhere').innerHTML += result + '<br>')
+        .catch(error => document.getElementById('printhere').innerHTML += result + '<br>');
+    }
+
+
+    function updateuserdata()
+    {
+      alert('Work In Progress'+'Try fetch and Delete');
+    }
       </script>
 </head>
 
@@ -57,13 +88,15 @@
   <table cellspacing="0" rules="all" border="1" id="tableReports" style="width: 1000px; border-collapse: collapse;">
     <tbody></tbody>
 </table>
+<span><p id="printhere">Display Message</p></span>
+
 </div>
 
 <div>
   <br>
-  <span><input type="button" id="GET button" value="Fetch" onclick= getuserdata() ></span>
-  <span><input type="button" id="GET button" value="Update" ></span>
-  <span><input type="button" id="GET button" value="Delete" ></span>
+  <span><input type="button" id="GET button" value="Fetch" onclick= getuserdata()></span>
+  <span><input type="button" id="GET button" value="Update" onlclick= updateuserdata() ></span>
+  <span><input type="button" id="GET button" value="Delete" onclick= deleteuserdata()></span>
   <br>
 </div>
 <br>
