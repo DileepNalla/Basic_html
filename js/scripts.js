@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded',function(){
     m.addEventListener('click',function(ev){
 
         addPaymentStatus(m);
-    })
+    });
     
 });
 
