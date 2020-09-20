@@ -53,6 +53,16 @@
 		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
 	</script>
 	<script src="js/papaparse.js"></script>
+<!-- Gainsight PX Tag-->
+<script type="text/javascript">
+	(function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
+		(n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
+	  var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
+	  var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
+	})(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-YMYLASNWMODO-2");
+  </script>
+  <!-- Gainsight PX Tag-->
+
 	<script>
 		var filecontent;
 		var objselect = "User";
@@ -191,7 +201,6 @@
 			})
 		});
 
-
 		function deleteAllData(filejson) {
 			$.each(filejson.data, function (key, value) {
 				if (key >= 1 && value != null) {
@@ -224,10 +233,6 @@
 			});
 		}
 
-
-
-
-
 		function filePreview(filejson) {
 			var tbl_body = document.createElement("tbody");
 			var odd_even = false;
@@ -258,7 +263,6 @@
 
 		}
 
-
 		function getUserId() {
 			return $("#useridentify").val();
 		}
@@ -267,11 +271,6 @@
 			return $("#accountidentify").val();
 		}
 
-
-		// function handleResponseSuccess(result, status, xhr) {
-		// 	var csv = Papa.unparse(JSON.stringify(result).replace('\"', '"'));
-		// 	showalert(JSON.stringify(result), "alert-success");
-		// }
 		function handleResponseSuccess(result, status, xhr) {
 			// var csv = Papa.unparse(JSON.stringify(result).replace('\"', '"'));
 			if (oprselect === "Read") {
@@ -318,7 +317,6 @@
 			showalert(JSON.stringify(result), "alert-danger");
 		}
 
-
 		function getUserData() {
 			var userid = getUserId();
 			setHeader();
@@ -334,7 +332,6 @@
 				}
 			});
 		}
-
 
 		function deleteUserData() {
 			var userid = getUserId();
@@ -388,7 +385,6 @@
 			});
 		}
 
-
 		function updateUserData() {
 			showalert("Work in progress, try fetch or delete", "alert-danger");
 		}
@@ -418,7 +414,6 @@
 			//$('#btn_execute').text("Execute");
 			$('#btn_execute').attr("disabled", false);
 		}
-
 
 		function getAccountData() {
 			var acctid = getAccountId();
