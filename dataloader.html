@@ -42,7 +42,7 @@
 			padding: 30px;
 		}
 
-		h1{
+		h1 {
 			text-align: center;
 			color: orange;
 		}
@@ -55,13 +55,24 @@
 	<script src="js/papaparse.js"></script>
 	<script>
 		var filecontent;
+		var objselect = "User";
+		var oprselect = "Read";
+		var count = 0;
 		// Code to display Button
 		document.addEventListener('DOMContentLoaded', function () {
-			let m = document.getElementById('execute_button_area');
-			addExecuteButton(m);
-			m.addEventListener('click', function (ev) {
-				if (getUserId()) {
-					getUserData();
+			let x = document.getElementById('execute_button_area');
+			addExecuteButton(x);
+			x.addEventListener('click', function (ev) {
+				if (count == 0) {
+					if (objselect === "User" && oprselect === "Read") {
+						if (getUserId) {
+							getUserData();
+						}
+					} else if (objselect === "Account" && oprselect === "Read") {
+						if (getAccountId) {
+							getAccountData();
+						}
+					}
 				}
 			});
 		});
@@ -78,13 +89,16 @@
 		$(document).ready(function () {
 			//show hide account\user related fields
 			$("input[name='objectSelection']").click(function () {
-				var temp = $(this).val();
+				var tempobj = $(this).val();
+				objselect = tempobj;
 				$("div.objectOutput").hide();
-				$("#" + temp + "IdInput").show();
+				$("#" + tempobj + "IdInput").show();
 			});
 			//handling fields when selecting 'bulk' option
 			$("input[name='operationSelection']").click(function () {
 				var temp = $(this).val();
+				oprselect = temp;
+				count++;
 				$("div.custom-file").hide();
 				$("input.objectOutput").prop('disabled', false);
 				if (temp === "Bulk_Update" || temp === "Bulk_Delete") {
@@ -96,47 +110,63 @@
 				addExecuteButton(m);
 
 				function addExecuteButton(parent) {
-					if (temp === "Read") {
-						parent.addEventListener('click', function (ev) {
-							if (getUserId()) {
-								getUserData();
-							}
-						});
-						parent.setAttribute("class", "btn btn-primary");
-						parent.textContent = "Get Data";
-					} else if (temp === "Update") {
-						parent.setAttribute("class", "btn btn-warning");
-						parent.textContent = "Update";
-						parent.addEventListener('click', function (ev) {
-							unHandledOperation();
+					if (count > 0) {
+						if (oprselect === "Read") {
+							parent.setAttribute("class", "btn btn-primary");
+							parent.textContent = "Get Data";
+							parent.addEventListener('click', function (ev) {
 
-						});
+								if (objselect === "User" && oprselect === "Read") {
+									if (getUserId) {
+										getUserData();
+									}
+								} else if (objselect === "Account" && oprselect === "Read") {
 
-					} else if (temp === "Delete") {
-						parent.setAttribute("class", "btn btn-danger");
-						parent.textContent = "Delete";
-						parent.addEventListener('click', function (ev) {
-							if (getUserId()) {
-								deleteUserData();
-							}
-						});
+									if (getAccountId) {
+										getAccountData();
+									}
+								}
 
-					} else if (temp === "Bulk_Update") {
+							});
+							
+						} else if (oprselect === "Update") {
+							parent.setAttribute("class", "btn btn-warning");
+							parent.textContent = "Update";
+							parent.addEventListener('click', function (ev) {
+								unHandledOperation();
+							});
+						} else if (oprselect === "Delete") {
+							parent.setAttribute("class", "btn btn-danger");
+							parent.textContent = "Delete";
+							parent.addEventListener('click', function (ev) {
+								if (objselect === "User" && oprselect === "Delete") {
+									if (getUserId) {
+										deleteUserData();
+									}
+								} else if (objselect === "Account" && oprselect === "Delete") {
+									if (getAccountId) {
+										deleteAccData();
+									}
+								}
+							});
 
-						parent.setAttribute("class", "btn btn-warning");
-						parent.textContent = "Update All";
-						parent.addEventListener('click', function (ev) {
-							unHandledOperation();
-						});
+						} else if (oprselect === "Bulk_Update") {
 
-					} else {
+							parent.setAttribute("class", "btn btn-warning");
+							parent.textContent = "Update All";
+							parent.addEventListener('click', function (ev) {
+								unHandledOperation();
+							});
 
-						parent.setAttribute("class", "btn btn-danger");
-						parent.textContent = "Delete All";
-						parent.addEventListener('click', function (ev) {
-							deleteAllData(filecontent);
-						});
+						} else {
 
+							parent.setAttribute("class", "btn btn-danger");
+							parent.textContent = "Delete All";
+							parent.addEventListener('click', function (ev) {
+								deleteAllData(filecontent);
+							});
+
+						}
 					}
 					return parent;
 				}
@@ -178,14 +208,25 @@
 						body: raw,
 						redirect: 'follow'
 					};
-
-					fetch("https://app-be.aptrinsic.com/v1/users/" + value, requestOptions)
-						.then(response => response.text())
-						.then(result => console.log(result))
-						.catch(error => console.log('error', error));
+					if (objselect === "User" && oprselect ==="Bulk_Delete") {
+						fetch("https://app-be.aptrinsic.com/v1/users/" + value, requestOptions)
+							.then(response => response.text())
+							.then(result => console.log(result))
+							.catch(error => console.log('error', error));
+					}
+					else if(objselect === "Account" && oprselect ==="Bulk_Delete"){
+						fetch("https://app-be.aptrinsic.com/v1/accounts/" + value, requestOptions)
+							.then(response => response.text())
+							.then(result => console.log(result))
+							.catch(error => console.log('error', error));
+					}
 				}
 			});
 		}
+
+
+
+
 
 		function filePreview(filejson) {
 			var tbl_body = document.createElement("tbody");
@@ -214,21 +255,18 @@
 					"X-APTRINSIC-API-KEY": $('#apikey').val()
 				}
 			});
+
 		}
 
-		function getHeader() {
-			$.ajaxSetup({
-				headers: {
-					"X-Requested-With": "XMLHttpRequest",
-					"Content-Type": "application/json",
-					"X-APTRINSIC-API-KEY": $('#apikey').val()
-				}
-			});
-		}
 
 		function getUserId() {
 			return $("#useridentify").val();
 		}
+
+		function getAccountId() {
+			return $("#accountidentify").val();
+		}
+
 
 		// function handleResponseSuccess(result, status, xhr) {
 		// 	var csv = Papa.unparse(JSON.stringify(result).replace('\"', '"'));
@@ -236,7 +274,12 @@
 		// }
 		function handleResponseSuccess(result, status, xhr) {
 			// var csv = Papa.unparse(JSON.stringify(result).replace('\"', '"'));
-			showalert('Success', "alert-success");
+			if (oprselect === "Read") {
+				showalert('Fetch Success', "alert-success");
+			} else if (oprselect === "Delete") {
+				showalert('Delete Success', "alert-success");
+			}
+
 			//https://www.encodedna.com/javascript/practice-ground/default.htm?pg=convert_json_to_table_javascript
 			var user = [result];
 			var col = [];
@@ -295,24 +338,54 @@
 
 		function deleteUserData() {
 			var userid = getUserId();
-			var myHeaders = new Headers();
-			myHeaders.append("X-Requested-With", "XMLHttpRequest");
-			myHeaders.append("Content-Type", "application/json");
-			myHeaders.append("X-APTRINSIC-API-KEY", $('#apikey').val());
+			setHeader();
+			$.ajax({
+				dataType: "text",
+				url: "https://app-be.aptrinsic.com/v1/users/" + userid,
+				method: "DELETE",
+				success: function (data, status, xhr) {
+					handleResponseSuccess(data, status, xhr);
+				},
+				error: function (data, status, xhr) {
+					handleResponseError(data, status, xhr);
+				}
+			});
 
-			var raw = "";
+			// 	var myHeaders = new Headers();
+			// 	myHeaders.append("X-Requested-With", "XMLHttpRequest");
+			// 	myHeaders.append("Content-Type", "application/json");
+			// 	myHeaders.append("X-APTRINSIC-API-KEY", $('#apikey').val());
 
-			var requestOptions = {
-				method: 'DELETE',
-				headers: myHeaders,
-				body: raw,
-				redirect: 'follow'
-			};
+			// 	var raw = "";
 
-			fetch("https://app-be.aptrinsic.com/v1/users/" + userid, requestOptions)
-				.then(response => response.text())
-				.then(result => console.log(result))
-				.catch(error => console.log('error', error));
+			// 	var requestOptions = {
+			// 		method: 'DELETE',
+			// 		headers: myHeaders,
+			// 		body: raw,
+			// 		redirect: 'follow'
+			// 	};
+
+			// 	fetch("https://app-be.aptrinsic.com/v1/users/" + userid, requestOptions)
+			// 		.then(response => response.text())
+			// 		.then(result => console.log(result))
+			// 		.catch(error => console.log('error', error));
+		}
+
+		function deleteAccData()
+		{			
+			var acctid = getAccountId();
+			setHeader();
+			$.ajax({
+				dataType: "text",
+				url: "https://app-be.aptrinsic.com/v1/accounts/" + acctid,
+				method: "DELETE",
+				success: function (data, status, xhr) {
+					handleResponseSuccess(data, status, xhr);
+				},
+				error: function (data, status, xhr) {
+					handleResponseError(data, status, xhr);
+				}
+			});
 		}
 
 
@@ -331,38 +404,37 @@
 				message +
 				'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
 			);
+
+			setTimeout(() => {$('#executionResult').remove();}, 3000);
+
+			$('#executionResult').append();
+			
 		}
 
 		function clickHandler() {
-			// $('#executeButton').attr("disabled", true);
-			// $('#executeButton').html(
-			// 	`<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...`
-			// );
+			$('#btn_execute').attr("disabled", true);
+			//  $('#btn_execute').html(
+			//  	`<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...`
+			//  );
+			//$('#btn_execute').text("Execute");
+			$('#btn_execute').attr("disabled", false);
+		}
 
-			if ($("input[name='objectSelection']:checked").val() === "Account") {
-				unHandledOperation();
-			}
-			// } else {
-			// 	switch ($("input[name='operationSelection']:checked").val()) {
-			// 		case "Read":
-			// 			//getUserData();
-			// 			break;
-			// 		case "Update":
-			// 			unHandledOperation();
-			// 			break;
-			// 		case "Delete":
-			// 			deleteUserData();
-			// 			break;
-			// 		case "Bulk_Update":
-			// 			unHandledOperation();
-			// 			break;
-			// 		case "Bulk_Delete":
-			// 			//unHandledOperation();
-			// 			break;
-			// 	}
-			// }
-			// $('#executeButton').text("Execute");
-			// $('#executeButton').attr("disabled", false);
+
+		function getAccountData() {
+			var acctid = getAccountId();
+			setHeader();
+
+			$.ajax({
+				dataType: "json",
+				url: "https://app-be.aptrinsic.com/v1/accounts/" + acctid,
+				success: function (data, status, xhr) {
+					handleResponseSuccess(data, status, xhr);
+				},
+				error: function (data, status, xhr) {
+					handleResponseError(data, status, xhr);
+				}
+			});
 		}
 	</script>
 </head>
@@ -383,13 +455,14 @@
 			<div class="col">
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio" name="objectSelection" id="option_account"
-						value="Account" >
+						value="Account">
 					<label class="form-check-label" for="option_account">Account</label>
 				</div>
 			</div>
 			<div class="col">
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio" name="objectSelection" id="option_user" value="User" checked>
+					<input class="form-check-input" type="radio" name="objectSelection" id="option_user" value="User"
+						checked>
 					<label class="form-check-label" for="option_user">User</label>
 				</div>
 			</div>
@@ -401,7 +474,7 @@
 			<div class="col-sm-10"><input type="text" class="form-control objectOutput" id="accountidentify"
 					placeholder="Enter Account ID"></div>
 		</div>
-		<div class="form-group row objectOutput" id="UserIdInput" >
+		<div class="form-group row objectOutput" id="UserIdInput">
 			<label for="useridentify" class="col-sm-2 col-form-label">User ID :</label>
 			<div class="col-sm-10"><input type="text" class="form-control objectOutput" id="useridentify"
 					placeholder="Enter User ID" required></div>
@@ -419,7 +492,7 @@
 			<div class="col">
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio" name="operationSelection" id="option_update"
-						value="Update">
+						value="Update" disabled>
 					<label class="form-check-label" for="option_update">Update</label>
 				</div>
 			</div>
@@ -433,7 +506,7 @@
 			<div class="col">
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio" name="operationSelection" id="option_bulk_update"
-						value="Bulk_Update">
+						value="Bulk_Update" disabled>
 					<label class="form-check-label" for="option_bulk_update">Bulk Update</label>
 				</div>
 			</div>
