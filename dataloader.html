@@ -222,6 +222,8 @@
 							.then(response => response.text())
 							.then(result => console.log(result))
 							.catch(error => console.log('error', error));
+							var table = document.getElementById("responseTable");
+							table.remove(key);
 					}
 					else if(objselect === "Account" && oprselect ==="Bulk_Delete"){
 						fetch("https://app-be.aptrinsic.com/v1/accounts/" + value, requestOptions)
@@ -229,6 +231,8 @@
 							.then(result => console.log(result))
 							.catch(error => console.log('error', error));
 					}
+					
+
 				}
 			});
 		}
