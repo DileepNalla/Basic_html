@@ -292,4 +292,32 @@ color: red;
 background-color: #06f263;
 }
 
+.test_glassdoor{
+    
+        border: 1px solid transparent;
+        border-radius: 3px;
+        font-weight: bold;
+        font-size: 15px;
+        cursor: pointer;
+        display: inline-block;
+        line-height: 1.6;
+        user-select: none;
+        vertical-align: middle;
+        transition: color 0.2s ease-out 0s, background-color 0.2s ease-out 0s;
+        font-family: Lato;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 88px;
+        color: rgb(2, 23, 53);
+        background-color: transparent;
+        padding: 7px 16px;
+   }
+
+   .test_glassdoor_1{
+    color: #116de6!important;
+    margin: 2px!important;
+    padding: 2px !important;
+   }
+
 

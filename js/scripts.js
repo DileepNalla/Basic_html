@@ -238,3 +238,7 @@ function captureonlyforsession() {
 
 }
 
+function addSalary(){
+    aptrinsic('track', 'Add Salary');
+}
+
