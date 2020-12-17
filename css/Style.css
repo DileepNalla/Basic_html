@@ -332,7 +332,7 @@ background-color: #06f263;
   
   body {
     background: #2e2a2a;
-    color: #FFF;
+    color: rgb(255, 255, 255);
     font-size: 62.5%;
     font-family: 'Roboto', Arial, Helvetica, Sans-serif, Verdana;
   }

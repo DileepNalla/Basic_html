@@ -11,9 +11,9 @@ var configone = { filterUrls: ["*/About.HTML"], filterType: "mask" };
     }, n[i].p = e;
     var r = t.createElement("script"); r.async = !0, r.src = a + "?a=" + e;
     var c = t.getElementsByTagName("script")[0]; c.parentNode.insertBefore(r, c)
-})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-DRTELDXGAMXI-2", configone, configtwo)
+})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2", configone, configtwo)
 
-//AP-6WAJA3OATHHI-2 Replace this later on after testing by Zendesk
+//AP-6WAJA3OATHHI-2, AP-DRTELDXGAMXI-2 Replace this later on after testing by Zendesk
 
 // Full Story Integration
 
