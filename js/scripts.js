@@ -90,7 +90,7 @@ function allowlogin(usermail) {
     var a = document.getElementById("usermail").value;
     var b;
     const myaccount = {
-        a1: "PX_Company-1",
+        a1: "Pendo_Company-1",
         a2: "PX_Company-2",
         a3: "PX_Company-3",
         a4: "PX_Company-4"
