@@ -322,6 +322,7 @@ background-color: #06f263;
 
 
    /*Chargebee- Pricing*/
+    /** 
    * {
     margin: 0;
     padding: 0;
@@ -371,7 +372,8 @@ background-color: #06f263;
   /** ========================
    * Pricing
    ============================*/
-  .pricing-wrapper {
+  /*
+   .pricing-wrapper {
     width: 960px;
     margin: 40px auto 0;
   }
@@ -439,6 +441,8 @@ background-color: #06f263;
   
   .table-list li:before {
     /*content: "\f00c";*/
+
+   /* 
     font-family: 'FontAwesome';
     color: #3fab91;
     display: inline-block;
@@ -514,6 +518,7 @@ background-color: #06f263;
   /** ================
    * Responsive
    ===================*/
+   
    @media only screen and (min-width: 768px) and (max-width: 959px) {
     .pricing-wrapper {
       width: 768px;
