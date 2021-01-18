@@ -117,7 +117,7 @@ function allowlogin(usermail) {
 //Segment Identify
 analytics.identify(id+"segment", {
     name: "Segment User",
-    email: "dileepnalla6"+id+"@gmail.com",
+    email: "dileepnalla6+"+id+"@gmail.com",
     plan: "premium",
     
   });
