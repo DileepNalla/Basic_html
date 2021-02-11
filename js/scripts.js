@@ -198,7 +198,7 @@ var counter = 0;
 
 var Productname = "Jeans";
 var Productsize = "Medium";
-var Productprice = 1800;
+var Productprice = 7800;
 var transactionStatus = "Success";
 
 
