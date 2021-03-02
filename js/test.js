@@ -1,4 +1,4 @@
-window.aptrinsic('reset');
+
 
 /*<!-- Aptrinsic Tag-->*/
 /*PX Tag for JavaScript*/ /*Disable this if we are using the segment event capture, else events will be duplicated*/
