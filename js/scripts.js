@@ -314,9 +314,10 @@ const age = new Date (datediff);
 //console.log(age);
 //return Math.abs(age.getUTCFullYear()-1970);
 console.log(Math.abs(age.getUTCFullYear()-1970)) ;
-allowlogin.call(this,usermail);
+allowlogin.call(this);
 
 console.log(allowlogin.greeting());
+console.log('hello');
 
 }
 calculateAge.prototype = Object.create(allowlogin.prototype);
