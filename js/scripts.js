@@ -191,6 +191,9 @@ FS.identify(id, {
     return b;
 }
 
+allowlogin.prototype.greeting = function(){return `hello welcome ${this.a}`};
+
+
 var counter = 0;
 
 // Section - 1: Defining the purchse Process
@@ -301,3 +304,19 @@ function addSalary(){
     aptrinsic('track', 'Add Salary');
 }
 
+function calculateAge(dob)
+{
+this.birthday = new Date(document.getElementById("birthday").value);
+//console.log(this.birthday);
+const datediff = Date.now() - this.birthday.getTime();
+//console.log(datediff);
+const age = new Date (datediff);
+//console.log(age);
+//return Math.abs(age.getUTCFullYear()-1970);
+console.log(Math.abs(age.getUTCFullYear()-1970)) ;
+allowlogin.call(this,usermail);
+
+console.log(allowlogin.greeting());
+
+}
+calculateAge.prototype = Object.create(allowlogin.prototype);
