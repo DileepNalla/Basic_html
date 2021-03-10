@@ -1,8 +1,8 @@
 
-  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.13.1";
-  analytics.load("wJUeAnxMoknMyjeXA3ovPftbff2X7eBy");
-  analytics.page();
-  }}();
+//   !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.13.1";
+//   analytics.load("wJUeAnxMoknMyjeXA3ovPftbff2X7eBy");
+//   analytics.page();
+//   }}();
 
 
 
@@ -14,13 +14,13 @@
 // Global function to initialize Gainsight PX
 var configtwo = { fullDomainCookie: true };
 var configone = { filterUrls: ["*/About.HTML"], filterType: "mask" };
-// (function (n, t, a, e) {
-//     var i = "aptrinsic"; n[i] = n[i] || function () {
-//         (n[i].q = n[i].q || []).push(arguments)
-//     }, n[i].p = e;
-//     var r = t.createElement("script"); r.async = !0, r.src = a + "?a=" + e;
-//     var c = t.getElementsByTagName("script")[0]; c.parentNode.insertBefore(r, c)
-// })(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2", configone, configtwo)
+(function (n, t, a, e) {
+    var i = "aptrinsic"; n[i] = n[i] || function () {
+        (n[i].q = n[i].q || []).push(arguments)
+    }, n[i].p = e;
+    var r = t.createElement("script"); r.async = !0, r.src = a + "?a=" + e;
+    var c = t.getElementsByTagName("script")[0]; c.parentNode.insertBefore(r, c)
+})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2", configone, configtwo)
 
 //AP-6WAJA3OATHHI-2, AP-DRTELDXGAMXI-2 Replace this later on after testing by Zendesk
 
@@ -51,13 +51,13 @@ window['_fs_namespace'] = 'FS';
 
 
 /*Pendo.io*/
-(function(apiKey){
-    (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
-    v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
-        o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
-        y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
-        z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
-})('e198fa5a-4a04-4d7e-77cf-11a684ab0378');
+// (function(apiKey){
+//     (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
+//     v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
+//         o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
+//         y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
+//         z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
+// })('e198fa5a-4a04-4d7e-77cf-11a684ab0378');
 
 //alert("pendo");
 
@@ -115,12 +115,12 @@ function allowlogin(usermail) {
                         // var hash = CryptoJS.HmacSHA256(id, "9rmLVS939teSt3cILUccAPiqBBxSsQNmREc8CwpAj");
 
 //Segment Identify
-analytics.identify(id+"segment", {
-    name: "Segment User",
-    email: "dileepnalla6+"+"segm"+"@gmail.com",
-    plan: "premium",
+// analytics.identify(id+"segment", {
+//     name: "Segment User",
+//     email: "dileepnalla6+"+"segm"+"@gmail.com",
+//     plan: "premium",
     
-  });
+//   });
 
             /*<!-- Aptrinsic Tag-->*/
             aptrinsic('identify',
@@ -141,30 +141,30 @@ analytics.identify(id+"segment", {
            
             // Call this whenever information about your visitors becomes available
             // Please use Strings, Numbers, or Bools for value types.
-            pendo.initialize({
-                visitor: {
-                    id: id ,  // Required if user is logged in
-                     email: a       // Recommended if using Pendo Feedback, or NPS Email
-                    // full_name:    // Recommended if using Pendo Feedback
-                    // role:         // Optional
+            // pendo.initialize({
+            //     visitor: {
+            //         id: id ,  // Required if user is logged in
+            //          email: a       // Recommended if using Pendo Feedback, or NPS Email
+            //         // full_name:    // Recommended if using Pendo Feedback
+            //         // role:         // Optional
 
-                    // You can add any additional visitor level key-values here,
-                    // as long as it's not one of the above reserved names.
-                },
+            //         // You can add any additional visitor level key-values here,
+            //         // as long as it's not one of the above reserved names.
+            //     },
 
-                account: {
-                    id:    myaccount.a1 // Highly recommended
-                    // name:         // Optional
-                    // is_paying:    // Recommended if using Pendo Feedback
-                    // monthly_value:// Recommended if using Pendo Feedback
-                    // planLevel:    // Optional
-                    // planPrice:    // Optional
-                    // creationDate: // Optional
+            //     account: {
+            //         id:    myaccount.a1 // Highly recommended
+            //         // name:         // Optional
+            //         // is_paying:    // Recommended if using Pendo Feedback
+            //         // monthly_value:// Recommended if using Pendo Feedback
+            //         // planLevel:    // Optional
+            //         // planPrice:    // Optional
+            //         // creationDate: // Optional
 
-                    // You can add any additional account level key-values here,
-                    // as long as it's not one of the above reserved names.
-                }
-            });
+            //         // You can add any additional account level key-values here,
+            //         // as long as it's not one of the above reserved names.
+            //     }
+            // });
 
 
 // Full story
@@ -314,10 +314,10 @@ const age = new Date (datediff);
 //console.log(age);
 //return Math.abs(age.getUTCFullYear()-1970);
 console.log(Math.abs(age.getUTCFullYear()-1970)) ;
-allowlogin.call(this,'dileep@gmail.com');
+// allowlogin.call(this,'dileep@gmail.com');
 
-console.log(allowlogin.greeting());
-console.log('hello');
+// console.log(allowlogin.greeting());
+// console.log('hello');
 
 }
-calculateAge.prototype = Object.create(allowlogin.prototype);
+// calculateAge.prototype = Object.create(allowlogin.prototype);

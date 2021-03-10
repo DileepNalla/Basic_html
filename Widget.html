@@ -49,10 +49,11 @@
     
       $( function() {
         $( "#dragpink").draggable({
-            stop : function b() {aptrinsic('track','dragpink',{"Name":"drag Pink name","demo":"yes" ,"count" : 60,"name":"testing"});}
+          stop : function b() {aptrinsic('track','dragpink',{"Name":"drag Pink name","demo":"yes" ,"count" : 60,"name":"testing"});}
             
         })
       } );
+      
     
       </script>
 </head>
@@ -69,6 +70,16 @@
     <p>Drag me around - Pink</p>
   </div>
 </div>
+<div>
+  <div style="color: #FFFFFF;">Did you Like this Feature?</div>
+  <br>
+  <div>
+    
+    <span><a href=""><img src="" alt="Yes" width="38.5729" height="16.6667" class="fr-fic fr-dii" onclick="aptrinsic('track', 'Like');"></a></span> 
+    <span><a href=""><img src="" alt="No" width="33.9375" height="16.6667" class="fr-fic fr-dii" onclick="aptrinsic('track', 'Dislike');"></a></span>
+  </div>
+</div>
+
 
 </body>
 </html>
