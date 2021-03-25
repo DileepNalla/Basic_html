@@ -180,9 +180,9 @@ FS.identify(id, {
   });
 
             alert("Logged in user id :" + b);
-            aptrinsic('track', 'User Login');
-            window.location = "https://dileepnalla.github.io/Basic_html/Index.HTML";
             
+            window.location = "https://dileepnalla.github.io/Basic_html/Index.HTML";
+            aptrinsic('track', 'User Login');
 
         }
         else
