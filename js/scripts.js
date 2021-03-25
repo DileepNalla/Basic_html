@@ -138,6 +138,8 @@ function allowlogin(usermail) {
                      // flat custom attributes
                 });
 
+                aptrinsic('track', 'User Login');
+
            
             // Call this whenever information about your visitors becomes available
             // Please use Strings, Numbers, or Bools for value types.
