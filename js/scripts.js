@@ -138,7 +138,7 @@ function allowlogin(usermail) {
                      // flat custom attributes
                 });
 
-                aptrinsic('track', 'User Login');
+                
 
            
             // Call this whenever information about your visitors becomes available
@@ -180,7 +180,9 @@ FS.identify(id, {
   });
 
             alert("Logged in user id :" + b);
+            aptrinsic('track', 'User Login');
             window.location = "https://dileepnalla.github.io/Basic_html/Index.HTML";
+            
 
         }
         else
