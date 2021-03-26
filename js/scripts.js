@@ -141,26 +141,30 @@ function allowlogin(usermail) {
     
 //   });
 
-            /*<!-- Aptrinsic Tag-->*/
-            aptrinsic('identify',
-                {
-                    //User Fields
-                    "id": id, // Required for logged in app users
-                    "email": a,
-                    "ipaddress": $.get("https://ipinfo.io", function(response) {
-                        ipadd = response.ip;
-                            console.log(typeof (ipadd));
-                            console.log(ipadd);
-                }, "json")
-                    // "userHash": hash.toString()// optional transient for HMAC identification
-                },
+          /*<!-- Aptrinsic Tag-->*/
 
-                {
-                    //Account Fields
-                    "id": myaccount.a1, //Required
-                    "name": myaccount.a1,
-                     // flat custom attributes
-                });
+
+          $.getJSON("https://api.ipify.org?format=json",
+          function (data) {
+    
+            console.log(data.ip);
+             aptrinsic('identify',
+            {
+                //User Fields
+                "id": id, // Required for logged in app users
+                "email": a,
+                "ipaddress": data.ip,
+                // "userHash": hash.toString()// optional transient for HMAC identification
+            },
+
+            {
+                //Account Fields
+                "id": myaccount.a1, //Required
+                "name": myaccount.a1,
+                 // flat custom attributes
+            }) 
+        
+        }) ;
 
                 
 
@@ -218,6 +222,7 @@ FS.identify(id, {
 
     return b;
 }
+
 
 allowlogin.prototype.greeting = function(){return `hello welcome ${this.a}`};
 
