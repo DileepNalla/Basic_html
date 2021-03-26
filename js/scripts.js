@@ -5,6 +5,24 @@
 //   }}();
 
 
+//    Adding JQuery
+var head = document.getElementsByTagName('head')[0];
+var script = document.createElement('script');
+script.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js";
+// Then bind the event to the callback function.
+// There are several events for cross browser compatibility.
+script.onreadystatechange = handler;
+script.onload = handler;
+// Fire the loading
+head.appendChild(script);
+function handler(){
+   console.log('jquery added :)');
+}
+
+//Code for Fecthing IP Addess
+
+
+
 
 
 
@@ -106,6 +124,7 @@ function allowlogin(usermail) {
 
     }
     var c;
+    
 
     if (a != "") {
         if (a == "dileepnalla29@gmail.com" || a == "dileepnalla6@gmail.com" || a == "dnalla@gainsight.com" || a == "demouser@gmail.com") {
@@ -128,6 +147,11 @@ function allowlogin(usermail) {
                     //User Fields
                     "id": id, // Required for logged in app users
                     "email": a,
+                    "ipaddress": $.get("https://ipinfo.io", function(response) {
+                        ipadd = response.ip;
+                            console.log(typeof (ipadd));
+                            console.log(ipadd);
+                }, "json")
                     // "userHash": hash.toString()// optional transient for HMAC identification
                 },
 
