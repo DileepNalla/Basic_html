@@ -31,7 +31,11 @@ function handler(){
    console.log('jquery added :)');
 }
 
-
+(function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
+    (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
+  var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
+  var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
+})(window,document,"https://web-sdk-dev.aptrinsic.com/api/aptrinsic.js","AP-PGOVPRW5KS6A-2");
 
 
 /*<!-- Aptrinsic Tag-->*/
@@ -40,13 +44,13 @@ function handler(){
 // Global function to initialize Gainsight PX
 var configtwo = { fullDomainCookie: true };
 var configone = { filterUrls: ["*/About.HTML"], filterType: "mask" };
-(function (n, t, a, e,co) {
-    var i = "aptrinsic"; n[i] = n[i] || function () {
-        (n[i].q = n[i].q || []).push(arguments)
-    }, n[i].p = e;
-    var r = t.createElement("script"); r.async = !0, r.src = a + "?a=" + e;
-    var c = t.getElementsByTagName("script")[0]; c.parentNode.insertBefore(r, c)
-})(window, document, "web-sdk-dev.aptrinsic.com/api/aptrinsic.js", "AP-PGOVPRW5KS6A-2", configone, configtwo)
+// (function (n, t, a, e,co) {
+//     var i = "aptrinsic"; n[i] = n[i] || function () {
+//         (n[i].q = n[i].q || []).push(arguments)
+//     }, n[i].p = e;
+//     var r = t.createElement("script"); r.async = !0, r.src = a + "?a=" + e;
+//     var c = t.getElementsByTagName("script")[0]; c.parentNode.insertBefore(r, c)
+// })(window, document, "web-sdk-dev.aptrinsic.com/api/aptrinsic.js", "AP-PGOVPRW5KS6A-2", configone, configtwo)
 
 //AP-6WAJA3OATHHI-2, AP-DRTELDXGAMXI-2 Replace this later on after testing by Zendesk
 
