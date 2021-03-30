@@ -1,4 +1,16 @@
+/*
+ * Environment Details
+// For Development Instance
 
+//"https://web-sdk-dev.aptrinsic.com/api/aptrinsic.js","AP-PGOVPRW5KS6A-2"
+
+For Production Instance
+
+"https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2"
+
+ */
+
+/** Enable this for Segment.io tracking */
 //   !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.13.1";
 //   analytics.load("wJUeAnxMoknMyjeXA3ovPftbff2X7eBy");
 //   analytics.page();
@@ -26,6 +38,8 @@ function handler(){
 
 
 
+
+
 /*<!-- Aptrinsic Tag-->*/
 /*PX Tag for JavaScript*/ /*Disable this if we are using the segment event capture, else events will be duplicated*/
 /*----------------------------------------------------------------------------------------------------------------*/
@@ -38,7 +52,7 @@ var configone = { filterUrls: ["*/About.HTML"], filterType: "mask" };
     }, n[i].p = e;
     var r = t.createElement("script"); r.async = !0, r.src = a + "?a=" + e;
     var c = t.getElementsByTagName("script")[0]; c.parentNode.insertBefore(r, c)
-})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2", configone, configtwo)
+})(window, document, "web-sdk-dev.aptrinsic.com/api/aptrinsic.js", "AP-PGOVPRW5KS6A-2", configone, configtwo)
 
 //AP-6WAJA3OATHHI-2, AP-DRTELDXGAMXI-2 Replace this later on after testing by Zendesk
 
@@ -147,7 +161,7 @@ function allowlogin(usermail) {
           $.getJSON("https://api.ipify.org?format=json",
           function (data) {
     
-            console.log(data.ip);
+            
              aptrinsic('identify',
             {
                 //User Fields
