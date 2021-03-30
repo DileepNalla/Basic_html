@@ -31,12 +31,6 @@ function handler(){
    console.log('jquery added :)');
 }
 
-//Code for Fecthing IP Addess
-
-
-
-
-
 
 
 
@@ -46,7 +40,7 @@ function handler(){
 // Global function to initialize Gainsight PX
 var configtwo = { fullDomainCookie: true };
 var configone = { filterUrls: ["*/About.HTML"], filterType: "mask" };
-(function (n, t, a, e) {
+(function (n, t, a, e,co) {
     var i = "aptrinsic"; n[i] = n[i] || function () {
         (n[i].q = n[i].q || []).push(arguments)
     }, n[i].p = e;
