@@ -156,16 +156,13 @@ function allowlogin(usermail) {
           /*<!-- Aptrinsic Tag-->*/
 
 
-          $.getJSON("https://api.ipify.org?format=json",
-          function (data) {
-    
-            
+                       
              aptrinsic('identify',
             {
                 //User Fields
                 "id": id, // Required for logged in app users
-                "email": a,
-                "ipaddress": data.ip,
+                "email": a
+                
                 // "userHash": hash.toString()// optional transient for HMAC identification
             },
 
@@ -175,8 +172,7 @@ function allowlogin(usermail) {
                 "name": myaccount.a1,
                  // flat custom attributes
             }) 
-        
-        }) ;
+        ;
 
                 
 
