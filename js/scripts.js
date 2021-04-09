@@ -250,6 +250,8 @@ let purchaseinitiated = new CustomEvent('purchaseinitiated', { detail: { itemNam
 let transactionsuccess = new CustomEvent('transactionsuccess', { detail: { Amountdeducted: this.Productprice, Paymentstatus: this.transactionStatus } })
 
 //This will create a button on page Load
+// refer this lecture to understand the custom events 
+//https://gainsight.udemy.com/course/modern-javascript-from-the-beginning/learn/lecture/8757278#overview
 document.addEventListener('DOMContentLoaded', function () {
     let m = document.getElementById('paymentbutton');
     //let m = document.querySelector('main');
@@ -362,3 +364,45 @@ console.log(Math.abs(age.getUTCFullYear()-1970)) ;
 
 }
 // calculateAge.prototype = Object.create(allowlogin.prototype);
+
+//============================================================================//
+// Scripts For Task
+//Define UI variables
+const form = document.querySelector('#task-form');
+const taskList = document.querySelector('.collection');
+const clearBtn = document.querySelector('.clear-tasks');
+const filter = document.querySelector('#filter');
+const taskInput = document.querySelector('#task');
+
+//Load All the event Listeners
+loadEventListeners();
+
+function loadEventListeners()
+{
+    form.addEventListener('submit',addTask);
+}
+
+function addTask(e)
+    {
+        if(taskInput.value===''){
+alert('Add a task');
+        }
+        else
+        {
+            const li = document.createElement('li');
+            li.className= 'collection-item';
+            //create text Node
+            li.appendChild(document.createTextNode(taskInput.value));
+            const link = document.createElement('a');
+            link.className = 'delete-item secondary-content';
+            link.innerHTML = '<i class= "fa fa-remove"></i>'; 
+            li.appendChild(link);
+            taskList.appendChild(li);
+            aptrinsic('track', 'Objective Added', {"Objective Name" : taskInput.value }); 
+            taskInput.value='';
+        }
+
+
+e.preventDefault();
+    }
+
