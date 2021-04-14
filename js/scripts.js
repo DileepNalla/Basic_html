@@ -27,8 +27,9 @@ script.onreadystatechange = handler;
 script.onload = handler;
 // Fire the loading
 head.appendChild(script);
-function handler(){
-   console.log('jquery added :)');
+
+function handler() {
+    console.log('jquery added :)');
 }
 
 // (function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
@@ -39,17 +40,26 @@ function handler(){
 
 
 /*<!-- Aptrinsic Tag-->*/
-/*PX Tag for JavaScript*/ /*Disable this if we are using the segment event capture, else events will be duplicated*/
+/*PX Tag for JavaScript*/
+/*Disable this if we are using the segment event capture, else events will be duplicated*/
 /*----------------------------------------------------------------------------------------------------------------*/
 // Global function to initialize Gainsight PX
-var configtwo = { fullDomainCookie: true };
-var configone = { filterUrls: ["*/About.HTML"], filterType: "mask" };
+var configtwo = {
+    fullDomainCookie: true
+};
+var configone = {
+    filterUrls: ["*/About.HTML"],
+    filterType: "mask"
+};
 (function (n, t, a, e) {
-    var i = "aptrinsic"; n[i] = n[i] || function () {
+    var i = "aptrinsic";
+    n[i] = n[i] || function () {
         (n[i].q = n[i].q || []).push(arguments)
     }, n[i].p = e;
-    var r = t.createElement("script"); r.async = !0, r.src = a + "?a=" + e;
-    var c = t.getElementsByTagName("script")[0]; c.parentNode.insertBefore(r,c)
+    var r = t.createElement("script");
+    r.async = !0, r.src = a + "?a=" + e;
+    var c = t.getElementsByTagName("script")[0];
+    c.parentNode.insertBefore(r, c)
 })(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2", configone, configtwo)
 
 //AP-6WAJA3OATHHI-2, AP-DRTELDXGAMXI-2 Replace this later on after testing by Zendesk
@@ -61,23 +71,73 @@ window['_fs_host'] = 'fullstory.com';
 window['_fs_script'] = 'edge.fullstory.com/s/fs.js';
 window['_fs_org'] = 'W6P4G';
 window['_fs_namespace'] = 'FS';
-(function(m,n,e,t,l,o,g,y){
-    if (e in m) {if(m.console && m.console.log) { m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].');} return;}
-    g=m[e]=function(a,b,s){g.q?g.q.push([a,b,s]):g._api(a,b,s);};g.q=[];
-    o=n.createElement(t);o.async=1;o.crossOrigin='anonymous';o.src='https://'+_fs_script;
-    y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
-    g.identify=function(i,v,s){g(l,{uid:i},s);if(v)g(l,v,s)};g.setUserVars=function(v,s){g(l,v,s)};g.event=function(i,v,s){g('event',{n:i,p:v},s)};
-    g.anonymize=function(){g.identify(!!0)};
-    g.shutdown=function(){g("rec",!1)};g.restart=function(){g("rec",!0)};
-    g.log = function(a,b){g("log",[a,b])};
-    g.consent=function(a){g("consent",!arguments.length||a)};
-    g.identifyAccount=function(i,v){o='account';v=v||{};v.acctId=i;g(o,v)};
-    g.clearUserCookie=function(){};
-    g.setVars=function(n, p){g('setVars',[n,p]);};
-    g._w={};y='XMLHttpRequest';g._w[y]=m[y];y='fetch';g._w[y]=m[y];
-    if(m[y])m[y]=function(){return g._w[y].apply(this,arguments)};
-    g._v="1.3.0";
-})(window,document,window['_fs_namespace'],'script','user');
+(function (m, n, e, t, l, o, g, y) {
+    if (e in m) {
+        if (m.console && m.console.log) {
+            m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].');
+        }
+        return;
+    }
+    g = m[e] = function (a, b, s) {
+        g.q ? g.q.push([a, b, s]) : g._api(a, b, s);
+    };
+    g.q = [];
+    o = n.createElement(t);
+    o.async = 1;
+    o.crossOrigin = 'anonymous';
+    o.src = 'https://' + _fs_script;
+    y = n.getElementsByTagName(t)[0];
+    y.parentNode.insertBefore(o, y);
+    g.identify = function (i, v, s) {
+        g(l, {
+            uid: i
+        }, s);
+        if (v) g(l, v, s)
+    };
+    g.setUserVars = function (v, s) {
+        g(l, v, s)
+    };
+    g.event = function (i, v, s) {
+        g('event', {
+            n: i,
+            p: v
+        }, s)
+    };
+    g.anonymize = function () {
+        g.identify(!!0)
+    };
+    g.shutdown = function () {
+        g("rec", !1)
+    };
+    g.restart = function () {
+        g("rec", !0)
+    };
+    g.log = function (a, b) {
+        g("log", [a, b])
+    };
+    g.consent = function (a) {
+        g("consent", !arguments.length || a)
+    };
+    g.identifyAccount = function (i, v) {
+        o = 'account';
+        v = v || {};
+        v.acctId = i;
+        g(o, v)
+    };
+    g.clearUserCookie = function () {};
+    g.setVars = function (n, p) {
+        g('setVars', [n, p]);
+    };
+    g._w = {};
+    y = 'XMLHttpRequest';
+    g._w[y] = m[y];
+    y = 'fetch';
+    g._w[y] = m[y];
+    if (m[y]) m[y] = function () {
+        return g._w[y].apply(this, arguments)
+    };
+    g._v = "1.3.0";
+})(window, document, window['_fs_namespace'], 'script', 'user');
 
 
 /*Pendo.io*/
@@ -106,20 +166,30 @@ window['_fs_namespace'] = 'FS';
 //   var i="aptrinsic";n[i]=n[i]||function(){ (n[i].q=n[i].q||[]).push(arguments)},
 //   n[i].p = e; n[i].c = x; var r= t.createElement("script"); r.async=!0, r.src=a+"?a="+e; var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)}) (window, document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-6WAJA3OATHHI-2",configtwo);
 
-function callglobal()  //https://share.vidyard.com/watch/9DHjPPiqZQc7czUnjorcxA?
+function callglobal() //https://share.vidyard.com/watch/9DHjPPiqZQc7czUnjorcxA?
 {
-    aptrinsic('set', 'globalContext', { "TrailUser": true, "LoanAmount": 19000 });
+    aptrinsic('set', 'globalContext', {
+        "TrailUser": true,
+        "LoanAmount": 19000
+    });
 }
 
 function loadContactPage() {
-    aptrinsic('set', 'globalContext', { "page": "Contactpage" });
-}
-function loadAboutusPage() {
-    aptrinsic('set', 'globalContext', { "page": "AboutusPage" });
+    aptrinsic('set', 'globalContext', {
+        "page": "Contactpage"
+    });
 }
 
-function showengagement(){
-    aptrinsic('track', 'ID_Request', {"ID_required" : true }); 
+function loadAboutusPage() {
+    aptrinsic('set', 'globalContext', {
+        "page": "AboutusPage"
+    });
+}
+
+function showengagement() {
+    aptrinsic('track', 'ID_Request', {
+        "ID_required": true
+    });
 }
 
 
@@ -136,47 +206,45 @@ function allowlogin(usermail) {
 
     }
     var c;
-    
+
 
     if (a != "") {
         if (a == "dileepnalla29@gmail.com" || a == "dileepnalla6@gmail.com" || a == "dnalla@gainsight.com" || a == "demouser@gmail.com") {
             alert("valid User");
             b = a.substr(8, 5);
             var id = b;
-                        // var hash = CryptoJS.HmacSHA256(id, "9rmLVS939teSt3cILUccAPiqBBxSsQNmREc8CwpAj");
+            // var hash = CryptoJS.HmacSHA256(id, "9rmLVS939teSt3cILUccAPiqBBxSsQNmREc8CwpAj");
 
-//Segment Identify
-// analytics.identify(id+"segment", {
-//     name: "Segment User",
-//     email: "dileepnalla6+"+"segm"+"@gmail.com",
-//     plan: "premium",
-    
-//   });
+            //Segment Identify
+            // analytics.identify(id+"segment", {
+            //     name: "Segment User",
+            //     email: "dileepnalla6+"+"segm"+"@gmail.com",
+            //     plan: "premium",
 
-          /*<!-- Aptrinsic Tag-->*/
+            //   });
+
+            /*<!-- Aptrinsic Tag-->*/
 
 
-                       
-             aptrinsic('identify',
-            {
-                //User Fields
-                "id": id, // Required for logged in app users
-                "email": a
-                
-                // "userHash": hash.toString()// optional transient for HMAC identification
-            },
 
-            {
-                //Account Fields
-                "id": myaccount.a1, //Required
-                "name": myaccount.a1,
-                 // flat custom attributes
-            }) 
-        ;
+            aptrinsic('identify', {
+                    //User Fields
+                    "id": id, // Required for logged in app users
+                    "email": a
 
-                
+                    // "userHash": hash.toString()// optional transient for HMAC identification
+                },
 
-           
+                {
+                    //Account Fields
+                    "id": myaccount.a1, //Required
+                    "name": myaccount.a1,
+                    // flat custom attributes
+                });
+
+
+
+
             // Call this whenever information about your visitors becomes available
             // Please use Strings, Numbers, or Bools for value types.
             // pendo.initialize({
@@ -205,26 +273,24 @@ function allowlogin(usermail) {
             // });
 
 
-// Full story
-                // This is an example script - don't forget to change it!
-FS.identify(id, {
-    displayName: a,
-    email: a
-    // TODO: Add your own custom user variables here, details at
-    // https://help.fullstory.com/hc/en-us/articles/360020623294-FS-setUserVars-Recording-custom-user-data
-   
-  });
+            // Full story
+            // This is an example script - don't forget to change it!
+            FS.identify(id, {
+                displayName: a,
+                email: a
+                // TODO: Add your own custom user variables here, details at
+                // https://help.fullstory.com/hc/en-us/articles/360020623294-FS-setUserVars-Recording-custom-user-data
+
+            });
 
             alert("Logged in user id :" + b);
-            
+
             window.location = "https://dileepnalla.github.io/Basic_html/Index.HTML";
             aptrinsic('track', 'User Login');
 
-        }
-        else
+        } else
             alert("Invalid User,enter \"demouser@gmail.com\"");
-    }
-    else
+    } else
         alert("enter \"demouser@gmail.com\"");
 
 
@@ -232,7 +298,9 @@ FS.identify(id, {
 }
 
 
-allowlogin.prototype.greeting = function(){return `hello welcome ${this.a}`};
+allowlogin.prototype.greeting = function () {
+    return `hello welcome ${this.a}`
+};
 
 
 var counter = 0;
@@ -246,8 +314,18 @@ var Productprice = 7800;
 var transactionStatus = "Success";
 
 
-let purchaseinitiated = new CustomEvent('purchaseinitiated', { detail: { itemName: this.Productname, itemSize: this.Productsize } })
-let transactionsuccess = new CustomEvent('transactionsuccess', { detail: { Amountdeducted: this.Productprice, Paymentstatus: this.transactionStatus } })
+let purchaseinitiated = new CustomEvent('purchaseinitiated', {
+    detail: {
+        itemName: this.Productname,
+        itemSize: this.Productsize
+    }
+})
+let transactionsuccess = new CustomEvent('transactionsuccess', {
+    detail: {
+        Amountdeducted: this.Productprice,
+        Paymentstatus: this.transactionStatus
+    }
+})
 
 //This will create a button on page Load
 // refer this lecture to understand the custom events 
@@ -288,7 +366,10 @@ function purchasedone(ev) {
 
     console.log(ev.type, ev.detail);
     // Write your PX code here to track the custom events 
-    aptrinsic('track', 'purchaseinitiated', { itemName: ev.detail.itemName, itemSize: ev.detail.itemSize });
+    aptrinsic('track', 'purchaseinitiated', {
+        itemName: ev.detail.itemName,
+        itemSize: ev.detail.itemSize
+    });
 }
 
 function printreciept() {
@@ -304,7 +385,10 @@ function transactiondone(ev1) {
 
     console.log(ev1.type, ev1.detail);
     // Write your PX code here to track the custom events
-    aptrinsic('track', 'transactionsuccess', { Amountdeducted: ev1.detail.Amountdeducted, Paymentstatus: ev1.detail.Paymentstatus });
+    aptrinsic('track', 'transactionsuccess', {
+        Amountdeducted: ev1.detail.Amountdeducted,
+        Paymentstatus: ev1.detail.Paymentstatus
+    });
 }
 
 
@@ -316,11 +400,16 @@ function deleteAllCookies() {
 }
 
 function showKCB1() {
-    aptrinsic('bot', 'start', { id: "3d8b06d9-06ea-4518-8ef2-78564a5a173e" }); // We can also specific ID
+    aptrinsic('bot', 'start', {
+        id: "3d8b06d9-06ea-4518-8ef2-78564a5a173e"
+    }); // We can also specific ID
 
 }
+
 function showKCB2() {
-    aptrinsic('bot', 'start', { id: "9ba7fb81-e8d1-4ec2-9b7c-36bf643e9981" }); // We can also specific ID
+    aptrinsic('bot', 'start', {
+        id: "9ba7fb81-e8d1-4ec2-9b7c-36bf643e9981"
+    }); // We can also specific ID
 
 }
 
@@ -331,36 +420,35 @@ function captureonlyforsession() {
 
     if (counter == 0) {
         for (counter = 0; counter < 1; counter++) {
-            aptrinsic('track', 'Click captutre only for session', { sessionid: getexistingcookieid });
+            aptrinsic('track', 'Click captutre only for session', {
+                sessionid: getexistingcookieid
+            });
         }
         return counter;
-    }
-
-    else {
+    } else {
         console.log("Event already captured in this session, clear the session and give a try!")
     }
 
 
 }
 
-function addSalary(){
+function addSalary() {
     aptrinsic('track', 'Add Salary');
 }
 
-function calculateAge(dob)
-{
-this.birthday = new Date(document.getElementById("birthday").value);
-//console.log(this.birthday);
-const datediff = Date.now() - this.birthday.getTime();
-//console.log(datediff);
-const age = new Date (datediff);
-//console.log(age);
-//return Math.abs(age.getUTCFullYear()-1970);
-console.log(Math.abs(age.getUTCFullYear()-1970)) ;
-// allowlogin.call(this,'dileep@gmail.com');
+function calculateAge(dob) {
+    this.birthday = new Date(document.getElementById("birthday").value);
+    //console.log(this.birthday);
+    const datediff = Date.now() - this.birthday.getTime();
+    //console.log(datediff);
+    const age = new Date(datediff);
+    //console.log(age);
+    //return Math.abs(age.getUTCFullYear()-1970);
+    console.log(Math.abs(age.getUTCFullYear() - 1970));
+    // allowlogin.call(this,'dileep@gmail.com');
 
-// console.log(allowlogin.greeting());
-// console.log('hello');
+    // console.log(allowlogin.greeting());
+    // console.log('hello');
 
 }
 // calculateAge.prototype = Object.create(allowlogin.prototype);
@@ -377,32 +465,127 @@ const taskInput = document.querySelector('#task');
 //Load All the event Listeners
 loadEventListeners();
 
-function loadEventListeners()
-{
-    form.addEventListener('submit',addTask);
+function loadEventListeners() {
+    document.addEventListener('DOMContentLoaded',getTasks);
+    form.addEventListener('submit', addTask);
+    taskList.addEventListener('click', removeTask);
+    clearBtn.addEventListener('click', clearAllTasks);
+    filter.addEventListener('keyup', filterTasks);
 }
 
-function addTask(e)
-    {
-        if(taskInput.value===''){
-alert('Add a task');
-        }
-        else
-        {
-            const li = document.createElement('li');
-            li.className= 'collection-item';
-            //create text Node
-            li.appendChild(document.createTextNode(taskInput.value));
-            const link = document.createElement('a');
-            link.className = 'delete-item secondary-content';
-            link.innerHTML = '<i class= "fa fa-remove"></i>'; 
-            li.appendChild(link);
-            taskList.appendChild(li);
-            aptrinsic('track', 'Objective Added', {"Objective Name" : taskInput.value }); 
-            taskInput.value='';
-        }
+function addTask(e) {
+    if (taskInput.value === '') {
+        alert('Add a task');
+    } else {
+        const li = document.createElement('li');
+        li.className = 'collection-item';
+        //create text Node
+        li.appendChild(document.createTextNode(taskInput.value));
+        const link = document.createElement('a');
+        link.className = 'delete-item secondary-content';
+        link.innerHTML = '<i class= "fa fa-remove"></i>';
+        li.appendChild(link);
+        taskList.appendChild(li);
+        aptrinsic('track', 'Task Added', {
+            "Task Name": taskInput.value
+        });
 
+        storeTaskinLocalStorage(taskInput.value);   
 
-e.preventDefault();
+        taskInput.value = '';
     }
 
+    e.preventDefault();
+}
+
+function getTasks(){
+    let tasks;
+    if(localStorage.getItem('tasks')=== null)
+    {
+        tasks =[];
+    }
+    else{
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+
+    tasks.forEach(function(task){
+        const li = document.createElement('li');
+        li.className = 'collection-item';
+        //create text Node
+        li.appendChild(document.createTextNode(task));
+        const link = document.createElement('a');
+        link.className = 'delete-item secondary-content';
+        link.innerHTML = '<i class= "fa fa-remove"></i>';
+        li.appendChild(link);
+        taskList.appendChild(li);
+    });
+}
+
+
+function storeTaskinLocalStorage(task){
+    let tasks;
+    if(localStorage.getItem('tasks')=== null)
+    {
+        tasks =[];
+    }
+    else{
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    tasks.push(task);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function removeTask(e) {
+    if (e.target.parentElement.classList.contains('delete-item')) {
+if(confirm('Are you sure?')){
+    
+    e.target.parentElement.parentElement.remove()
+    removeTaskfromLocalStorage(e.target.parentElement.parentElement);
+}
+
+    }
+
+
+    e.preventDefault;
+}
+
+function removeTaskfromLocalStorage(taskItem){
+    let tasks;
+    if(localStorage.getItem('tasks')=== null)
+    {
+        tasks =[];
+    }
+    else{
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+
+    tasks.forEach(function(task,index){
+        if(taskItem.textContent === task){
+            tasks.splice(index,1);
+        }
+    });
+    localStorage.setItem('tasks',JSON.stringify(tasks));
+}
+
+function clearAllTasks(e) {
+    while (taskList.firstChild) {
+        taskList.removeChild(taskList.firstChild);
+    }
+
+    localStorage.clear();
+
+}
+
+function filterTasks(e) {
+    const text = e.target.value.toLowerCase();
+    document.querySelectorAll('.collection-item').forEach(
+        function (task) {
+            const item = task.firstChild.textContent;
+            if (item.toLocaleLowerCase().indexOf(text) != -1) {
+                task.style.display = 'block'
+            } else {
+                task.style.display = 'none'
+            }
+        }
+    );
+}
