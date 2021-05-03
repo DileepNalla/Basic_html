@@ -60,7 +60,15 @@ var configone = {
     r.async = !0, r.src = a + "?a=" + e;
     var c = t.getElementsByTagName("script")[0];
     c.parentNode.insertBefore(r, c)
-})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2", configone, configtwo)
+})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2", configone, configtwo,
+{
+    
+    "htmlSanitization": true,
+    "htmlSanitizationAllowedDomains": ["https://dileepnalla.github.io"],    
+    "engagementChecksumFileUrl": "https://dileepnalla.github.io/checksums.json"
+    }
+
+)
 
 //AP-6WAJA3OATHHI-2, AP-DRTELDXGAMXI-2 Replace this later on after testing by Zendesk
 
@@ -453,6 +461,8 @@ function calculateAge(dob) {
 }
 // calculateAge.prototype = Object.create(allowlogin.prototype);
 
+
+/**Scripts for Tasks.html */
 //============================================================================//
 // Scripts For Task
 //Define UI variables
@@ -482,8 +492,12 @@ function addTask(e) {
         //create text Node
         li.appendChild(document.createTextNode(taskInput.value));
         const link = document.createElement('a');
-        link.className = 'delete-item secondary-content';
-        link.innerHTML = '<i class= "fa fa-remove"></i>';
+      link.className = 'delete-item secondary-content';
+                link.innerHTML = '<i class= "fa fa-remove"></i>';
+        
+        
+        
+
         li.appendChild(link);
         taskList.appendChild(li);
         aptrinsic('track', 'Task Added', {
@@ -568,11 +582,13 @@ function removeTaskfromLocalStorage(taskItem){
 }
 
 function clearAllTasks(e) {
+   if(confirm('Are you sure? This will clear all the tasks and can\'t retrive')){
     while (taskList.firstChild) {
         taskList.removeChild(taskList.firstChild);
     }
 
     localStorage.clear();
+}
 
 }
 
