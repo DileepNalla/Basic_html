@@ -62,10 +62,9 @@ var configone = {
     c.parentNode.insertBefore(r, c)
 })(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2", configone, configtwo,
 {
-    
     "htmlSanitization": true,
     "htmlSanitizationAllowedDomains": ["https://dileepnalla.github.io"],    
-    "engagementChecksumFileUrl": "https://dileepnalla.github.io/checksums.json"
+    "engagementChecksumFileUrl": "https://raw.githubusercontent.com/DileepNalla/Basic_html/master/checksums.json"
     }
 
 )
