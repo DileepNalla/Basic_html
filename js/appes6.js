@@ -75,7 +75,7 @@ class Store {
 
     }
     static removeBooks(isbn) {
-        console.log(isbn);
+        
         const books = Store.getBooks();
         books.forEach(function (book,index) {
             if(book.isbn=== isbn){
