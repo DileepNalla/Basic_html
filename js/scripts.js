@@ -55,17 +55,18 @@ var configone = {
     var i = "aptrinsic";
     n[i] = n[i] || function () {
         (n[i].q = n[i].q || []).push(arguments)
-    }, n[i].p = e;n[i].c=co;
+    }, n[i].p = e;
+    n[i].c = co;
     var r = t.createElement("script");
     r.async = !0, r.src = a + "?a=" + e;
     var c = t.getElementsByTagName("script")[0];
     c.parentNode.insertBefore(r, c)
 })(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2"
-// {
-//     "htmlSanitization": true,
-//     "htmlSanitizationAllowedDomains": ["https://dileepnalla.github.io"],    
-//     "engagementChecksumFileUrl": "https://raw.githubusercontent.com/DileepNalla/Basic_html/master/checksums.json"
-//     }
+    // {
+    //     "htmlSanitization": true,
+    //     "htmlSanitizationAllowedDomains": ["https://dileepnalla.github.io"],    
+    //     "engagementChecksumFileUrl": "https://raw.githubusercontent.com/DileepNalla/Basic_html/master/checksums.json"
+    //     }
 
 )
 
@@ -216,7 +217,7 @@ function allowlogin(usermail) {
 
 
     if (a != "") {
-        if (a == "dileepnalla29@gmail.com" ||a == "vasudha.mariserla@gmail.com" ||a == "dileepnalla6@gmail.com" || a == "dnalla@gainsight.com" || a == "demouser@gmail.com") {
+        if (a == "dileepnalla29@gmail.com" || a == "vasudha.mariserla@gmail.com" || a == "dileepnalla6@gmail.com" || a == "dnalla@gainsight.com" || a == "demouser@gmail.com") {
             alert("valid User");
             b = a.substr(8, 5);
             var id = b;
@@ -233,21 +234,68 @@ function allowlogin(usermail) {
             /*<!-- Aptrinsic Tag-->*/
 
 
+            if (a == 'dileepnalla29@gmail.com') {
+                aptrinsic('identify', {
+                        //User Fields
+                        "id": id, // Required for logged in app users
+                        "email": a
 
-            aptrinsic('identify', {
-                    //User Fields
-                    "id": id, // Required for logged in app users
-                    "email": a
+                        // "userHash": hash.toString()// optional transient for HMAC identification
+                    },
 
-                    // "userHash": hash.toString()// optional transient for HMAC identification
-                },
+                    {
+                        //Account Fields
+                        "id": myaccount.a4, //Required
+                        "name": myaccount.a4,
+                        // flat custom attributes
+                    });
+            } else if (a == 'dileepnalla6@gmail.com') {
+                aptrinsic('identify', {
+                        //User Fields
+                        "id": id, // Required for logged in app users
+                        "email": a
 
-                {
-                    //Account Fields
-                    "id": myaccount.a1, //Required
-                    "name": myaccount.a1,
-                    // flat custom attributes
-                });
+                        // "userHash": hash.toString()// optional transient for HMAC identification
+                    },
+
+                    {
+                        //Account Fields
+                        "id": myaccount.a3, //Required
+                        "name": myaccount.a3,
+                        // flat custom attributes
+                    });
+            } else if (a == 'demouser@gmail.com') {
+                aptrinsic('identify', {
+                        //User Fields
+                        "id": id, // Required for logged in app users
+                        "email": a
+
+                        // "userHash": hash.toString()// optional transient for HMAC identification
+                    },
+
+                    {
+                        //Account Fields
+                        "id": myaccount.a2, //Required
+                        "name": myaccount.a2,
+                        // flat custom attributes
+                    });
+            } else {
+                aptrinsic('identify', {
+                        //User Fields
+                        "id": id, // Required for logged in app users
+                        "email": a
+
+                        // "userHash": hash.toString()// optional transient for HMAC identification
+                    },
+
+                    {
+                        //Account Fields
+                        "id": myaccount.a1, //Required
+                        "name": myaccount.a1,
+                        // flat custom attributes
+                    });
+            }
+
 
 
 
@@ -475,7 +523,7 @@ const taskInput = document.querySelector('#task');
 loadEventListeners();
 
 function loadEventListeners() {
-    document.addEventListener('DOMContentLoaded',getTasks);
+    document.addEventListener('DOMContentLoaded', getTasks);
     form.addEventListener('submit', addTask);
     taskList.addEventListener('click', removeTask);
     clearBtn.addEventListener('click', clearAllTasks);
@@ -491,11 +539,11 @@ function addTask(e) {
         //create text Node
         li.appendChild(document.createTextNode(taskInput.value));
         const link = document.createElement('a');
-      link.className = 'delete-item secondary-content';
-                link.innerHTML = '<i class= "fa fa-remove"></i>';
-        
-        
-        
+        link.className = 'delete-item secondary-content';
+        link.innerHTML = '<i class= "fa fa-remove"></i>';
+
+
+
 
         li.appendChild(link);
         taskList.appendChild(li);
@@ -503,7 +551,7 @@ function addTask(e) {
             "Task Name": taskInput.value
         });
 
-        storeTaskinLocalStorage(taskInput.value);   
+        storeTaskinLocalStorage(taskInput.value);
 
         taskInput.value = '';
     }
@@ -511,17 +559,15 @@ function addTask(e) {
     e.preventDefault();
 }
 
-function getTasks(){
+function getTasks() {
     let tasks;
-    if(localStorage.getItem('tasks')=== null)
-    {
-        tasks =[];
-    }
-    else{
+    if (localStorage.getItem('tasks') === null) {
+        tasks = [];
+    } else {
         tasks = JSON.parse(localStorage.getItem('tasks'));
     }
 
-    tasks.forEach(function(task){
+    tasks.forEach(function (task) {
         const li = document.createElement('li');
         li.className = 'collection-item';
         //create text Node
@@ -535,13 +581,11 @@ function getTasks(){
 }
 
 
-function storeTaskinLocalStorage(task){
+function storeTaskinLocalStorage(task) {
     let tasks;
-    if(localStorage.getItem('tasks')=== null)
-    {
-        tasks =[];
-    }
-    else{
+    if (localStorage.getItem('tasks') === null) {
+        tasks = [];
+    } else {
         tasks = JSON.parse(localStorage.getItem('tasks'));
     }
     tasks.push(task);
@@ -550,11 +594,11 @@ function storeTaskinLocalStorage(task){
 
 function removeTask(e) {
     if (e.target.parentElement.classList.contains('delete-item')) {
-if(confirm('Are you sure?')){
-    
-    e.target.parentElement.parentElement.remove()
-    removeTaskfromLocalStorage(e.target.parentElement.parentElement);
-}
+        if (confirm('Are you sure?')) {
+
+            e.target.parentElement.parentElement.remove()
+            removeTaskfromLocalStorage(e.target.parentElement.parentElement);
+        }
 
     }
 
@@ -562,32 +606,30 @@ if(confirm('Are you sure?')){
     e.preventDefault;
 }
 
-function removeTaskfromLocalStorage(taskItem){
+function removeTaskfromLocalStorage(taskItem) {
     let tasks;
-    if(localStorage.getItem('tasks')=== null)
-    {
-        tasks =[];
-    }
-    else{
+    if (localStorage.getItem('tasks') === null) {
+        tasks = [];
+    } else {
         tasks = JSON.parse(localStorage.getItem('tasks'));
     }
 
-    tasks.forEach(function(task,index){
-        if(taskItem.textContent === task){
-            tasks.splice(index,1);
+    tasks.forEach(function (task, index) {
+        if (taskItem.textContent === task) {
+            tasks.splice(index, 1);
         }
     });
-    localStorage.setItem('tasks',JSON.stringify(tasks));
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 function clearAllTasks(e) {
-   if(confirm('Are you sure? This will clear all the tasks and can\'t retrive')){
-    while (taskList.firstChild) {
-        taskList.removeChild(taskList.firstChild);
-    }
+    if (confirm('Are you sure? This will clear all the tasks and can\'t retrive')) {
+        while (taskList.firstChild) {
+            taskList.removeChild(taskList.firstChild);
+        }
 
-    localStorage.clear();
-}
+        localStorage.clear();
+    }
 
 }
 
