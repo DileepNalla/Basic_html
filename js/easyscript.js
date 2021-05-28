@@ -3,7 +3,7 @@ document.getElementById('button2').addEventListener('click', getJson);
 document.getElementById('button3').addEventListener('click', getAPI);
 
 function getText() {
-    fetch('text1.txt')
+    fetch('text.txt')
         .then(function (res) {
             return (res.text()).then(function (data) {
                 document.getElementById('output').innerHTML = data;
