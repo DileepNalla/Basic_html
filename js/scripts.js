@@ -340,7 +340,7 @@ function allowlogin(usermail) {
 
             alert("Logged in user id :" + b);
 
-            window.location = "https://dileepnalla.github.io/Basic_html/Index.HTML";
+            window.location = "file:///D:/Learning/Basic_html/Index.HTML"; 
             aptrinsic('track', 'User Login');
 
         } else
