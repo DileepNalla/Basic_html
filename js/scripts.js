@@ -238,7 +238,8 @@ function allowlogin(usermail) {
                 aptrinsic('identify', {
                         //User Fields
                         "id": id, // Required for logged in app users
-                        "email": a
+                        "email": a,
+                        "subscriptionId":"e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
 
                         // "userHash": hash.toString()// optional transient for HMAC identification
                     },
@@ -253,7 +254,8 @@ function allowlogin(usermail) {
                 aptrinsic('identify', {
                         //User Fields
                         "id": id, // Required for logged in app users
-                        "email": a
+                        "email": a,
+                        "subscriptionId":"e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
 
                         // "userHash": hash.toString()// optional transient for HMAC identification
                     },
@@ -268,7 +270,8 @@ function allowlogin(usermail) {
                 aptrinsic('identify', {
                         //User Fields
                         "id": id, // Required for logged in app users
-                        "email": a
+                        "email": a,
+                        "subscriptionId":"e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
 
                         // "userHash": hash.toString()// optional transient for HMAC identification
                     },
@@ -283,7 +286,8 @@ function allowlogin(usermail) {
                 aptrinsic('identify', {
                         //User Fields
                         "id": id, // Required for logged in app users
-                        "email": a
+                        "email": a,
+                        "subscriptionId":"e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
 
                         // "userHash": hash.toString()// optional transient for HMAC identification
                     },
