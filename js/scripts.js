@@ -183,9 +183,7 @@ function callglobal() //https://share.vidyard.com/watch/9DHjPPiqZQc7czUnjorcxA?
 }
 
 function loadContactPage() {
-    aptrinsic('set', 'globalContext', {
-        "page": "Contactpage"
-    });
+    aptrinsic('set', 'globalContext', {"page": "Contactpage" });
 }
 
 function loadAboutusPage() {
@@ -650,3 +648,4 @@ function filterTasks(e) {
         }
     );
 }
+
