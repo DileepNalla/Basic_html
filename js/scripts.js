@@ -183,7 +183,7 @@ function callglobal() //https://share.vidyard.com/watch/9DHjPPiqZQc7czUnjorcxA?
 }
 
 function loadContactPage() {
-    aptrinsic('set', 'globalContext', {"page": "Contactpage" });
+    aptrinsic('set', 'globalContext', {"page": "Contactpage","name":"Welcome Video","Category":"Onboarding"});
     aptrinsic('set', 'globalContext', {"demo": "GC2" });
 }
 
