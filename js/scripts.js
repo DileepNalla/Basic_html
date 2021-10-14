@@ -385,6 +385,8 @@ let transactionsuccess = new CustomEvent('transactionsuccess', {
     }
 })
 
+let feedback = new CustomEvent('feedback')
+
 //This will create a button on page Load
 // refer this lecture to understand the custom events 
 //https://gainsight.udemy.com/course/modern-javascript-from-the-beginning/learn/lecture/8757278#overview
@@ -416,7 +418,7 @@ function addPaymentStatus(parent) {
     p.addEventListener('purchaseinitiated', purchasedone);
     p.dispatchEvent(purchaseinitiated);
     setTimeout(printreciept, 3000);
-
+    
 
 }
 
@@ -430,14 +432,27 @@ function purchasedone(ev) {
     });
 }
 
+
+
 function printreciept() {
     var p1 = document.getElementById("tStatus");
     document.addEventListener('transactionsuccess', transactiondone);
     document.dispatchEvent(transactionsuccess);
-    p1.textContent = "Transaction Success";
-
+     p1.textContent="transactionsuccess"
+     let p2 = document.createElement('p');
+     p2.setAttribute("d", "Feedback");
+     p2.setAttribute("class", "btn btn-warning");
+     p2.textContent="Feedback"
+     p1.appendChild(p2);
+     p2.addEventListener('feedback',feedback_triggered);
+     p2.dispatchEvent(feedback);
+     
 }
 
+
+function feedback_triggered(){
+    aptrinsic('track', 'feedback given');
+}
 
 function transactiondone(ev1) {
 
