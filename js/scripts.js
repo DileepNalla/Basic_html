@@ -55,17 +55,18 @@ var configone = {
     var i = "aptrinsic";
     n[i] = n[i] || function () {
         (n[i].q = n[i].q || []).push(arguments)
-    }, n[i].p = e;n[i].c=co;
+    }, n[i].p = e;
+    n[i].c = co;
     var r = t.createElement("script");
     r.async = !0, r.src = a + "?a=" + e;
     var c = t.getElementsByTagName("script")[0];
     c.parentNode.insertBefore(r, c)
-})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2",
-{
-    "htmlSanitization": true,
-    "htmlSanitizationAllowedDomains": ["https://dileepnalla.github.io"],    
-    "engagementChecksumFileUrl": "https://raw.githubusercontent.com/DileepNalla/Basic_html/master/checksums.json"
-    }
+})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2"
+    // {
+    //     "htmlSanitization": true,
+    //     "htmlSanitizationAllowedDomains": ["https://dileepnalla.github.io"],    
+    //     "engagementChecksumFileUrl": "https://raw.githubusercontent.com/DileepNalla/Basic_html/master/checksums.json"
+    //     }
 
 )
 
@@ -182,9 +183,8 @@ function callglobal() //https://share.vidyard.com/watch/9DHjPPiqZQc7czUnjorcxA?
 }
 
 function loadContactPage() {
-    aptrinsic('set', 'globalContext', {
-        "page": "Contactpage"
-    });
+    aptrinsic('set', 'globalContext', {"page": "Contactpage","name":"Welcome Video","Category":"Onboarding"});
+    aptrinsic('set', 'globalContext', {"demo": "GC2" });
 }
 
 function loadAboutusPage() {
@@ -206,7 +206,7 @@ function allowlogin(usermail) {
     var a = document.getElementById("usermail").value;
     var b;
     const myaccount = {
-        a1: "Pendo_Company-1",
+        a1: "PX_Company-1",
         a2: "PX_Company-2",
         a3: "PX_Company-3",
         a4: "PX_Company-4"
@@ -216,7 +216,7 @@ function allowlogin(usermail) {
 
 
     if (a != "") {
-        if (a == "dileepnalla29@gmail.com" || a == "dileepnalla6@gmail.com" || a == "dnalla@gainsight.com" || a == "demouser@gmail.com") {
+        if (a == "dileepnalla29@gmail.com" || a == "vasudha.mariserla@gmail.com" || a == "dileepnalla6@gmail.com" || a == "dnalla@gainsight.com" || a == "demouser@gmail.com") {
             alert("valid User");
             b = a.substr(8, 5);
             var id = b;
@@ -233,21 +233,72 @@ function allowlogin(usermail) {
             /*<!-- Aptrinsic Tag-->*/
 
 
+            if (a == 'dileepnalla29@gmail.com') {
+                aptrinsic('identify', {
+                        //User Fields
+                        "id": "dataloader insert", // Required for logged in app users
+                        "email": a,
+                        "subscriptionId":"e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
 
-            aptrinsic('identify', {
-                    //User Fields
-                    "id": id, // Required for logged in app users
-                    "email": a
+                        // "userHash": hash.toString()// optional transient for HMAC identification
+                    },
 
-                    // "userHash": hash.toString()// optional transient for HMAC identification
-                },
+                    {
+                        //Account Fields
+                        "id": myaccount.a4, //Required
+                        "name": myaccount.a4,
+                        // flat custom attributes
+                    });
+            } else if (a == 'dileepnalla6@gmail.com') {
+                aptrinsic('identify', {
+                        //User Fields
+                        "id": id, // Required for logged in app users
+                        "email": a,
+                        "subscriptionId":"e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
 
-                {
-                    //Account Fields
-                    "id": myaccount.a1, //Required
-                    "name": myaccount.a1,
-                    // flat custom attributes
-                });
+                        // "userHash": hash.toString()// optional transient for HMAC identification
+                    },
+
+                    {
+                        //Account Fields
+                        "id": myaccount.a3, //Required
+                        "name": myaccount.a3,
+                        // flat custom attributes
+                    });
+            } else if (a == 'demouser@gmail.com') {
+                aptrinsic('identify', {
+                        //User Fields
+                        "id": id, // Required for logged in app users
+                        "email": a,
+                        "subscriptionId":"e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
+
+                        // "userHash": hash.toString()// optional transient for HMAC identification
+                    },
+
+                    {
+                        //Account Fields
+                        "id": myaccount.a2, //Required
+                        "name": myaccount.a2,
+                        // flat custom attributes
+                    });
+            } else {
+                aptrinsic('identify', {
+                        //User Fields
+                        "id": id, // Required for logged in app users
+                        "email": a,
+                        "subscriptionId":"e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
+
+                        // "userHash": hash.toString()// optional transient for HMAC identification
+                    },
+
+                    {
+                        //Account Fields
+                        "id": myaccount.a1, //Required
+                        "name": myaccount.a1,
+                        // flat custom attributes
+                    });
+            }
+
 
 
 
@@ -292,7 +343,7 @@ function allowlogin(usermail) {
 
             alert("Logged in user id :" + b);
 
-            window.location = "https://dileepnalla.github.io/Basic_html/Index.HTML";
+            window.location = "https://dileepnalla.github.io/Basic_html/Index.HTML"; 
             aptrinsic('track', 'User Login');
 
         } else
@@ -334,6 +385,8 @@ let transactionsuccess = new CustomEvent('transactionsuccess', {
     }
 })
 
+let feedback = new CustomEvent('feedback')
+
 //This will create a button on page Load
 // refer this lecture to understand the custom events 
 //https://gainsight.udemy.com/course/modern-javascript-from-the-beginning/learn/lecture/8757278#overview
@@ -365,7 +418,7 @@ function addPaymentStatus(parent) {
     p.addEventListener('purchaseinitiated', purchasedone);
     p.dispatchEvent(purchaseinitiated);
     setTimeout(printreciept, 3000);
-
+    
 
 }
 
@@ -379,14 +432,27 @@ function purchasedone(ev) {
     });
 }
 
+
+
 function printreciept() {
     var p1 = document.getElementById("tStatus");
     document.addEventListener('transactionsuccess', transactiondone);
     document.dispatchEvent(transactionsuccess);
-    p1.textContent = "Transaction Success";
-
+     p1.textContent="transactionsuccess"
+     let p2 = document.createElement('p');
+     p2.setAttribute("d", "Feedback");
+     p2.setAttribute("class", "btn btn-warning");
+     p2.textContent="Feedback"
+     p1.appendChild(p2);
+     p2.addEventListener('feedback',feedback_triggered);
+     p2.dispatchEvent(feedback);
+     
 }
 
+
+function feedback_triggered(){
+    aptrinsic('track', 'feedback given');
+}
 
 function transactiondone(ev1) {
 
@@ -475,7 +541,7 @@ const taskInput = document.querySelector('#task');
 loadEventListeners();
 
 function loadEventListeners() {
-    document.addEventListener('DOMContentLoaded',getTasks);
+    document.addEventListener('DOMContentLoaded', getTasks);
     form.addEventListener('submit', addTask);
     taskList.addEventListener('click', removeTask);
     clearBtn.addEventListener('click', clearAllTasks);
@@ -491,11 +557,11 @@ function addTask(e) {
         //create text Node
         li.appendChild(document.createTextNode(taskInput.value));
         const link = document.createElement('a');
-      link.className = 'delete-item secondary-content';
-                link.innerHTML = '<i class= "fa fa-remove"></i>';
-        
-        
-        
+        link.className = 'delete-item secondary-content';
+        link.innerHTML = '<i class= "fa fa-remove"></i>';
+
+
+
 
         li.appendChild(link);
         taskList.appendChild(li);
@@ -503,7 +569,7 @@ function addTask(e) {
             "Task Name": taskInput.value
         });
 
-        storeTaskinLocalStorage(taskInput.value);   
+        storeTaskinLocalStorage(taskInput.value);
 
         taskInput.value = '';
     }
@@ -511,17 +577,15 @@ function addTask(e) {
     e.preventDefault();
 }
 
-function getTasks(){
+function getTasks() {
     let tasks;
-    if(localStorage.getItem('tasks')=== null)
-    {
-        tasks =[];
-    }
-    else{
+    if (localStorage.getItem('tasks') === null) {
+        tasks = [];
+    } else {
         tasks = JSON.parse(localStorage.getItem('tasks'));
     }
 
-    tasks.forEach(function(task){
+    tasks.forEach(function (task) {
         const li = document.createElement('li');
         li.className = 'collection-item';
         //create text Node
@@ -535,13 +599,11 @@ function getTasks(){
 }
 
 
-function storeTaskinLocalStorage(task){
+function storeTaskinLocalStorage(task) {
     let tasks;
-    if(localStorage.getItem('tasks')=== null)
-    {
-        tasks =[];
-    }
-    else{
+    if (localStorage.getItem('tasks') === null) {
+        tasks = [];
+    } else {
         tasks = JSON.parse(localStorage.getItem('tasks'));
     }
     tasks.push(task);
@@ -550,11 +612,11 @@ function storeTaskinLocalStorage(task){
 
 function removeTask(e) {
     if (e.target.parentElement.classList.contains('delete-item')) {
-if(confirm('Are you sure?')){
-    
-    e.target.parentElement.parentElement.remove()
-    removeTaskfromLocalStorage(e.target.parentElement.parentElement);
-}
+        if (confirm('Are you sure?')) {
+
+            e.target.parentElement.parentElement.remove()
+            removeTaskfromLocalStorage(e.target.parentElement.parentElement);
+        }
 
     }
 
@@ -562,32 +624,30 @@ if(confirm('Are you sure?')){
     e.preventDefault;
 }
 
-function removeTaskfromLocalStorage(taskItem){
+function removeTaskfromLocalStorage(taskItem) {
     let tasks;
-    if(localStorage.getItem('tasks')=== null)
-    {
-        tasks =[];
-    }
-    else{
+    if (localStorage.getItem('tasks') === null) {
+        tasks = [];
+    } else {
         tasks = JSON.parse(localStorage.getItem('tasks'));
     }
 
-    tasks.forEach(function(task,index){
-        if(taskItem.textContent === task){
-            tasks.splice(index,1);
+    tasks.forEach(function (task, index) {
+        if (taskItem.textContent === task) {
+            tasks.splice(index, 1);
         }
     });
-    localStorage.setItem('tasks',JSON.stringify(tasks));
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 function clearAllTasks(e) {
-   if(confirm('Are you sure? This will clear all the tasks and can\'t retrive')){
-    while (taskList.firstChild) {
-        taskList.removeChild(taskList.firstChild);
-    }
+    if (confirm('Are you sure? This will clear all the tasks and can\'t retrive')) {
+        while (taskList.firstChild) {
+            taskList.removeChild(taskList.firstChild);
+        }
 
-    localStorage.clear();
-}
+        localStorage.clear();
+    }
 
 }
 
@@ -604,3 +664,4 @@ function filterTasks(e) {
         }
     );
 }
+

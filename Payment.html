@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Page</title>
    <link rel="stylesheet" type ="text/css" href="css/Style.css">
+   
+   
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
   <script type="text/javascript" src="js/scripts.js"></script> 
     
 </head>
@@ -33,7 +36,22 @@
     <div><p><b>Custom Events</b></p></div>
  <main>  
 <span id="paymentbutton"></span>
-
+<p>This page turns violet when you hold the V key.</p>
+<script>
+  addEventListener("keydown", function(event) {
+    if (event.keyCode == 86)
+      document.body.style.background = "violet";
+      //aptrinsic('track', 'Hotkey Event', {  hotkeyValue: event.keyCode, eventType: "keydown"        });
+  });
+  addEventListener("keyup", function(event) {
+    if (event.keyCode == 86)
+      document.body.style.background = "";
+      // aptrinsic('track', 'Hotkey Event', {
+      //           hotkeyValue: event.keyCode,
+      //           eventType: "keyup"
+      //       });
+  });
+</script>
 <div>
   <span>
   <input type="button" class="btn btn-primary" id="KCBbot" value="KC Bot 1" onclick="showKCB1()"></li>
@@ -57,6 +75,8 @@
 
 <button class="our_button" onclick="aptrinsic('track', 'Like');" type="button"><span>Yes</span></button>
 </main>
+
+
 <article class="main">   
    
     <footer>
