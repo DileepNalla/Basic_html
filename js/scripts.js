@@ -454,6 +454,10 @@ function feedback_triggered(){
     aptrinsic('track', 'feedback given');
 }
 
+function triggersurvey(){
+    aptrinsic('track', 'triggerNPS');
+}
+
 function transactiondone(ev1) {
 
     console.log(ev1.type, ev1.detail);
