@@ -51,6 +51,8 @@ var configone = {
     filterUrls: ["*/About.HTML"],
     filterType: "mask"
 };
+
+var configthree = {kcAllowedFuncNames : ["allowedLink"]};
 (function (n, t, a, e, co) {
     var i = "aptrinsic";
     n[i] = n[i] || function () {
@@ -61,7 +63,7 @@ var configone = {
     r.async = !0, r.src = a + "?a=" + e;
     var c = t.getElementsByTagName("script")[0];
     c.parentNode.insertBefore(r, c)
-})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2"
+})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2",configthree
     // {
     //     "htmlSanitization": true,
     //     "htmlSanitizationAllowedDomains": ["https://dileepnalla.github.io"],    
@@ -456,10 +458,7 @@ function feedback_triggered(){
 
 function triggersurvey(){
     aptrinsic('track', 'triggerNPS');
-    HS.beacon.ready(function() {
-        // Open the Beacon as soon as it's ready
-        this.open();
-      });
+    
 }
 
 function transactiondone(ev1) {
