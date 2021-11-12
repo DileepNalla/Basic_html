@@ -52,7 +52,7 @@ var configone = {
     filterType: "mask"
 };
 
-var configthree = {kcAllowedFuncNames : ["allowedLink"]};
+var configthree = {kcAllowedFuncNames : ["triggersurvey"]};
 (function (n, t, a, e, co) {
     var i = "aptrinsic";
     n[i] = n[i] || function () {
