@@ -456,6 +456,10 @@ function feedback_triggered(){
 
 function triggersurvey(){
     aptrinsic('track', 'triggerNPS');
+    HS.beacon.ready(function() {
+        // Open the Beacon as soon as it's ready
+        this.open();
+      });
 }
 
 function transactiondone(ev1) {
