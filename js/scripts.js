@@ -52,7 +52,7 @@ var configone = {
     filterType: "mask"
 };
 
-var configthree = {kcAllowedFuncNames : ["triggersurvey"]};
+var configthree = {kcAllowedFuncNames : ["launchZendeskChat"]};
 (function (n, t, a, e, co) {
     var i = "aptrinsic";
     n[i] = n[i] || function () {
@@ -200,6 +200,21 @@ function showengagement() {
         "ID_required": true
     });
 }
+function launchZendeskChat(){
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.id = "ze-snippet"
+    script.src = "https://static.zdassets.com/ekr/snippet.js?key=b153014d-0b56-4fef-a6d3-dae44d8fb6bb";
+    script.onreadystatechange = handler1;
+    script.onload = handler1;
+// Fire the loading
+    head.appendChild(script);
+    function handler1() {
+        console.log('Chat Bot added :)');
+    }
+    
+}
+
 
 
 
