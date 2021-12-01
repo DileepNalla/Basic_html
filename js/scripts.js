@@ -412,7 +412,7 @@ document.addEventListener('DOMContentLoaded', function () {
         onDone: Function, // optional
         onError: Function // optional
       });
-      alert('KCB executed');
+    
     let m = document.getElementById('paymentbutton');
     //let m = document.querySelector('main');
     addButton(m);
