@@ -408,6 +408,11 @@ let feedback = new CustomEvent('feedback')
 // refer this lecture to understand the custom events 
 //https://gainsight.udemy.com/course/modern-javascript-from-the-beginning/learn/lecture/8757278#overview
 document.addEventListener('DOMContentLoaded', function () {
+    aptrinsic('kcb', 'show', {
+        onDone: Function, // optional
+        onError: Function // optional
+      });
+      alert('KCB executed');
     let m = document.getElementById('paymentbutton');
     //let m = document.querySelector('main');
     addButton(m);
