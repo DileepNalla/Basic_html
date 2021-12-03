@@ -37,12 +37,7 @@ var cookieParts = _px_getCookie(PX_COOKIE).split('.')
 var anonymous = cookieParts.length != 4 || cookieParts[2] === "0"
 console.log("anonymous:" + anonymous + cookieParts);
 
-if (anonymous) {
-    aptrinsic("identify", {
-        //User Fields
-        "id": "fake-user-id" // Required for logged in app users
-    })
-}
+
 
 //    Adding JQuery
 var head = document.getElementsByTagName('head')[0];
@@ -100,6 +95,15 @@ var configthree = {
     //     }
 
 )
+
+if (anonymous) {
+    aptrinsic("identify", {
+        //User Fields
+        "id": "fake-user-id" // Required for logged in app users
+    })
+}
+
+
 
 //AP-6WAJA3OATHHI-2, AP-DRTELDXGAMXI-2 Replace this later on after testing by Zendesk
 
