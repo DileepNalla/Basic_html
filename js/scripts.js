@@ -17,6 +17,28 @@ For Production Instance
 //   }}();
 
 
+function _px_getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+    const PX_COOKIE = "apt.uid";
+    var cookieParts = _px_getCookie(PX_COOKIE).split('.')
+    var anonymous = cookieParts.length != 4 || cookieParts[2] === "0"
+    console.log("anonymous:" +anonymous + cookieParts);
+    
+    
+
 //    Adding JQuery
 var head = document.getElementsByTagName('head')[0];
 var script = document.createElement('script');
@@ -408,10 +430,7 @@ let feedback = new CustomEvent('feedback')
 // refer this lecture to understand the custom events 
 //https://gainsight.udemy.com/course/modern-javascript-from-the-beginning/learn/lecture/8757278#overview
 document.addEventListener('DOMContentLoaded', function () {
-    aptrinsic('kcb', 'show', {
-        onDone: Function, // optional
-        onError: Function // optional
-      });
+    
     
     let m = document.getElementById('paymentbutton');
     //let m = document.querySelector('main');
