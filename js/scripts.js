@@ -40,7 +40,7 @@ console.log("anonymous:" + anonymous + cookieParts);
 if (anonymous) {
     aptrinsic("identify", {
         //User Fields
-        "id": "fake-user-id", // Required for logged in app users
+        "id": "fake-user-id" // Required for logged in app users
     })
 }
 
