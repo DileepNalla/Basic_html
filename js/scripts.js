@@ -433,7 +433,7 @@ var transactionStatus = "Success";
 let purchaseinitiated = new CustomEvent('purchaseinitiated', {
     detail: {
         itemName: this.Productname,
-        itemSize: this.Validity
+        Validity: this.Validity
     }
 })
 let transactionsuccess = new CustomEvent('transactionsuccess', {
@@ -488,7 +488,7 @@ function purchasedone(ev) {
     // Write your PX code here to track the custom events 
     aptrinsic('track', 'purchaseinitiated', {
         itemName: ev.detail.itemName,
-        itemSize: ev.detail.itemSize
+        Validity: ev.detail.Validity
     });
 }
 
