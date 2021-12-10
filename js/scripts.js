@@ -424,16 +424,16 @@ var counter = 0;
 // Section - 1: Defining the purchse Process
 
 
-var Productname = "Jeans";
-var Productsize = "Medium";
-var Productprice = 7800;
+var Productname = "ReactJS";
+var Validity = "17-April-2022";
+var Productprice = "$40";
 var transactionStatus = "Success";
 
 
 let purchaseinitiated = new CustomEvent('purchaseinitiated', {
     detail: {
         itemName: this.Productname,
-        itemSize: this.Productsize
+        itemSize: this.Validity
     }
 })
 let transactionsuccess = new CustomEvent('transactionsuccess', {
