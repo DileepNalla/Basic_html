@@ -541,15 +541,10 @@ function showKCB1() {
     aptrinsic('bot', 'show', {
         id: "3d8b06d9-06ea-4518-8ef2-78564a5a173e"
     }); // We can also specific ID
+    // This is for Embeded KCB using UI Element
 
 }
 
-function showKCB2() {
-    aptrinsic('bot', 'show', {
-        id: "9ba7fb81-e8d1-4ec2-9b7c-36bf643e9981"
-    }); // We can also specific ID
-
-}
 
 
 function captureonlyforsession() {
