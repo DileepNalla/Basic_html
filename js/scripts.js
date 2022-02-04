@@ -87,7 +87,8 @@ var configthree = {
     r.async = !0, r.src = a + "?a=" + e;
     var c = t.getElementsByTagName("script")[0];
     c.parentNode.insertBefore(r, c)
-})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2", configthree
+})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-HHUVBADW9YGV-2", configthree
+    //AP-6WAJA3OATHHI-2
     // {
     //     "htmlSanitization": true,
     //     "htmlSanitizationAllowedDomains": ["https://dileepnalla.github.io"],    
