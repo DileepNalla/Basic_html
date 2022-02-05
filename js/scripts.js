@@ -210,6 +210,9 @@ window['_fs_namespace'] = 'FS';
 //   var i="aptrinsic";n[i]=n[i]||function(){ (n[i].q=n[i].q||[]).push(arguments)},
 //   n[i].p = e; n[i].c = x; var r= t.createElement("script"); r.async=!0, r.src=a+"?a="+e; var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)}) (window, document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-6WAJA3OATHHI-2",configtwo);
 
+
+
+
 function callglobal() //https://share.vidyard.com/watch/9DHjPPiqZQc7czUnjorcxA?
 {
     aptrinsic('set', 'globalContext', {
@@ -418,6 +421,12 @@ function allowlogin(usermail) {
 allowlogin.prototype.greeting = function () {
     return `hello welcome ${this.a}`
 };
+
+
+
+aptrinsic('set', 'globalContext', {
+    "Product Name": "Basic HTML"
+});
 
 
 var counter = 0;
