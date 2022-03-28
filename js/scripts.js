@@ -87,16 +87,16 @@ var configthree = {
     r.async = !0, r.src = a + "?a=" + e;
     var c = t.getElementsByTagName("script")[0];
     c.parentNode.insertBefore(r, c)
-})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2", configthree
-    //AP-6WAJA3OATHHI-2
-    //AP-GT3SCXV8B3YW-2 -- Product 1 Tag key
-    
-    //AP-HHUVBADW9YGV-2 -- Product 2 Tag key
+})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2",configthree   
     // {
     //     "htmlSanitization": true,
     //     "htmlSanitizationAllowedDomains": ["https://dileepnalla.github.io"],    
     //     "engagementChecksumFileUrl": "https://raw.githubusercontent.com/DileepNalla/Basic_html/master/checksums.json"
     //     }
+     //AP-6WAJA3OATHHI-2
+    //AP-GT3SCXV8B3YW-2 -- Product 1 Tag key
+    
+    //AP-HHUVBADW9YGV-2 -- Product 2 Tag key
 
 )
 

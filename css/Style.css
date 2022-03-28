@@ -1,6 +1,7 @@
 body{
     background: #F4f4f4;
     margin: 0;
+    font-family: 'Montserrat';
 }
 
 .Link-title{
@@ -34,7 +35,7 @@ body{
     color : #c5d6db;
     text-decoration: none;
     font-size: 14px;
-    font-family: "Arial Narrow";  
+    font-family: 'Montserrat';
 }
 
 .menu a:hover{
@@ -52,7 +53,7 @@ h1{
     margin: 0px;
     color: #869843;
     font-size: 24px;
-    font-family: "Myriad Pro";
+    font-family: "Montserrat";
     font-weight: Normal;
 }
 
@@ -66,7 +67,7 @@ h2{
 .main{
     margin: 0 0 0 150px;
     padding: 35px 40px 30px 0;
-    font-family: "Georgia";
+    font-family: "Montserrat";
     color: #444444;
     font-size: 13px;
     line-height: 18px;
@@ -84,7 +85,7 @@ h2{
 footer{
     padding: 6px 40px 6px 40px;
     background: #6d6d6d;
-    font-family: "Lucida Sans Unicode";
+    font-family: "Montserrat";
     font-size: 11px;
     text-align: justify;
     
@@ -167,7 +168,7 @@ footer a{
 
 #demo {
         margin: 30px 0 50px 0;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-family: Montserrat Neue, Helvetica, Arial, sans-serif;
     }
     
     #demo .wrapper {
@@ -304,7 +305,7 @@ background-color: #06f263;
         user-select: none;
         vertical-align: middle;
         transition: color 0.2s ease-out 0s, background-color 0.2s ease-out 0s;
-        font-family: Lato;
+        font-family: Montserrat;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -562,7 +563,7 @@ background-color: #06f263;
     text-decoration: none;
     background: #0069ed;
     color: #ffffff;
-    font-family: sans-serif;
+    font-family: Montserrat;
     font-size: 1rem;
     line-height: 1;
     cursor: pointer;
