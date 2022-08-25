@@ -73,7 +73,7 @@ var configtwo = {
     fullDomainCookie: true
 };
 var configone = {
-    filterUrls: ["*/"+resulturl],
+    filterUrls: ["*/About.HTML"],
     filterType: "mask"
 };
 
