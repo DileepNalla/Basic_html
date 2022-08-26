@@ -73,7 +73,7 @@ var configtwo = {
     fullDomainCookie: true
 };
 
-if(resulturl.includes(contact)){
+if(resulturl.includes("contact")){
     var configone = {
         filterUrls: ["*/Contact.HTML"],
         filterType: "mask"
