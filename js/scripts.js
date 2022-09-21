@@ -279,17 +279,17 @@ function allowlogin(usermail) {
     var a = document.getElementById("usermail").value;
     var b;
     const myaccount = {
-        a1: "PX_Company-1",
-        a2: "PX_Company-2",
-        a3: "PX_Company-3",
-        a4: "PX_Company-4"
+        a1: "PX_Company-10",
+        a2: "PX_Company-20",
+        a3: "PX_Company-30",
+        a4: "PX_Company-40"
 
     }
     var c;
 
 
     if (a != "") {
-        if (a == "dileepnalla29@gmail.com" || a == "vasudha.mariserla@gmail.com" || a == "dileepnalla6@gmail.com" || a == "dnalla@gainsight.com" || a == "demouser@gmail.com") {
+        if (a == "dileepnalla29@gmail.com" || a == "y09me034@gmail.com" || a == "dileepnalla6@gmail.com" || a == "dnalla@gainsight.com" || a == "demouser@gmail.com") {
             alert("valid User");
             b = a.substr(8, 5);
             var id = b;
