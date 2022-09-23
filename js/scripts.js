@@ -334,8 +334,8 @@ function allowlogin(usermail) {
 
                     {
                         //Account Fields
-                        "id": myaccount.a3, //Required
-                        "name": myaccount.a3,
+                        "id": myaccount.a1, //Required
+                        "name": myaccount.a1,
                         // flat custom attributes
                     });
             } else if (a == 'demouser@gmail.com') {
