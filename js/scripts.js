@@ -282,7 +282,8 @@ function allowlogin(usermail) {
         a1: "1P02N2O3HJFZDMR72BQ1ITZ36JWWW92DAMFR",
         a2: "1P02N2O3HJFZDMR72BZ8RJ62ZF1EJWQBV7G3",
         a3: "1P02N2O3HJFZDMR72B8P7ILYJVLZWGLQ5ENV",
-        a4: "1P02N2O3HJFZDMR72BNYO3ZSAL5U6L7BQ421"
+        a4: "1P02N2O3HJFZDMR72BNYO3ZSAL5U6L7BQ421",
+        a5: "1P02N2O3HJFZDMR72BAJN72MCCYJOU5JRR77"
 
     }
     var c;
@@ -369,6 +370,23 @@ function allowlogin(usermail) {
                         //Account Fields
                         "id": myaccount.a3, //Required
                         "name": myaccount.a3,
+                        // flat custom attributes
+                    });
+            } 
+            else if (a == 'sidfarm@dummy.com') {
+                aptrinsic('identify', {
+                        //User Fields
+                        "id": id, // Required for logged in app users
+                        "email": a,
+                        "subscriptionId": "e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
+
+                        // "userHash": hash.toString()// optional transient for HMAC identification
+                    },
+
+                    {
+                        //Account Fields
+                        "id": myaccount.a5, //Required
+                        "name": myaccount.a5,
                         // flat custom attributes
                     });
             } 
