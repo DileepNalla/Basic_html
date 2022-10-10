@@ -322,7 +322,7 @@ function allowlogin(usermail) {
                         "name": myaccount.a4,
                         // flat custom attributes
                     });
-            } else if (a == 'dileepnalla6@gmail.com') {
+            } else if (a == 'dileepnalla6@gmail.com'||"gsuser@gmail.com") {
                 aptrinsic('identify', {
                         //User Fields
                         "id": id, // Required for logged in app users
