@@ -290,7 +290,7 @@ function allowlogin(usermail) {
 
 
     if (a != "") {
-        if (a == "dileepnalla29@gmail.com" || a == "y09me034@gmail.com"|| a == "sid@dummy.com" || a == "dileepnalla6@gmail.com" || a == "dnalla@gainsight.com" || a == "demouser@gmail.com"||a == "gsuser@gmail.com"|| a == "nareshkumar564@gmail.com"|| a == "dilsfarm@gmail.com") {
+        if (a == "dileepnalla29@gmail.com" || a == "y09me034@gmail.com"|| a == "sid@dummy.com" || a == "dileepnalla6@gmail.com" || a == "dnalla@gainsight.com" || a == "demouser@gmail.com"||a == "gsuser@gmail.com"|| a == "nareshkumar564@gmail.com"|| a == "dilsfarm@gmail.com"|| a == "gsuser@test.com") {
             alert("valid User");
             b = a.substr(8, 5);
             var id = b;
