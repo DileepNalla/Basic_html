@@ -788,9 +788,9 @@ function showOffer1(){
     aptrinsic('track', 'ShowOffer');
 
 };
-function showOffer1(){
+function showOffer2(){
     aptrinsic('track', 'ShowOffer');
 };
-function showOffer1(){
+function showOffer3(){
     aptrinsic('track', 'ShowOffer');
 };
