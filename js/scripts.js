@@ -782,3 +782,15 @@ function filterTasks(e) {
         }
     );
 }
+
+
+function showOffer1(){
+    aptrinsic('track', 'ShowOffer');
+
+};
+function showOffer1(){
+    aptrinsic('track', 'ShowOffer');
+};
+function showOffer1(){
+    aptrinsic('track', 'ShowOffer');
+};
