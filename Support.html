@@ -11,8 +11,43 @@
 </head>
 
 <body>
+    <header class="header">
+        <Input type="button" class="open-button" onclick="openForm()" value="Contact Support"></Input>
+        <div class="form-popup" id="myForm">
+            <form action="/" class="Sform-container">
+                <h1>Submit a Ticket</h1>
+                <br />
+                <hr>
+                <label for="URL"><b>URL</b></label>
+                <p id="url"></p>
+                <br />
+                <span>
+                    <label for="Category"><b>Category:</b></label>
+                    <select id="category">
+                        <option value="">--select--</option>
+                        <option id="issue" value="Issue">Issue</option>
+                        <option id="Feature" value="Feature request">Feature Request</option>
+                        <option id="BestPractice" value="Best practice help">Best Practice</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </span>
+                <br />
+                <br />
+                <label for="Subject"><b>Subject</b></label>
+                <input type="text" id="subject" name="Subject">
+                <br />
+                <label for="Description"><b>Description</b></label>
+                <textarea name="Message" id="description" cols="30" rows="10" required>
+                </textarea>
+                <br />
+    
+    
+                <button type="submit" class="btn" onclick="createTicket()">Submit</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+      </header>
     <nav class="menu">
-
         <a href="./Index.HTML">Home</a> &nbsp;&nbsp;&nbsp;
         <a href="./About.HTML">About Us</a>&nbsp;&nbsp;&nbsp;
         <a href="./Contact.HTML">Contact</a> &nbsp;&nbsp;&nbsp;
@@ -23,38 +58,7 @@
         <a href="./Login.HTML" onclick="deleteAllCookies()">Logout</a>
     </nav>
 
-    <Input type="button" class="open-button" onclick="openForm()" value="Contact Support"></Input>
-    <div class="form-popup" id="myForm">
-        <form action="/" class="Sform-container">
-            <h1>Submit a Ticket</h1>
 
-            <label for="URL"><b>URL</b></label>
-
-            <p id="url"></p>
-
-            <label for="Category"><b>Category:</b></label>
-            <select id="category">
-                <option value="">--select--</option>
-                <option id="issue" value="issue">Issue</option>
-                <option id="Feature" value="Feature">Feature</option>
-                <option id="BestPractice" value="Best Practice">Best Practice</option>
-                <option value="Other">Other</option>
-            </select>
-
-
-            <br />
-            <label for="Subject"><b>Subject</b></label>
-            <input type="text" id="subject" name="Subject">
-
-            <label for="Description"><b>Description</b></label>
-            <textarea name="Message" id="description" cols="30" rows="10" required>
-            </textarea>
-
-
-            <button type="submit" class="btn" onclick="createTicket()">Submit</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-        </form>
-    </div>
 </body>
 
 </html>

@@ -3,8 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Widget Page</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
   <link rel="stylesheet" type ="text/css" href="css/Style.css">
   <script type="text/javascript" src="js/scripts.js"></script> 
     <style>
@@ -15,21 +14,52 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
-<body id="about-page">
+<body>
 <div class="container">
   <header class="header">
     <a class="Link-title" href="./Index.HTML">Website Page</a>
+    <Input type="button" class="open-button" onclick="openForm()" value="Contact Support"></Input>
+    <div class="form-popup" id="myForm">
+        <form action="/" class="Sform-container">
+            <h1>Submit a Ticket</h1>
+            <br />
+            <hr>
+            <label for="URL"><b>URL</b></label>
+            <p id="url"></p>
+            <br />
+            <span>
+                <label for="Category"><b>Category:</b></label>
+                <select id="category">
+                    <option value="">--select--</option>
+                    <option id="issue" value="Issue">Issue</option>
+                    <option id="Feature" value="Feature request">Feature Request</option>
+                    <option id="BestPractice" value="Best practice help">Best Practice</option>
+                    <option value="Other">Other</option>
+                </select>
+            </span>
+            <br />
+            <br />
+            <label for="Subject"><b>Subject</b></label>
+            <input type="text" id="subject" name="Subject">
+            <br />
+            <label for="Description"><b>Description</b></label>
+            <textarea name="Message" id="description" cols="30" rows="10" required>
+            </textarea>
+            <br />
+
+
+            <button type="submit" class="btn" onclick="createTicket()">Submit</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
   </header>
-  
   <nav class="menu">
-  
     <a href="./Index.HTML">Home</a> &nbsp;&nbsp;&nbsp;
     <a href="./About.HTML">About Us</a>&nbsp;&nbsp;&nbsp;
     <a href="./Contact.HTML">Contact</a> &nbsp;&nbsp;&nbsp;
     <a href="./Widget.html">Widget</a> &nbsp;&nbsp;&nbsp;
     <a href="./Payment.html">Payment</a> &nbsp;&nbsp;&nbsp;
     <a href="./dataloader.html">DataLoader</a> &nbsp;&nbsp;&nbsp;
-    <a href="./Support.html">DataLoader</a> &nbsp;&nbsp;&nbsp;
     <a href="./Login.HTML" onclick="deleteAllCookies()">Logout</a>
   </nav>
   <script>
@@ -71,15 +101,7 @@
     <p>Drag me around - Pink</p>
   </div>
 </div>
-<div>
-  <div style="color: #FFFFFF;">Did you Like this Feature?</div>
-  <br>
-  <div>
-    
-    <span><a href=""><img src="" alt="Yes" width="38.5729" height="16.6667" class="fr-fic fr-dii" onclick="aptrinsic('track', 'Like');"></a></span> 
-    <span><a href=""><img src="" alt="No" width="33.9375" height="16.6667" class="fr-fic fr-dii" onclick="aptrinsic('track', 'Dislike');"></a></span>
-  </div>
-</div>
+
 
 
 </body>

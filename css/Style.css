@@ -107,7 +107,7 @@ footer a{
 
 #about-page #home-image img{
     
-    width: 70%;
+    width: 60%;
     float: left;
     margin-bottom: 20px;
 
@@ -589,31 +589,32 @@ our_button:focus {
 /**CSS for In App Support Feedback Button**/
 
 .open-button {
-  background-color: #26d37d;
+  background-color: #3b7687;
+  border-radius: 100px;
   color: white;
   padding: 16px 20px;
   border: none;
   cursor: pointer;
   opacity: 0.8;
-  position: fixed;
-  bottom: 230px;
+  position: absolute;
+  top: 15px;
   right: 350px;
-  width: 280px;
+  width: 150px;
 }
 .form-popup {
   display: none;
-  position: fixed;
-  bottom: 0;
+  position: absolute;
+  top: 5;
   right: 350px;
   border: 3px solid #f1f1f1;
   z-index: 9;
 }
 .Sform-container {
   max-width: 300px;
-  padding: 10px;
+  padding: 50px;
   background-color: white;
 }
-.Sform-container input[type=text], .Sform-container input[type=password] {
+.Sform-container input[type=text],#category {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -621,7 +622,7 @@ our_button:focus {
   background: #f1f1f1;
 }
 /* When the inputs get focus, do something */
-.Sform-container input[type=text]:focus, .Sform-container input[type=password]:focus {
+.Sform-container input[type=text]:focus, #category{
   background-color: #ddd;
   outline: none;
 }

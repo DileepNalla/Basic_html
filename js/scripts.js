@@ -817,12 +817,11 @@ function closeForm() {
 }
 
 function captureFeedback() {
-    var url;
     var subject = document.getElementById('subject').value;
     var description = document.getElementById('description').value;
-    url = resulturl;
+    var url = resulturl;
     var e = document.getElementById('category');
     var category = e.options[e.selectedIndex].text;
+    aptrinsic('send', 'feedback', { 'category': category,'link':url,'subject': subject, 'description': description });
     aptrinsic('track', 'Ticket Created');
-    aptrinsic('send', 'feedback', { 'category': category, 'subject': subject, 'description': description });
 }
