@@ -18,7 +18,7 @@ For Production Instance
 
 var tempurl = window.location.href;
 var resulturl = tempurl.toLowerCase();
-console.log (resulturl);
+console.log(resulturl);
 
 function _px_getCookie(cname) {
     var name = cname + "=";
@@ -73,7 +73,7 @@ var configtwo = {
     fullDomainCookie: true
 };
 
-if(resulturl.includes("contact")){
+if (resulturl.includes("contact")) {
     var configone = {
         filterUrls: ["*/Contact.HTML"],
         filterType: "mask"
@@ -95,15 +95,15 @@ var configthree = {
     r.async = !0, r.src = a + "?a=" + e;
     var c = t.getElementsByTagName("script")[0];
     c.parentNode.insertBefore(r, c)
-})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2",configone  
+})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2", configone
     // {
     //     "htmlSanitization": true,
     //     "htmlSanitizationAllowedDomains": ["https://dileepnalla.github.io"],    
     //     "engagementChecksumFileUrl": "https://raw.githubusercontent.com/DileepNalla/Basic_html/master/checksums.json"
     //     }
-     //AP-6WAJA3OATHHI-2
+    //AP-6WAJA3OATHHI-2
     //AP-GT3SCXV8B3YW-2 -- Product 1 Tag key
-    
+
     //AP-HHUVBADW9YGV-2 -- Product 2 Tag key
 
 )
@@ -179,7 +179,7 @@ window['_fs_namespace'] = 'FS';
         v.acctId = i;
         g(o, v)
     };
-    g.clearUserCookie = function () {};
+    g.clearUserCookie = function () { };
     g.setVars = function (n, p) {
         g('setVars', [n, p]);
     };
@@ -290,7 +290,7 @@ function allowlogin(usermail) {
 
 
     if (a != "") {
-        if (a == "dileepnalla29@gmail.com" || a == "y09me034@gmail.com"|| a == "sid@dummy.com" || a == "dileepnalla6@gmail.com" || a == "dnalla@gainsight.com" || a == "demouser@gmail.com"||a == "gsuser@gmail.com"|| a == "nareshkumar564@gmail.com"|| a == "dilsfarm@gmail.com"|| a == "gsuser@test.com") {
+        if (a == "dileepnalla29@gmail.com" || a == "y09me034@gmail.com" || a == "sid@dummy.com" || a == "dileepnalla6@gmail.com" || a == "dnalla@gainsight.com" || a == "demouser@gmail.com" || a == "gsuser@gmail.com" || a == "nareshkumar564@gmail.com" || a == "dilsfarm@gmail.com" || a == "gsuser@test.com") {
             alert("valid User");
             b = a.substr(8, 5);
             var id = b;
@@ -309,13 +309,13 @@ function allowlogin(usermail) {
 
             if (a == 'dileepnalla29@gmail.com') {
                 aptrinsic('identify', {
-                        //User Fields
-                        "id": "0057F000001wxPcQAIMandiantUsecase", // Required for logged in app users
-                        "email": a,
-                        "subscriptionId": "e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
+                    //User Fields
+                    "id": "0057F000001wxPcQAIMandiantUsecase", // Required for logged in app users
+                    "email": a,
+                    "subscriptionId": "e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
 
-                        // "userHash": hash.toString()// optional transient for HMAC identification
-                    },
+                    // "userHash": hash.toString()// optional transient for HMAC identification
+                },
 
                     {
                         //Account Fields
@@ -323,15 +323,15 @@ function allowlogin(usermail) {
                         "name": myaccount.a4,
                         // flat custom attributes
                     });
-            } else if (a == 'dileepnalla6@gmail.com'||a== "gsuser@gmail.com") {
+            } else if (a == 'dileepnalla6@gmail.com' || a == "gsuser@gmail.com") {
                 aptrinsic('identify', {
-                        //User Fields
-                        "id": id, // Required for logged in app users
-                        "email": a,
-                        "subscriptionId": "e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
+                    //User Fields
+                    "id": id, // Required for logged in app users
+                    "email": a,
+                    "subscriptionId": "e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
 
-                        // "userHash": hash.toString()// optional transient for HMAC identification
-                    },
+                    // "userHash": hash.toString()// optional transient for HMAC identification
+                },
 
                     {
                         //Account Fields
@@ -341,13 +341,13 @@ function allowlogin(usermail) {
                     });
             } else if (a == 'demouser@gmail.com') {
                 aptrinsic('identify', {
-                        //User Fields
-                        "id": id, // Required for logged in app users
-                        "email": a,
-                        "subscriptionId": "e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
+                    //User Fields
+                    "id": id, // Required for logged in app users
+                    "email": a,
+                    "subscriptionId": "e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
 
-                        // "userHash": hash.toString()// optional transient for HMAC identification
-                    },
+                    // "userHash": hash.toString()// optional transient for HMAC identification
+                },
 
                     {
                         //Account Fields
@@ -355,16 +355,16 @@ function allowlogin(usermail) {
                         "name": myaccount.a2,
                         // flat custom attributes
                     });
-            } 
+            }
             else if (a == 'dilsfarm@gmail.com') {
                 aptrinsic('identify', {
-                        //User Fields
-                        "id": id, // Required for logged in app users
-                        "email": a,
-                        "subscriptionId": "e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
+                    //User Fields
+                    "id": id, // Required for logged in app users
+                    "email": a,
+                    "subscriptionId": "e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
 
-                        // "userHash": hash.toString()// optional transient for HMAC identification
-                    },
+                    // "userHash": hash.toString()// optional transient for HMAC identification
+                },
 
                     {
                         //Account Fields
@@ -372,16 +372,16 @@ function allowlogin(usermail) {
                         "name": myaccount.a3,
                         // flat custom attributes
                     });
-            } 
+            }
             else if (a == 'sid@dummy.com') {
                 aptrinsic('identify', {
-                        //User Fields
-                        "id": id, // Required for logged in app users
-                        "email": a,
-                        "subscriptionId": "e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
+                    //User Fields
+                    "id": id, // Required for logged in app users
+                    "email": a,
+                    "subscriptionId": "e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
 
-                        // "userHash": hash.toString()// optional transient for HMAC identification
-                    },
+                    // "userHash": hash.toString()// optional transient for HMAC identification
+                },
 
                     {
                         //Account Fields
@@ -389,17 +389,17 @@ function allowlogin(usermail) {
                         "name": myaccount.a5,
                         // flat custom attributes
                     });
-            } 
-            
+            }
+
             else {
                 aptrinsic('identify', {
-                        //User Fields
-                        "id": id, // Required for logged in app users
-                        "email": a,
-                        "subscriptionId": "e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
+                    //User Fields
+                    "id": id, // Required for logged in app users
+                    "email": a,
+                    "subscriptionId": "e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
 
-                        // "userHash": hash.toString()// optional transient for HMAC identification
-                    },
+                    // "userHash": hash.toString()// optional transient for HMAC identification
+                },
 
                     {
                         //Account Fields
@@ -784,13 +784,45 @@ function filterTasks(e) {
 }
 
 
-function showOffer1(){
+function showOffer1() {
     aptrinsic('track', 'ShowOffer');
 
 };
-function showOffer2(){
+function showOffer2() {
     aptrinsic('track', 'ShowOffer');
 };
-function showOffer3(){
+function showOffer3() {
     aptrinsic('track', 'ShowOffer');
 };
+
+
+// Code for Contact Support In app feedback
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+    document.addEventListener("click", getUrl);
+    function getUrl() {
+        document.getElementById("url").innerHTML = resulturl;
+    }
+
+}
+
+function createTicket() {
+    captureFeedback();
+    alert('Ticket Created Successfully');
+
+}
+
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}
+
+function captureFeedback() {
+    var url;
+    var subject = document.getElementById('subject').value;
+    var description = document.getElementById('description').value;
+    url = resulturl;
+    var e = document.getElementById('category');
+    var category = e.options[e.selectedIndex].text;
+    aptrinsic('track', 'Ticket Created');
+    aptrinsic('send', 'feedback', { 'category': category, 'subject': subject, 'description': description });
+}
