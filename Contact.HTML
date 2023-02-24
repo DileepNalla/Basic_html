@@ -17,17 +17,18 @@
             <h1>Submit a Ticket</h1>
             <br />
             <hr>
-            <label for="URL"><b>URL</b></label>
-            <p id="url"></p>
+            <!-- <label for="URL"><b>URL</b></label>
+            <p id="url"></p> -->
             <br />
             <span>
                 <label for="Category"><b>Category:</b></label>
                 <select id="category">
                     <option value="">--select--</option>
-                    <option id="issue" value="Issue">Issue</option>
-                    <option id="Feature" value="Feature request">Feature Request</option>
-                    <option id="BestPractice" value="Best practice help">Best Practice</option>
-                    <option value="Other">Other</option>
+                    <option id="cat1" value="Custom Feedback Category -1">Custom Feedback Category -1</option>
+                    <option id="cat2" value="Custom Feedback Category -2">Custom Feedback Category -2</option>
+                    <option id="cat3" value="Custom Feedback Category -3">Custom Feedback Category -3</option>
+                    <option id="cat4" value="Custom Feedback Category -4">Custom Feedback Category -4</option>
+                    
                 </select>
             </span>
             <br />
@@ -39,9 +40,8 @@
             <textarea name="Message" id="description" cols="30" rows="10" required>
             </textarea>
             <br />
-
-
             <button type="submit" class="btn" onclick="createTicket()">Submit</button>
+            
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
         </form>
     </div>
