@@ -817,11 +817,13 @@ function closeForm() {
 }
 
 function captureFeedback() {
+    // Below are the variables that capture the required date for the feedback api object
     var subject = document.getElementById('subject').value;
     var description = document.getElementById('description').value;
     var url = resulturl;
     var e = document.getElementById('category');
     var category = e.options[e.selectedIndex].text;
+    // Below code captures feedback - Gainsight_PX_User_Feedback_API
     aptrinsic('send', 'feedback', { 'category': category,'link':url,'subject': subject, 'description': description });
-    aptrinsic('track', 'Ticket Created');
+    //aptrinsic('track', 'Ticket Created');
 }
