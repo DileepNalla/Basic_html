@@ -38,19 +38,20 @@
  <main>  
 <span id="paymentbutton"></span>
 <p>This page turns violet when you hold the V key.</p>
+<p>This page turns Green when you hold the Q key.</p>
 <script>
   addEventListener("keydown", function(event) {
-    if (event.keyCode == 86)
-      document.body.style.background = "violet";
-      //aptrinsic('track', 'Hotkey Event', {  hotkeyValue: event.keyCode, eventType: "keydown"        });
+    if (event.keyCode == 86||event.keyCode== 81)
+      aptrinsic('track', 'Hotkey Event', {hotkeyValue: event.keyCode, eventType: "keydown"});
+      event.keyCode==86?document.body.style.background = "violet":document.body.style.background = "green";
   });
   addEventListener("keyup", function(event) {
-    if (event.keyCode == 86)
+    if (event.keyCode == 86 ||event.keyCode== 81)
       document.body.style.background = "";
-      // aptrinsic('track', 'Hotkey Event', {
-      //           hotkeyValue: event.keyCode,
-      //           eventType: "keyup"
-      //       });
+       aptrinsic('track', 'Hotkey Event', {
+                 hotkeyValue: event.keyCode,
+                eventType: "keyup"
+             });
   });
 </script>
 <div>
