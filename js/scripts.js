@@ -823,9 +823,12 @@ function captureFeedback() {
     var url = resulturl;
     var e = document.getElementById('category');
     var category = e.options[e.selectedIndex].text;
-
-    
+    //document.getElementById('category').options.selectedIndex.text
     // Below code captures feedback - Gainsight_PX_User_Feedback_API
-    aptrinsic('send', 'feedback', { 'category': category,'link':url,'subject': subject, 'description': description });
+  //  aptrinsic('send', 'feedback', { 'category': category,'link':url,'subject': subject, 'description': description });
+   console.log(document.getElementById('category').value);
+
+
+   aptrinsic('send', 'feedback', { 'category':  document.getElementById('category').value,'subject': document.getElementById('subject').value, 'description': document.getElementById('description').value });
 
 }
