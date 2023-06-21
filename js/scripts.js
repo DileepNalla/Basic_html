@@ -278,6 +278,14 @@ function allowlogin(usermail) {
     //var a = document.form.usermail.value;
     var a = document.getElementById("usermail").value;
     var b;
+    var e = document.getElementById("usermail").value;
+    var historicalemail;
+    if (a!=e)
+    {
+        e = historicalemail +';'+e;
+        historicalemail = e;
+        e=='';
+    }
     const myaccount = {
         a1: "1P02N2O3HJFZDMR72BQ1ITZ36JWWW92DAMFR",
         a2: "1P02N2O3HJFZDMR72BZ8RJ62ZF1EJWQBV7G3",
@@ -294,6 +302,7 @@ function allowlogin(usermail) {
             alert("valid User");
             b = a.substr(8, 5);
             var id = b;
+            
             // var hash = CryptoJS.HmacSHA256(id, "9rmLVS939teSt3cILUccAPiqBBxSsQNmREc8CwpAj");
 
             //Segment Identify
@@ -326,9 +335,10 @@ function allowlogin(usermail) {
             } else if (a == 'dileepnalla6@gmail.com' || a == "gsuser@gmail.com") {
                 aptrinsic('identify', {
                     //User Fields
-                    "id": id, // Required for logged in app users
+                    "id": 123, // Required for logged in app users
                     "email": a,
-                    "subscriptionId": "e2cdcaad-5fb9-4239-92a0-1504d5e79b3c"
+                    "subscriptionId": "e2cdcaad-5fb9-4239-92a0-1504d5e79b3c",
+                    "EmailAppend":historicalemail
 
                     // "userHash": hash.toString()// optional transient for HMAC identification
                 },

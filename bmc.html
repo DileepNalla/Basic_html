@@ -1,0 +1,36 @@
+<form class="Sform-container">
+    <h1>Submit a Ticket</h1>
+    <br>
+    <hr>
+    <br>
+    <span>
+        <label for="Category">
+            <strong>Category:</strong>
+        </label>
+        <select id="category">
+            <!--value should be same a the categories that are registed in the Admin feedback section-->
+            <option value="">--select--</option>
+            <option id="cat1" value="Custom Feedback Category -1">Custom Feedback Category -1</option>
+            <option id="cat2" value="Custom Feedback Category -2">Custom Feedback Category -2</option>
+            <option id="cat3" value="Custom Feedback Category -3">Custom Feedback Category -3</option>
+            <option id="cat4" value="Custom Feedback Category -4">Custom Feedback Category -4</option>
+        </select>
+    </span>
+    <br>
+    <br>
+    <label for="Subject">
+        <strong>Subject</strong>
+    </label>
+    <input type="text" id="subject" name="Subject">
+    <br>
+    <label for="Description">
+        <strong>Description</strong>
+    </label>
+    <textarea cols="30" id="description" name="Message" required="" rows="10">	</textarea>
+    <br>
+                <!--Please use the onclick as shown below-->
+
+    <button
+        onclick="alert('Submitted Successfully');aptrinsic('send', 'feedback', { 'category':  document.getElementById('category').value,'subject': document.getElementById('subject').value, 'description': document.getElementById('description').value });alert('Thankyou')"
+        type="submit">Submit</button>
+</form>
