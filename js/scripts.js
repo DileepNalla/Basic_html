@@ -108,12 +108,12 @@ var configthree = {
 
 )
 
-if (anonymous) {
-    aptrinsic("identify", {
-        //User Fields
-        "id": "fake-user-id" // Required for logged in app users
-    })
-}
+// if (anonymous) {
+//     aptrinsic("identify", {
+//         //User Fields
+//         "id": "fake-user-id" // Required for logged in app users
+//     })
+// }
 
 
 
