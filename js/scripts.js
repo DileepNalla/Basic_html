@@ -20,25 +20,25 @@ var tempurl = window.location.href;
 var resulturl = tempurl.toLowerCase();
 console.log(resulturl);
 
-function _px_getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-const PX_COOKIE = "apt.uid";
-var cookieParts = _px_getCookie(PX_COOKIE).split('.')
-var anonymous = cookieParts.length != 4 || cookieParts[2] === "0"
-console.log("anonymous:" + anonymous + cookieParts);
+// function _px_getCookie(cname) {
+//     var name = cname + "=";
+//     var decodedCookie = decodeURIComponent(document.cookie);
+//     var ca = decodedCookie.split(';');
+//     for (var i = 0; i < ca.length; i++) {
+//         var c = ca[i];
+//         while (c.charAt(0) == ' ') {
+//             c = c.substring(1);
+//         }
+//         if (c.indexOf(name) == 0) {
+//             return c.substring(name.length, c.length);
+//         }
+//     }
+//     return "";
+// }
+// const PX_COOKIE = "apt.uid";
+// var cookieParts = _px_getCookie(PX_COOKIE).split('.')
+// var anonymous = cookieParts.length != 4 || cookieParts[2] === "0"
+// console.log("anonymous:" + anonymous + cookieParts);
 
 
 
@@ -95,7 +95,7 @@ var configthree = {
     r.async = !0, r.src = a + "?a=" + e;
     var c = t.getElementsByTagName("script")[0];
     c.parentNode.insertBefore(r, c)
-})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2", configone,configtwo
+})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2"
     // {
     //     "htmlSanitization": true,
     //     "htmlSanitizationAllowedDomains": ["https://dileepnalla.github.io"],    
