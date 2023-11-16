@@ -6,17 +6,22 @@
   <title>About Page</title>
   <link rel="stylesheet" type="text/css" href="css/Style.css">
   <!-- <script type="text/javascript" src="js/scripts.js"></script> -->
-  <script>
-    //passing user and account objects:
-aptrinsic("identify",
-  {
-  //User Fields
-    "id": "ainsi",
-    "Trail Offer": false,
-    "Department": "engg"
-
-  });
-  </script>
+  <script type="text/javascript">
+    (function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
+        (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
+      var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
+      var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
+    })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-6WAJA3OATHHI-2");
+    
+  aptrinsic("identify",
+    {
+    //User Fields
+      "id": "ainsi",
+      "Trail Offer": false,
+      "Department": "supp"
+  
+    });
+    </script>
 
 
 </head>
