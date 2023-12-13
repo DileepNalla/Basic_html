@@ -66,101 +66,139 @@
             <div>
                 <br>
 
-            <br>
-
-
-            <div>
-
-            </div>
-
-            <br>
-
-            <body>
-                <div id="content"></div>
-                <button id="prev"> Gen AI Feature </button>
                 <br>
-                <br>
+
+
                 <div>
-                    <button id="next1"> Experiment 1 </button>
-                    <button id="next2"> Experiment 2 </button>
-                    <button id="next3"> Experiment 3 </button>
+
                 </div>
 
                 <br>
-                <br>
-                <br>
-                <div>
-                    <button onclick="aptrinsic('track', 'launchexp',{'stage':'launchexp_1'});">Launch Experiment
-                        1</button>
-                    <button onclick="aptrinsic('track', 'launchexp',{'stage':'launchexp_2'});">Launch Experiment
-                        2</button>
-                    <button onclick="aptrinsic('track', 'launchexp',{'stage':'launchexp_3'});">Launch Experiment
-                        3</button>
-                    <button onclick="aptrinsic('track', 'launchexp',{'stage':'launchexp_4'});">Launch Experiment
-                        4</button>
-                </div>
-                <br>
-                <br>
-                <div>
-                    <button onclick="aptrinsic('track', 'updatestatus',{'status':'stat_sig'});">Reached Statiscal
-                        Significance</button>
-                    <button onclick="aptrinsic('track', 'launchexp',{'status':'Completed'});">Completed</button>
-                </div>
 
-                <script>
-                    var currentExperiment = 'Nil';
-                    var pathStatus = 'old';
-                    var maxPosition = 10;
-                    updateContent(currentExperiment, pathStatus);
+                <body>
+                    <div id="content"></div>
+                    <div id="launchcontent"></div>
+                    <button id="genai"> Gen AI Feature </button>
+                    <br>
+                    <br>
 
-                    document.getElementById("prev").addEventListener("click", function () {
-                        updateContent('genai', 'new');
+                    <div>
+                        <button id="exp_1"> Experiment 1 </button>
+                        <button id="exp_2"> Experiment 2 </button>
+                        <button id="exp_3"> Experiment 3 </button>
+                    </div>
 
-                    });
-                    document.getElementById("next1").addEventListener("click", function () {
-                        
-                        if (pathStatus == 'new') {
-                            updateContent('exp_1', 'new');
+                    <br>
+                    <br>
+                    <br>
+                    <div id="launchexpcontent"></div>
+
+                    <br>
+                    <br>
+                    <div id="launchstatuscontent"></div>
+
+                
+
+                    <script>
+                        var currentExperiment = 'Nil';
+                        var pathStatus = 'old';
+                        updateContent(currentExperiment, pathStatus);
+
+                        document.getElementById("genai").addEventListener("click", function () {
+                            updateContent('genai', 'new');
+                        });
+
+                        document.getElementById("exp_1").addEventListener("click", function () {
+
+                            if (pathStatus == 'new') {
+                                updateContent('exp_1', 'new');
+                                launchButton('new');
+
+                            }
+                            else {
+
+                                updateContent('exp_1', 'old');
+                                launchButton('old');
+                            }
+
+
+                        });
+                        document.getElementById("exp_2").addEventListener("click", function () {
+
+
+                            if (pathStatus == 'new') {
+                                updateContent('exp_2', 'new');
+                                launchButton('new');
+                            }
+                            else {
+
+                                updateContent('exp_2', 'old');
+                                launchButton('old');
+                            }
+
+                        });
+                        document.getElementById("exp_3").addEventListener("click", function () {
+
+                            if (pathStatus == 'new') {
+                                updateContent('exp_3', 'new');
+                                launchButton('new');
+                            } else {
+
+                                updateContent('exp_3', 'old');
+                                launchButton('old');
+                            }
+
+                        });
+
+
+
+
+                        function updateContent(ce, pS) {
+                            var content = document.getElementById("content");
+                            currentExperiment = ce
+                            pathStatus = pS
+                            content.innerHTML = "Current Experiment: " + currentExperiment + '  ' + "pathStatus:" + pathStatus + "<br> <br>";
+                            aptrinsic('track', 'trackpath', { 'pathName': currentExperiment, 'pathStatus': pathStatus });
+
                         }
-                        else {
 
-                            updateContent('exp_1', 'old');
+                        function launchButton(path) {
+                            var p1 = document.getElementById("launchexpcontent");
+                            let p2 = document.createElement('button');
+                            p2.setAttribute("id", "launch_exp");
+                            p2.textContent = "Launch Experiment"
+                            p1.appendChild(p2);
+                            aptrinsic('track', 'launch', { 'pathStatus': path });
+
+                            document.getElementById("launch_exp").addEventListener("click", function () {
+                                launchStatusbtn(path);
+                                
+                            });
+
                         }
 
-                    });
-                    document.getElementById("next2").addEventListener("click", function () {
-
-                        
-                        if (pathStatus == 'new') {
-                            updateContent('exp_2', 'new');
-                        }
-                        else {
-
-                            updateContent('exp_2', 'old');
-                        }
-
-                    });
-                    document.getElementById("next3").addEventListener("click", function () {
-                        
-                        if (pathStatus == 'new') {
-                            updateContent('exp_3', 'new');
-                        }else
-                        {
-
-                            updateContent('exp_3', 'old');
+                        function launchStatusbtn(path) {
+                            var p3 = document.getElementById("launchstatuscontent");
+                            let p4 = document.createElement('button');
+                            let p5 = document.createElement('button');
+                            p4.setAttribute("id", "stat_sig");
+                            p5.setAttribute("id", "completed");
+                            p4.textContent = "Reached Statistical Significane";
+                            p5.textContent = "completed"
+                            p3.appendChild(p4);
+                            p3.appendChild(p5);
+                            document.getElementById("stat_sig").addEventListener("click", function () {
+                                aptrinsic('track', 'finalStatus', { 'status':'stat_sig', 'pathStatus': path  });
+       
+                            })
+                            document.getElementById("completed").addEventListener("click", function () {
+                                aptrinsic('track', 'finalStatus', { 'status':'completed','pathStatus': path });
+                            })
                         }
 
-                    });
-                    function updateContent(ce, pS) {
-                        var content = document.getElementById("content");
-                        currentExperiment = ce
-                        pathStatus = pS
-                        content.innerHTML = "Current Experiment: " + currentExperiment + '  ' + "pathStatus:" + pathStatus + "<br> <br>";
-                        aptrinsic('track', 'trackpath', { 'pathName': currentExperiment, 'pathStatus': pathStatus });
-                    }
-                </script>
+                    </script>
 
 
-            </body>
+                </body>
 
 </html>
