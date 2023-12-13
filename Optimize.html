@@ -1,0 +1,171 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget Page</title>
+
+    <link rel="stylesheet" type="text/css" href="css/Style.css">
+    <script type="text/javascript" src="js/scripts.js"></script>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <a class="Link-title" href="./Index.HTML">Website Page</a>
+            <Input type="button" class="open-button" onclick="openForm()" value="Contact Support"></Input>
+            <div class="form-popup" id="myForm">
+                <form action="./Widget.html" class="Sform-container">
+                    <h1>Submit a Ticket</h1>
+                    <br />
+                    <hr>
+                    <!-- <label for="URL"><b>URL</b></label>
+          <p id="url"></p> -->
+                    <br />
+                    <span>
+                        <label for="Category"><b>Category:</b></label>
+                        <select id="category">
+                            <option value="">--select--</option>
+                            <option id="cat1" value="Custom Feedback Category -1">Custom Feedback Category -1</option>
+                            <option id="cat2" value="Custom Feedback Category -2">Custom Feedback Category -2</option>
+                            <option id="cat3" value="Custom Feedback Category -3">Custom Feedback Category -3</option>
+                            <option id="cat4" value="Custom Feedback Category -4">Custom Feedback Category -4</option>
+
+                        </select>
+                    </span>
+                    <br />
+                    <br />
+                    <label for="Subject"><b>Subject</b></label>
+                    <input type="text" id="subject" name="Subject">
+                    <br />
+                    <label for="Description"><b>Description</b></label>
+                    <textarea name="Message" id="description" cols="30" rows="10" required>
+          </textarea>
+                    <br />
+                    <button type="submit" class="btn" onclick="createTicket()">Submit</button>
+
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </form>
+            </div>
+        </header>
+        <nav class="menu">
+            <a href="./Index.HTML">Home</a> &nbsp;&nbsp;&nbsp;
+            <a href="./About.HTML">About Us</a>&nbsp;&nbsp;&nbsp;
+            <a href="./Contact.HTML">Contact</a> &nbsp;&nbsp;&nbsp;
+            <a href="./Widget.html">Widget</a> &nbsp;&nbsp;&nbsp;
+            <a href="./Payment.html">Payment</a> &nbsp;&nbsp;&nbsp;
+            <a href="./dataloader.html">DataLoader</a> &nbsp;&nbsp;&nbsp;
+            <a href="./Login.HTML" onclick="deleteAllCookies()">Logout</a>
+        </nav>
+
+        </head>
+
+        <body>
+            <div>
+                <br>
+
+            <br>
+
+
+            <div>
+
+            </div>
+
+            <br>
+
+            <body>
+                <div id="content"></div>
+                <button id="prev"> Gen AI Feature </button>
+                <br>
+                <br>
+                <div>
+                    <button id="next1"> Experiment 1 </button>
+                    <button id="next2"> Experiment 2 </button>
+                    <button id="next3"> Experiment 3 </button>
+                </div>
+
+                <br>
+                <br>
+                <br>
+                <div>
+                    <button onclick="aptrinsic('track', 'launchexp',{'stage':'launchexp_1'});">Launch Experiment
+                        1</button>
+                    <button onclick="aptrinsic('track', 'launchexp',{'stage':'launchexp_2'});">Launch Experiment
+                        2</button>
+                    <button onclick="aptrinsic('track', 'launchexp',{'stage':'launchexp_3'});">Launch Experiment
+                        3</button>
+                    <button onclick="aptrinsic('track', 'launchexp',{'stage':'launchexp_4'});">Launch Experiment
+                        4</button>
+                </div>
+                <br>
+                <br>
+                <div>
+                    <button onclick="aptrinsic('track', 'updatestatus',{'status':'stat_sig'});">Reached Statiscal
+                        Significance</button>
+                    <button onclick="aptrinsic('track', 'launchexp',{'status':'Completed'});">Completed</button>
+                </div>
+
+                <script>
+                    var currentExperiment = 'Nil';
+                    var pathStatus = 'old';
+                    var maxPosition = 10;
+                    updateContent(currentExperiment, pathStatus);
+
+                    document.getElementById("prev").addEventListener("click", function () {
+                        currentExperiment = 'Nil';
+                        aptrinsic('track', 'trackpath', { 'name': 'gen_ai', 'path': 'pathStatus' });
+                        updateContent('genai', 'new');
+
+                    });
+                    document.getElementById("next1").addEventListener("click", function () {
+                        
+                        aptrinsic('track', 'trackpath', { 'id': 'exp_1' });
+                        if (pathStatus == 'new') {
+                            updateContent('exp_1', 'new');
+                        }
+                        else {
+
+                            updateContent('exp_1', 'old');
+                        }
+
+                    });
+                    document.getElementById("next2").addEventListener("click", function () {
+
+                        
+                        aptrinsic('track', 'trackpath', { 'id': 'exp_2' });
+                        if (pathStatus == 'new') {
+                            updateContent('exp_2', 'new');
+                        }
+                        else {
+
+                            updateContent('exp_2', 'old');
+                        }
+
+                    });
+                    document.getElementById("next3").addEventListener("click", function () {
+                        
+                        aptrinsic('track', 'trackpath', { 'id': 'exp_3' });
+                        if (pathStatus == 'new') {
+                            updateContent('exp_3', 'new');
+                        }else
+                        {
+
+                            updateContent('exp_3', 'old');
+                        }
+
+                    });
+                    function updateContent(ce, pS) {
+                        var content = document.getElementById("content");
+                        currentExperiment = ce
+                        pathStatus = pS
+                        content.innerHTML = "Current Experiment: " + currentExperiment + '  ' + "pathStatus:" + pathStatus + "<br> <br>";
+                        aptrinsic('track', 'trackpath', { 'pathName': currentExperiment, 'pathStatus': pathStatus });
+                    }
+                </script>
+
+
+            </body>
+
+</html>
