@@ -97,12 +97,12 @@
                     <br>
                     <div id="launchstatuscontent"></div>
 
-                
+
 
                     <script>
                         var currentExperiment = 'Nil';
                         var pathStatus = 'old';
-                       // updateContent(currentExperiment, pathStatus);
+                        // updateContent(currentExperiment, pathStatus);
 
                         document.getElementById("genai").addEventListener("click", function () {
                             updateContent('genai', 'new');
@@ -112,13 +112,18 @@
 
                             if (pathStatus == 'new') {
                                 updateContent('exp_1', 'new');
-                                launchButton('new');
+                                    launchButton('new');   
+
+                               
 
                             }
                             else {
 
                                 updateContent('exp_1', 'old');
-                                launchButton('old');
+                                    launchButton('old');  
+
+
+                                
                             }
 
 
@@ -128,7 +133,8 @@
 
                             if (pathStatus == 'new') {
                                 updateContent('exp_2', 'new');
-                                launchButton('new');
+                                    launchButton('new');   
+
                             }
                             else {
 
@@ -141,7 +147,8 @@
 
                             if (pathStatus == 'new') {
                                 updateContent('exp_3', 'new');
-                                launchButton('new');
+                                    launchButton('new');   
+
                             } else {
 
                                 updateContent('exp_3', 'old');
@@ -168,11 +175,13 @@
                             p2.setAttribute("id", "launch_exp");
                             p2.textContent = "Launch Experiment"
                             p1.appendChild(p2);
-                            aptrinsic('track', 'launch', { 'pathStatus': path });
+                            document.getElementById("launch_exp").addEventListener("click", function () {
+                                aptrinsic('track', 'launch', { 'pathStatus': path });
+                            });
 
                             document.getElementById("launch_exp").addEventListener("click", function () {
                                 launchStatusbtn(path);
-                                
+
                             });
 
                         }
@@ -188,11 +197,11 @@
                             p3.appendChild(p4);
                             p3.appendChild(p5);
                             document.getElementById("stat_sig").addEventListener("click", function () {
-                                aptrinsic('track', 'finalStatus', { 'status':'stat_sig', 'pathStatus': path  });
-       
+                                aptrinsic('track', 'finalStatus', { 'status': 'stat_sig', 'pathStatus': path });
+
                             })
                             document.getElementById("completed").addEventListener("click", function () {
-                                aptrinsic('track', 'finalStatus', { 'status':'completed','pathStatus': path });
+                                aptrinsic('track', 'finalStatus', { 'status': 'completed', 'pathStatus': path });
                             })
                         }
 
