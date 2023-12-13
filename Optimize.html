@@ -104,7 +104,7 @@
                         var pathStatus = 'old';
                         // updateContent(currentExperiment, pathStatus);
 
-                        document.getElementById("genai").addEventListener("click", function () {
+                        document.getElementById("genai").addEventListener("click", function () { 
                             updateContent('genai', 'new');
                         });
 
@@ -165,7 +165,15 @@
                             currentExperiment = ce
                             pathStatus = pS
                             content.innerHTML = "Current Experiment: " + currentExperiment + '  ' + "pathStatus:" + pathStatus + "<br> <br>";
-                            aptrinsic('track', 'trackpath', { 'pathName': currentExperiment, 'pathStatus': pathStatus });
+                            if(ce == 'genai')
+                            {
+                                aptrinsic('track', 'genAI', { 'pathName': currentExperiment, 'pathStatus': pathStatus });
+
+                            }
+                            else{
+                                aptrinsic('track', 'trackpath', { 'pathName': currentExperiment, 'pathStatus': pathStatus });
+
+                            }
 
                         }
 
