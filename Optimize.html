@@ -114,8 +114,6 @@
                     updateContent(currentExperiment, pathStatus);
 
                     document.getElementById("prev").addEventListener("click", function () {
-                        currentExperiment = 'Nil';
-                        aptrinsic('track', 'trackpath', { 'name': 'gen_ai', 'path': 'pathStatus' });
                         updateContent('genai', 'new');
 
                     });
