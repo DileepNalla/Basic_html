@@ -5,7 +5,8 @@
 <head>
   <title>Index Page</title>
   <link rel="stylesheet" type="text/css" href="css/Style.css">
-  <script type="text/javascript" src="js/scripts.js"></script> 
+  <script type="text/javascript" src="js/scripts.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -16,37 +17,36 @@
       <Input type="button" class="open-button" onclick="openForm()" value="Contact Support"></Input>
       <div class="form-popup" id="myForm">
         <form action="./Index.HTML" class="Sform-container">
-            <h1>Submit a Ticket</h1>
-            <br />
-            <hr>
-            <!-- <label for="URL"><b>URL</b></label>
+          <h1>Submit a Ticket</h1>
+          <br />
+          <hr>
+          <!-- <label for="URL"><b>URL</b></label>
             <p id="url"></p> -->
-            <br />
-            <span>
-                <label for="Category"><b>Category:</b></label>
-                <select id="category">
-                    <option value="">--select--</option>
-                    <option id="cat1" value="Custom Feedback Category -1">Custom Feedback Category -1</option>
-                    <option id="cat2" value="Custom Feedback Category -2">Custom Feedback Category -2</option>
-                    <option id="cat3" value="Custom Feedback Category -3">Custom Feedback Category -3</option>
-                    <option id="cat4" value="Custom Feedback Category -4">Custom Feedback Category -4</option>
-                    
-                </select>
-            </span>
-            <br />
-            <br />
-            <label for="Subject"><b>Subject</b></label>
-            <input type="text" id="subject" name="Subject">
-            <br />
-            <label for="Description"><b>Description</b></label>
-            <textarea name="Message" id="description" cols="30" rows="10" required>
+          <br />
+          <span>
+            <label for="Category"><b>Category:</b></label>
+            <select id="category">
+              <option value="">--select--</option>
+              <option id="cat1" value="Custom Feedback Category -1">Custom Feedback Category -1</option>
+              <option id="cat2" value="Custom Feedback Category -2">Custom Feedback Category -2</option>
+              <option id="cat3" value="Custom Feedback Category -3">Custom Feedback Category -3</option>
+              <option id="cat4" value="Custom Feedback Category -4">Custom Feedback Category -4</option>
+            </select>
+          </span>
+          <br />
+          <br />
+          <label for="Subject"><b>Subject</b></label>
+          <input type="text" id="subject" name="Subject">
+          <br />
+          <label for="Description"><b>Description</b></label>
+          <textarea name="Message" id="description" cols="30" rows="10" required>
             </textarea>
-            <br />
-            <button type="submit" class="btn" onclick="createTicket()">Submit</button>
-            
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+          <br />
+          <button type="submit" class="btn" onclick="createTicket()">Submit</button>
+
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
         </form>
-    </div>
+      </div>
     </header>
 
     <nav class="menu">
@@ -54,7 +54,7 @@
       <a href="./Index.HTML">Home</a> &nbsp;&nbsp;&nbsp;
       <a href="./About.HTML">About Us</a>&nbsp;&nbsp;&nbsp;
       <a href="./Contact.HTML">Contact</a> &nbsp;&nbsp;&nbsp;
-      <a href="./Widget.html" >Widget </a> &nbsp;&nbsp;&nbsp;
+      <a href="./Widget.html">Widget </a> &nbsp;&nbsp;&nbsp;
       <a href="./Payment.html">Payment</a> &nbsp;&nbsp;&nbsp;
       <a href="./dataloader.html">DataLoader</a> &nbsp;&nbsp;&nbsp;
       <a href="./Optimize.html">Optimize</a> &nbsp;&nbsp;&nbsp;
@@ -64,10 +64,18 @@
 
     </nav>
 
+    <div class="search-container">
+    
+        <input type="text" id="searchbar" placeholder="Search.." name="search">
+        <button  onclick="captureSearchtext()"><i class="fa fa-search"></i></button>
+      
+    </div>
 
     <article class="main">
 
       <!-- <img src="http://placehold.it/300x200" alt="">  -->
+
+      
       <div>
         <Span>
           <button class="btn btn-primary" onclick="showengagement()">Require ID from Client</button>
@@ -75,63 +83,66 @@
         <Span>
           <button id="uploadid" onclick="launchZendeskChat()" class="btn btn-primary">Upload ID</button>
         </Span>
-       
+
       </div>
-      <a href="https://pavansaigudla.github.io/Basic_html/loginpage.html">Pavan's Instance</a> &nbsp;&nbsp;&nbsp;
+
       
 
+      <div>
+        <span class="feedback" onclick="launchZendeskChat()">Feedback</span>
 
-<div>
-  <span class="feedback" onclick="launchZendeskChat()">Feedback</span>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+          industry's
+          standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+          make
+          a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+          containing
+          Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including
+          versions
+          of Lorem Ipsum.</p>
+        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking
+          at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
+          opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing
+          packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum'
+          will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).</p>
+      </div>
+      <div>
+        <button class="test_glassdoor test_glassdoor_1" data-test-btn="addSalary" onclick="addSalary()">
+          <span>+ Add Salary</span>
+        </button>
 
-  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-    standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-    a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-    of Lorem Ipsum.</p>
-  <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking
-    at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
-    opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing
-    packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum'
-    will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by
-    accident, sometimes on purpose (injected humour and the like).</p>
-  </div>
-  <div>
-    <button class="test_glassdoor test_glassdoor_1" data-test-btn="addSalary" onclick="addSalary()">
-      <span>+ Add Salary</span>
-    </button>
-
-    <button class="test_glassdoor test_glassdoor_1" data-test-btn="addSalary" onclick="addSalary()">
-      <span>+ Add Salary</span>
-    </button>
-
-
-
-  </div>
+        <button class="test_glassdoor test_glassdoor_1" data-test-btn="addSalary" onclick="addSalary()">
+          <span>+ Add Salary</span>
+        </button>
 
 
-  <div>
-    <button class="test_glassdoor test_glassdoor_1" data-test-btn="addSalary" onclick="addSalary()">
-      <span>+ Add Salary</span>
-    </button>
 
-    <button class="test_glassdoor test_glassdoor_1" data-test-btn="addSalary" onclick="addSalary()">
-      <span>+ Add Salary</span>
-    </button>
+      </div>
 
-    <button class="test_glassdoor test_glassdoor_1" data-test-btn="addSalary" onclick="addSalary()">
-      <span>+ Add Salary</span>
-    </button>
 
-  </div>
+      <div>
+        <button class="test_glassdoor test_glassdoor_1" data-test-btn="addSalary" onclick="addSalary()">
+          <span>+ Add Salary</span>
+        </button>
 
-  <footer>
-    &copy; 2019 Miminal Website &nbsp;<span class="seperator">|</span> Design by Dileep Nalla <a
-      href="http://www.NLIT.com">NLIT</a>
-  </footer>
+        <button class="test_glassdoor test_glassdoor_1" data-test-btn="addSalary" onclick="addSalary()">
+          <span>+ Add Salary</span>
+        </button>
 
-  </article>
+        <button class="test_glassdoor test_glassdoor_1" data-test-btn="addSalary" onclick="addSalary()">
+          <span>+ Add Salary</span>
+        </button>
+
+      </div>
+
+      <footer>
+        &copy; 2019 Miminal Website &nbsp;<span class="seperator">|</span> Design by Dileep Nalla <a
+          href="http://www.NLIT.com">NLIT</a>
+      </footer>
+
+    </article>
   </div>
 </body>
 

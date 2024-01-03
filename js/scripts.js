@@ -842,3 +842,15 @@ function captureFeedback() {
    aptrinsic('send', 'feedback', { 'category':  document.getElementById('category').value,'subject': document.getElementById('subject').value, 'description': document.getElementById('description').value });
 
 }
+
+function captureSearchtext()
+{
+   var q = document.getElementById('searchbar').value;
+   if (q!=''){
+    aptrinsic('track', 'searchQuery', {
+        searchTerm: q,
+    });
+   }
+
+   
+}
