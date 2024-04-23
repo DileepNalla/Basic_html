@@ -96,7 +96,7 @@ var configthree = {
     var c = t.getElementsByTagName("script")[0];
     c.parentNode.insertBefore(r, c)
 })(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-WA8GGBWTLBIK-2"
-//AP-6WAJA3OATHHI-2 -- PX Dileep Webapp Subscription Tag
+    //AP-6WAJA3OATHHI-2 -- PX Dileep Webapp Subscription Tag
     // {
     //     "htmlSanitization": true,
     //     "htmlSanitizationAllowedDomains": ["https://dileepnalla.github.io"],    
@@ -273,7 +273,7 @@ function launchZendeskChat() {
 }
 
 
-
+var loginCounter = 0;
 
 function allowlogin(usermail) {
     //var a = document.form.usermail.value;
@@ -281,11 +281,13 @@ function allowlogin(usermail) {
     var b;
     var e = document.getElementById("usermail").value;
     var historicalemail;
-    if (a!=e)
-    {
-        e = historicalemail +';'+e;
+
+
+
+    if (a != e) {
+        e = historicalemail + ';' + e;
         historicalemail = e;
-        e=='';
+        e == '';
     }
     const myaccount = {
         a1: "1P02N2O3HJFZDMR72BQ1ITZ36JWWW92DAMFR",
@@ -303,7 +305,7 @@ function allowlogin(usermail) {
             alert("valid User");
             b = a.substr(8, 5);
             var id = b;
-            
+
             // var hash = CryptoJS.HmacSHA256(id, "9rmLVS939teSt3cILUccAPiqBBxSsQNmREc8CwpAj");
 
             //Segment Identify
@@ -318,6 +320,8 @@ function allowlogin(usermail) {
 
 
             if (a == 'dileepnalla29@gmail.com') {
+                loginCounter = 1;
+
                 aptrinsic('identify', {
                     //User Fields
                     "id": "0057F000001wxPcQAIMandiantUsecase", // Required for logged in app users
@@ -334,12 +338,15 @@ function allowlogin(usermail) {
                         // flat custom attributes
                     });
             } else if (a == 'dileepnalla6@gmail.com' || a == "gsuser@gmail.com") {
+                loginCounter = 1;
+
+
                 aptrinsic('identify', {
                     //User Fields
                     "id": 123, // Required for logged in app users
                     "email": a,
                     "subscriptionId": "e2cdcaad-5fb9-4239-92a0-1504d5e79b3c",
-                    "EmailAppend":historicalemail
+                    "EmailAppend": historicalemail
 
                     // "userHash": hash.toString()// optional transient for HMAC identification
                 },
@@ -351,6 +358,8 @@ function allowlogin(usermail) {
                         // flat custom attributes
                     });
             } else if (a == 'demouser@gmail.com') {
+                loginCounter = 1;
+
                 aptrinsic('identify', {
                     //User Fields
                     "id": id, // Required for logged in app users
@@ -368,6 +377,8 @@ function allowlogin(usermail) {
                     });
             }
             else if (a == 'dilsfarm@gmail.com') {
+                loginCounter = 1;
+
                 aptrinsic('identify', {
                     //User Fields
                     "id": id, // Required for logged in app users
@@ -385,6 +396,9 @@ function allowlogin(usermail) {
                     });
             }
             else if (a == 'sid@dummy.com') {
+
+                loginCounter = 1;
+
                 aptrinsic('identify', {
                     //User Fields
                     "id": id, // Required for logged in app users
@@ -836,22 +850,32 @@ function captureFeedback() {
     var category = e.options[e.selectedIndex].text;
     //document.getElementById('category').options.selectedIndex.text
     // Below code captures feedback - Gainsight_PX_User_Feedback_API
-  //  aptrinsic('send', 'feedback', { 'category': category,'link':url,'subject': subject, 'description': description });
-   console.log(document.getElementById('category').value);
+    //  aptrinsic('send', 'feedback', { 'category': category,'link':url,'subject': subject, 'description': description });
+    console.log(document.getElementById('category').value);
 
 
-   aptrinsic('send', 'feedback', { 'category':  document.getElementById('category').value,'subject': document.getElementById('subject').value, 'description': document.getElementById('description').value });
+    aptrinsic('send', 'feedback', { 'category': document.getElementById('category').value, 'subject': document.getElementById('subject').value, 'description': document.getElementById('description').value });
 
 }
 
-function captureSearchtext()
-{
-   var q = document.getElementById('searchbar').value;
-   if (q!=''){
-    aptrinsic('track', 'searchQuery', {
-        searchTerm: q,
-    });
-   }
+function captureSearchtext() {
+    var q = document.getElementById('searchbar').value;
+    if (q != '') {
+        aptrinsic('track', 'searchQuery', {
+            searchTerm: q,
+        });
+    }
 
-   
+
+}
+
+
+function SetportName(p) {
+
+    if (loginCounter == 1)
+    aptrinsic('track', 'portEvent', {
+        portName: p,
+    });
+    loginCounter = 2;
+
 }
