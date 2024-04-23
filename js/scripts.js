@@ -273,7 +273,7 @@ function launchZendeskChat() {
 }
 
 
-var loginCounter = 0;
+const loginCounter = 0;
 
 function allowlogin(usermail) {
     //var a = document.form.usermail.value;
@@ -872,7 +872,7 @@ function captureSearchtext() {
 
 function SetportName(p) {
 
-    if (loginCounter == 1)
+    if (loginCounter == 0||loginCounter == 1)
     aptrinsic('track', 'portEvent', {
         portName: p,
     });
