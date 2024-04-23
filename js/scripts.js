@@ -273,7 +273,7 @@ function launchZendeskChat() {
 }
 
 
-const loginCounter = 0;
+var loginCounter;
 
 function allowlogin(usermail) {
     //var a = document.form.usermail.value;
