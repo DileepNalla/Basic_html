@@ -867,60 +867,51 @@ function captureSearchtext() {
 
 }
 
+// function addPortTolocalstorage(value) {
+//     let seaPorts;
+//     var count = 1;
+//     while (localStorage.getItem('seaPorts') === null) {
+//         seaPorts = [];
+//         seaPorts.push(value);
+//         localStorage.setItem('seaPorts', JSON.stringify(seaPorts));
+//         aptrinsic('track', 'portEvent', {
+//             portName: value,
+//         });
+//         console.log('Success :: Event Fired For'+''+ value);
 
-
-
+//         count++;
+//     } 
+//     seaPorts = JSON.parse(localStorage.getItem('seaPorts'));
+//         if (!seaPorts.includes(value)){
+//             seaPorts.push(value);
+//             aptrinsic('track', 'portEvent', {
+//                 portName: value,
+//             });
+//             console.log('Success :: Event Fired For'+''+ value);
+//         }
+//         else{
+//             if(count==1){
+//                 console.log('Port already selected once,so event will not be fired'+''+ value);
+//             }
+//         }
+  
+// localStorage.setItem('seaPorts', JSON.stringify(seaPorts));
+// }
 
 function toggleDropdown() {
     const dropdownMenu = document.getElementById("dropdownMenu");
     dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
 }
-
-
 var selectedValue = null;
-function selectOption(value) {
+function selectPort(value) {
     if (selectedValue !== value) {
         selectedValue = value;
         document.getElementsByClassName("dropdown-toggle")[0].innerText = selectedValue;
         toggleDropdown();
-        aptrinsic('track', 'portEvent', {
-            portName: value,
+        aptrinsic('track', 'searchPort', {
+            seaPortName: value,
         });
     }
 }
-
-
-
-function addPortTolocalstorage(value) {
-    let seaPorts;
-    var count = 1;
-    while (localStorage.getItem('seaPorts') === null) {
-        seaPorts = [];
-        seaPorts.push(value);
-        localStorage.setItem('seaPorts', JSON.stringify(seaPorts));
-        aptrinsic('track', 'portEvent', {
-            portName: value,
-        });
-        console.log('Success :: Event Fired For'+''+ value);
-
-        count++;
-    } 
-    seaPorts = JSON.parse(localStorage.getItem('seaPorts'));
-        if (!seaPorts.includes(value)){
-            seaPorts.push(value);
-            aptrinsic('track', 'portEvent', {
-                portName: value,
-            });
-            console.log('Success :: Event Fired For'+''+ value);
-        }
-        else{
-            if(count==1){
-                console.log('Port already selected once,so event will not be fired'+''+ value);
-            }
-        }
-  
-localStorage.setItem('seaPorts', JSON.stringify(seaPorts));
-}
-
 
 
