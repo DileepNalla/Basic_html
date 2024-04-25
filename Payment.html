@@ -61,26 +61,31 @@
 
 </div>
 
+<br>
+<br>
+<br>
 
-<div>
-  <label for="portname">Select the port area:</label>
-<select name="portname" id="ports">
-  <option id="Cochin" value="Cochin" onclick="SetportName('Cochin')">Cochin</option>
-  <option id="Vizag" value="Vizag" onclick="SetportName('Vizag')">Vizag</option>
-  <option id="Paradip" value="Paradip" onclick="SetportName('Paradip')" >Paradip</option>
-  <option id="Chennai" value="Chennai" onclick="SetportName('Chennai')" >Chennai</option>
-</select>
-</div>
-
+<label for="selecting"><b>Choose Port Area:</b></label>
 <div class="dropdown">
-  <button>Profile</button>
-  <div class="dropdown-options">
-    <a href="#" id="Cochin" value="Cochin" onclick="SetportName('Cochin')">Cochin</a>
-    <a href="#" id="Vizag" value="Vizag" onclick="SetportName('Vizag')">Vizag</a>
-    <a href="#" id="Paradip" value="Paradip" onclick="SetportName('Paradip')" >Paradip</a>
-    <a href="#" id="Chennai" value="Chennai" onclick="SetportName('Chennai')" >Chennai</a>
+  <div class="dropdown-toggle" onclick="toggleDropdown()">Select here</div>
+  <div class="dropdown-menu" id="dropdownMenu">
+    <div class="dropdown-item" onclick="addPortTolocalstorage('PortA')">portA</div>
+    <div class="dropdown-item" onclick="addPortTolocalstorage('PortB')">portB</div>
+    <div class="dropdown-item" onclick="addPortTolocalstorage('PortC')">portC</div>
+    <div class="dropdown-item" onclick="addPortTolocalstorage('PortD')">portD</div>
+    <div class="dropdown-item" onclick="addPortTolocalstorage('PortE')">portE</div>
+    <div class="dropdown-item" onclick="addPortTolocalstorage('PortF')">portF</div>
+    <div class="dropdown-item" onclick="addPortTolocalstorage('PortG')">portG</div>
+    <div class="dropdown-item" onclick="addPortTolocalstorage('PortH')">portH</div>
+    <div class="dropdown-item" onclick="addPortTolocalstorage('PortI')">portI</div>
+    <div class="dropdown-item" onclick="addPortTolocalstorage('PortJ')">portJ</div>
+    <div class="dropdown-item" onclick="addPortTolocalstorage('PortK')">portK</div>
+    <div class="dropdown-item" onclick="addPortTolocalstorage('PortL')">portL</div>
   </div>
 </div>
+<br>
+<br>
+<br>
 
 <br>
 
