@@ -273,7 +273,7 @@ function launchZendeskChat() {
 }
 
 
-var loginCounter = 0;
+
 
 function allowlogin(usermail) {
     //var a = document.form.usermail.value;
@@ -320,7 +320,7 @@ function allowlogin(usermail) {
 
 
             if (a == 'dileepnalla29@gmail.com') {
-                loginCounter = 1;
+            
 
                 aptrinsic('identify', {
                     //User Fields
@@ -338,12 +338,12 @@ function allowlogin(usermail) {
                         // flat custom attributes
                     });
             } else if (a == 'dileepnalla6@gmail.com' || a == "gsuser@gmail.com") {
-                loginCounter = 1;
+    
 
 
                 aptrinsic('identify', {
                     //User Fields
-                    "id": 123, // Required for logged in app users
+                    "id": id, // Required for logged in app users
                     "email": a,
                     "subscriptionId": "e2cdcaad-5fb9-4239-92a0-1504d5e79b3c",
                     "EmailAppend": historicalemail
@@ -358,8 +358,7 @@ function allowlogin(usermail) {
                         // flat custom attributes
                     });
             } else if (a == 'demouser@gmail.com') {
-                loginCounter = 1;
-
+                
                 aptrinsic('identify', {
                     //User Fields
                     "id": id, // Required for logged in app users
@@ -377,7 +376,7 @@ function allowlogin(usermail) {
                     });
             }
             else if (a == 'dilsfarm@gmail.com') {
-                loginCounter = 1;
+                
 
                 aptrinsic('identify', {
                     //User Fields
@@ -397,7 +396,6 @@ function allowlogin(usermail) {
             }
             else if (a == 'sid@dummy.com') {
 
-                loginCounter = 1;
 
                 aptrinsic('identify', {
                     //User Fields
@@ -870,15 +868,7 @@ function captureSearchtext() {
 }
 
 
-function SetportName(p) {
 
-    if (loginCounter == 0 || loginCounter == 1)
-        // aptrinsic('track', 'portEvent', {
-        //     portName: p,
-        // });
-        loginCounter = 2;
-
-}
 
 
 function toggleDropdown() {
