@@ -910,7 +910,7 @@ function selectPort(value) {
         toggleDropdown();
         aptrinsic('track', 'searchPort', {
             seaPortName: value,
-            companyName: 'Gainsight'
+            companyName: 'Marcura'
         });
     }
 }
