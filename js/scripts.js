@@ -834,7 +834,8 @@ function closeForm() {
 
 function createTicket() {
     captureFeedback();
-    
+alert('Ticket Created Successfully');
+
 
 }
 // Below function will capture the feedback using the Gainsight API
