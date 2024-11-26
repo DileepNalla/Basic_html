@@ -5,7 +5,6 @@
 //"https://web-sdk-dev.aptrinsic.com/api/aptrinsic.js","AP-PGOVPRW5KS6A-2"
 
 For Production Instance
-
 "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2"
 
  */
