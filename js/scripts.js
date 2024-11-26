@@ -835,7 +835,7 @@ function closeForm() {
 
 function createTicket() {
     captureFeedback();
-    alert('Ticket Created Successfully');
+    
 
 }
 // Below function will capture the feedback using the Gainsight API
@@ -850,10 +850,8 @@ function captureFeedback() {
     // Below code captures feedback - Gainsight_PX_User_Feedback_API
     //  aptrinsic('send', 'feedback', { 'category': category,'link':url,'subject': subject, 'description': description });
     console.log(document.getElementById('category').value);
-
-
     aptrinsic('send', 'feedback', { 'category': document.getElementById('category').value, 'subject': document.getElementById('subject').value, 'description': document.getElementById('description').value });
-
+    alert('Ticket Created Successfully');
 }
 
 function captureSearchtext() {
