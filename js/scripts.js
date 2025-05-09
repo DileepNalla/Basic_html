@@ -60,7 +60,7 @@ function handler() {
 //     (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
 //   var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
 //   var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
-// })(window,document,"https://web-sdk-dev.aptrinsic.com/api/aptrinsic.js","AP-PGOVPRW5KS6A-2");
+// })(window,document,"https://web-sdk-dev.aptrinsic.com/api/aptrinsic.js","AP-6WAJA3OATHHI-2");
 
 
 /*<!-- Aptrinsic Tag-->*/
@@ -94,7 +94,7 @@ var configthree = {
     r.async = !0, r.src = a + "?a=" + e;
     var c = t.getElementsByTagName("script")[0];
     c.parentNode.insertBefore(r, c)
-})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-WA8GGBWTLBIK-2"
+})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-6WAJA3OATHHI-2"
     //AP-6WAJA3OATHHI-2 -- PX Dileep Webapp Subscription Tag
     // {
     //     "htmlSanitization": true,
