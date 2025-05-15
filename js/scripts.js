@@ -133,7 +133,7 @@ var configthree = {
 
 //ab4cc67e-b91b-40b5-7d3b-b64d5135fc4c sailaja
 //af39e5b9-3ed7-4b36-7602-3e333ec68a53  support@dilsfarm.com
-alert("pendo");
+//alert("pendo");
 
 // Full Story Integration
 
