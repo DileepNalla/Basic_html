@@ -106,7 +106,8 @@ var configthree = {
 
     //AP-HHUVBADW9YGV-2 -- Product 2 Tag key
 
-)
+);
+
 
 // if (anonymous) {
 //     aptrinsic("identify", {
@@ -118,6 +119,19 @@ var configthree = {
 
 
 //AP-6WAJA3OATHHI-2, AP-DRTELDXGAMXI-2 Replace this later on after testing by Zendesk
+/*Pendo.io*/
+
+ (function(apiKey){
+     (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
+     v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
+         o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
+         y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
+         z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
+ })('af39e5b9-3ed7-4b36-7602-3e333ec68a53');
+
+//ab4cc67e-b91b-40b5-7d3b-b64d5135fc4c sailaja
+//af39e5b9-3ed7-4b36-7602-3e333ec68a53  support@dilsfarm.com
+alert("pendo");
 
 // Full Story Integration
 
@@ -195,19 +209,7 @@ window['_fs_namespace'] = 'FS';
 })(window, document, window['_fs_namespace'], 'script', 'user');
 
 
-/*Pendo.io*/
 
- (function(apiKey){
-     (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
-     v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
-         o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
-         y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
-         z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
- })('af39e5b9-3ed7-4b36-7602-3e333ec68a53');
-
-//ab4cc67e-b91b-40b5-7d3b-b64d5135fc4c sailaja
-//af39e5b9-3ed7-4b36-7602-3e333ec68a53  support@dilsfarm.com
-//alert("pendo");
 
 
 
