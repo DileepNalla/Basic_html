@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Knowledge Base</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Inter, sans-serif; background: #0f172a; color: #f1f5f9; padding: 40px 24px; }
+    h1   { font-size: 26px; font-weight: 800; margin-bottom: 8px; color: #f1f5f9; }
+    p.sub{ color: #64748b; font-size: 14px; margin-bottom: 32px; }
+    .grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .card{
+      background: #1e293b; border: 1px solid #334155; border-radius: 14px;
+      padding: 24px; text-decoration: none; color: #f1f5f9;
+      transition: border-color .2s, transform .2s;
+      display: block;
+    }
+    .card:hover { border-color: #6366f1; transform: translateY(-3px); }
+    .card .icon { font-size: 28px; margin-bottom: 12px; }
+    .card h2    { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .card p     { font-size: 12px; color: #64748b; line-height: 1.6; }
+    .card .tag  {
+      display: inline-block; margin-top: 14px;
+      background: #6366f122; color: #818cf8; border: 1px solid #6366f144;
+      border-radius: 20px; padding: 2px 10px; font-size: 10px; font-weight: 600;
+    }
+  </style>
+ <script src="tracker.js"></script>
+
+</head>
+<body data-page-id="docs" data-page-title="Knowledge Base Home">
+
+  <h1>📚 Knowledge Base</h1>
+  <p class="sub">Browse articles below. Your reading session is being tracked for quality insights.</p>
+
+  <div class="grid">
+    <a class="card" href="document_one.html">
+      <div class="icon">🔐</div>
+      <h2>Document One</h2>
+      <p>Authentication, SSO setup, password reset and login troubleshooting guide.</p>
+      <span class="tag">~5 min read</span>
+    </a>
+    <a class="card" href="document_two.html">
+      <div class="icon">💳</div>
+      <h2>Document Two</h2>
+      <p>Billing, invoices, refund policy and payment method management.</p>
+      <span class="tag">~5 min read</span>
+    </a>
+    <a class="card" href="document_three.html">
+      <div class="icon">⚙️</div>
+      <h2>Document Three</h2>
+      <p>Feature walkthroughs, settings configuration and advanced usage tips.</p>
+      <span class="tag">~5 min read</span>
+    </a>
+    <a class="card" href="document_four.html">
+      <div class="icon">🚀</div>
+      <h2>Document Four</h2>
+      <p>Beta features, release notes and upcoming product roadmap updates.</p>
+      <span class="tag">~5 min read</span>
+    </a>
+  </div>
+
+ 
+</body>
+</html>

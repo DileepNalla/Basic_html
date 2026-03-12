@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Document One — Authentication Guide</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Inter, sans-serif; background: #0f172a; color: #f1f5f9; padding: 40px 24px; max-width: 740px; margin: 0 auto; }
+    .breadcrumb { font-size: 12px; color: #64748b; margin-bottom: 24px; }
+    .breadcrumb a { color: #6366f1; text-decoration: none; }
+    h1  { font-size: 24px; font-weight: 800; margin-bottom: 6px; }
+    .meta { font-size: 12px; color: #64748b; margin-bottom: 28px; }
+    h2  { font-size: 16px; font-weight: 700; margin: 28px 0 10px; color: #c7d2fe; }
+    p   { font-size: 14px; color: #94a3b8; line-height: 1.8; margin-bottom: 14px; }
+
+    /* Sub-doc CTA cards */
+    .sub-docs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 32px 0; }
+    .sub-card {
+      background: #1e293b; border: 1px solid #334155; border-radius: 12px;
+      padding: 18px; text-decoration: none; color: #f1f5f9;
+      display: block; transition: border-color .2s;
+    }
+    .sub-card:hover { border-color: #06b6d4; }
+    .sub-card h3 { font-size: 13px; font-weight: 700; margin-bottom: 4px; color: #06b6d4; }
+    .sub-card p  { font-size: 11px; color: #64748b; margin: 0; }
+
+    /* Back button */
+    .back-btn {
+      display: inline-block; margin-top: 32px;
+      background: #1e293b; border: 1px solid #334155;
+      color: #94a3b8; text-decoration: none;
+      padding: 8px 18px; border-radius: 8px; font-size: 13px;
+      transition: border-color .2s;
+    }
+    .back-btn:hover { border-color: #6366f1; color: #f1f5f9; }
+
+    hr { border: none; border-top: 1px solid #1e293b; margin: 24px 0; }
+     /* tracker panel */
+    #kb-panel{
+      position:fixed; bottom:16px; right:16px; z-index:9999;
+      background:#0f172a; color:#f1f5f9; font-family:monospace; font-size:11px;
+      border:1px solid #6366f1; border-radius:10px; padding:12px 14px;
+      width:270px; box-shadow:0 4px 24px rgba(0,0,0,.6); line-height:1.9;
+    }
+    #kb-panel .ph{ display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+    #kb-panel .pt{ color:#6366f1; font-weight:700; font-size:12px; }
+    #kb-panel .ps{ border-radius:20px; padding:1px 8px; font-size:10px; }
+    #kb-panel .lbl{ color:#64748b; }
+    #kb-panel .sep{ border:none; border-top:1px solid #1e293b; margin:6px 0; }
+  </style>
+</head>
+
+<!-- 
+  CHANGE THESE TWO ATTRIBUTES for each page:
+  data-page-id   → unique identifier (used as storage key + PX attribute)
+  data-page-title → human readable name shown in tracker panel
+-->
+<body data-page-id="document_three" data-page-title="Document Three — Features Guide">
+
+  <div class="breadcrumb">
+    <a href="docs.html">← Knowledge Base</a> / Document Three
+  </div>
+
+  <h1>🔐 Document Three</h1>
+  <p class="meta">~5 min read &nbsp;·&nbsp; Last updated March 2026</p>
+
+  <!-- ── BODY CONTENT (5-min lorem ipsum) ───────────────────── -->
+  <h2>Introduction</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis molestie dictum semper, lacus libero vehicula diam, ac suscipit eros nunc id odio.</p>
+
+  <h2>Single Sign-On (SSO) Setup</h2>
+  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.</p>
+  <p>Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.</p>
+
+  <h2>Password Reset Flow</h2>
+  <p>Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi auctor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ornare et, elit. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mollis.</p>
+  <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin vel ante a orci tempus eleifend ut et magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis.</p>
+
+  <h2>Multi-Factor Authentication</h2>
+  <p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero. Vestibulum mollis mauris enim. Morbi euismod magna ac lorem rutrum elementum. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus.</p>
+  <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est. Vivamus fermentum semper porta. Nunc diam velit, adipiscing ut tristique vitae, sagittis vel odio.</p>
+
+  <h2>Troubleshooting Login Issues</h2>
+  <p>Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac.</p>
+  <p>In congue sagittis nisl, vitae molestie lectus tincidunt sit amet. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio.</p>
+
+  <hr/>
+
+  <!-- ── SUB-DOC CTA CARDS (tracked as CTA clicks) ─────────── -->
+  <h2>Related Articles</h2>
+  <div class="sub-docs">
+    <a class="sub-card" href="document_3.1.html">
+      <h3>→ Document 3.1</h3>
+      <p>Advanced SSO configuration and SAML settings deep dive.</p>
+    </a>
+    <a class="sub-card" href="document_1.2.html">
+      <h3>→ Document 1.2</h3>
+      <p>MFA setup walkthrough and backup code management.</p>
+    </a>
+  </div>
+
+  <a class="back-btn" href="docs.html">← Back to Knowledge Base</a>
+
+  <div id="kb-panel">
+    <div class="ph">
+      <span class="pt">📡 KB Tracker</span>
+      <span class="ps" id="ps" style="background:#10b98122;color:#10b981">ACTIVE</span>
+    </div>
+    <div><span class="lbl">Page: </span><span id="p-title"></span></div>
+    <div><span class="lbl">Surfaces: </span><span id="p-surf"></span></div>
+    <div><span class="lbl">Dwell: </span><span id="p-dwell"></span></div>
+    <div><span class="lbl">Active: </span><span id="p-active"></span></div>
+    <div><span class="lbl">Idle: </span><span id="p-idle"></span></div>
+    <div><span class="lbl">Scroll: </span><span id="p-scroll"></span></div>
+    <div><span class="lbl">CTA Clicks: </span><span id="p-cta"></span></div>
+    <div><span class="lbl">Hint: </span><span id="p-hint"></span></div>
+    <hr class="sep"/>
+    <div><span class="lbl">Last CTA: </span><span id="p-lastcta" style="color:#f59e0b">—</span></div>
+  </div>
+
+  <script>
+    (function () {
+      const PAGE_ID    = document.body.dataset.pageId    || location.pathname;
+      const PAGE_TITLE = document.body.dataset.pageTitle || document.title;
+      const IDLE_MS    = 30000;
+      const BOUNCE_MS  = 3000;
+      const STORE_KEY  = 'kb_' + PAGE_ID;
+
+      // ── state
+      const t = {
+        surfaceTime:   Date.now(),
+        activeStart:   Date.now(),
+        totalActiveMs: 0,
+        isActive:      true,
+        idleTimer:     null,
+        maxScroll:     0,
+        scrollDone:    new Set(),
+        ctaClicks:     [],
+      };
+
+      // surface count (persisted across revisits in same browser session)
+      let stored = {};
+      try { stored = JSON.parse(sessionStorage.getItem(STORE_KEY) || '{}'); } catch(_){}
+      const surfaceCount = (stored.surfaceCount || 0) + 1;
+
+      // ── helpers
+      const scrollPct = () => {
+        const d = document.documentElement;
+        const s = d.scrollTop || document.body.scrollTop;
+        const h = d.scrollHeight - d.clientHeight;
+        return h > 0 ? Math.round(s / h * 100) : 100;
+      };
+
+      const pause = () => {
+        if (!t.isActive) return;
+        t.totalActiveMs += Date.now() - t.activeStart;
+        t.isActive = false;
+      };
+
+      const resume = () => {
+        if (t.isActive) return;
+        t.activeStart = Date.now();
+        t.isActive = true;
+      };
+
+      const resetIdle = () => {
+        resume();
+        clearTimeout(t.idleTimer);
+        t.idleTimer = setTimeout(pause, IDLE_MS);
+      };
+
+      // ── build the variable object (this is what goes to PX)
+      const summary = () => {
+        pause();
+        const dMs  = Date.now() - t.surfaceTime;
+        const aMs  = t.totalActiveMs;
+        const obj  = {
+          pageId:          PAGE_ID,
+          pageTitle:       PAGE_TITLE,
+          url:             location.href,
+          surfaceCount:    surfaceCount,
+          referrer:        document.referrer || 'direct',
+          dwellSec:        Math.round(dMs / 1000),
+          activeTimeSec:   Math.round(aMs / 1000),
+          idleTimeSec:     Math.round((dMs - aMs) / 1000),
+          maxScrollPct:    t.maxScroll,
+          scrollMilestones:[...t.scrollDone],
+          ctaClicks:       t.ctaClicks,
+          ctaClickCount:   t.ctaClicks.length,
+          resolutionHint:  dMs < BOUNCE_MS        ? 'bounce'
+                         : aMs/1000 >= 30 && t.maxScroll >= 50 ? 'likely_read'
+                         : 'partial_read',
+        };
+        resume(); // restart after pause
+        return obj;
+      };
+
+      // ── events
+      ['mousemove','keydown','scroll','click','touchstart'].forEach(e =>
+        document.addEventListener(e, resetIdle, { passive: true })
+      );
+      document.addEventListener('visibilitychange', () =>
+        document.hidden ? pause() : resume()
+      );
+      window.addEventListener('blur',  pause);
+      window.addEventListener('focus', resume);
+
+      // scroll depth milestones
+      window.addEventListener('scroll', () => {
+        const p = scrollPct();
+        t.maxScroll = Math.max(t.maxScroll, p);
+        [25,50,75,100].forEach(s => {
+          if (p >= s && !t.scrollDone.has(s)) t.scrollDone.add(s);
+        });
+      }, { passive: true });
+
+      // CTA click — any <a> or <button>
+      document.addEventListener('click', e => {
+        const el = e.target.closest('a, button');
+        if (!el) return;
+        const click = {
+          label:    (el.innerText || el.getAttribute('aria-label') || 'unknown').trim().slice(0,60),
+          href:     el.href || null,
+          tag:      el.tagName.toLowerCase(),
+          activeSec:Math.round(t.totalActiveMs / 1000),
+          time:     new Date().toISOString(),
+        };
+        t.ctaClicks.push(click);
+        console.log('%c[KB] CTA clicked', 'color:#f59e0b;font-weight:bold', click);
+      });
+
+      // page exit — save + console summary
+      const onExit = () => {
+        const s = summary();
+        s.surfaceCount = surfaceCount;
+        try { sessionStorage.setItem(STORE_KEY, JSON.stringify(s)); } catch(_){}
+        if (s.dwellSec * 1000 < BOUNCE_MS) return;
+        console.group('%c[KB Tracker] Session End — ' + PAGE_TITLE, 'color:#6366f1;font-size:13px;font-weight:bold');
+        console.table({
+          'Page':           s.pageTitle,
+          'Surfaces':       s.surfaceCount,
+          'Dwell (s)':      s.dwellSec,
+          'Active (s)':     s.activeTimeSec,
+          'Idle (s)':       s.idleTimeSec,
+          'Scroll %':       s.maxScrollPct,
+          'CTA Clicks':     s.ctaClickCount,
+          'Resolution':     s.resolutionHint,
+        });
+        console.log('CTA detail:', s.ctaClicks);
+        console.log('→ Full object for aptrinsic():', s);
+        console.groupEnd();
+      };
+      window.addEventListener('pagehide',     onExit);
+      window.addEventListener('beforeunload', onExit);
+
+      // ── update panel every second
+      const $ = id => document.getElementById(id);
+      setInterval(() => {
+        const s = summary();
+        const hc = s.resolutionHint === 'likely_read' ? '#10b981'
+                 : s.resolutionHint === 'partial_read' ? '#f59e0b' : '#ef4444';
+        $('p-title').textContent  = s.pageTitle;
+        $('p-surf').textContent   = s.surfaceCount;
+        $('p-dwell').textContent  = s.dwellSec + 's';
+        $('p-active').textContent = s.activeTimeSec + 's';
+        $('p-idle').textContent   = s.idleTimeSec + 's';
+        $('p-scroll').textContent = s.maxScrollPct + '% ' + (s.scrollMilestones.length ? '(' + s.scrollMilestones.join(',') + '%)' : '');
+        $('p-cta').textContent    = s.ctaClickCount;
+        $('p-hint').innerHTML     = `<span style="color:${hc}">${s.resolutionHint}</span>`;
+        $('ps').textContent       = t.isActive ? 'ACTIVE' : 'IDLE';
+        $('ps').style.color       = t.isActive ? '#10b981' : '#f59e0b';
+        const last = s.ctaClicks.at(-1);
+        $('p-lastcta').textContent = last ? last.label : '—';
+      }, 1000);
+
+      resetIdle();
+
+      // expose globally for console testing: window.kbTracker.getSummary()
+      window.kbTracker = { getSummary: summary };
+
+      console.log('%c[KB Tracker] Ready on: ' + PAGE_TITLE, 'color:#06b6d4;font-weight:bold');
+    })();
+  </script>
+</body>
+</html>
+
+<!--
+═══════════════════════════════════════════════════
+COPY THIS FILE FOR EACH PAGE. CHANGE ONLY:
+
+  document_two.html
+    data-page-id="document_two"
+    data-page-title="Document Two — Billing Guide"
+    Sub-docs → document_2.1.html
+    breadcrumb text
+
+  document_three.html
+    data-page-id="document_three"
+    data-page-title="Document Three — Features Guide"
+    Sub-docs → document_3.1.html
+
+  document_four.html
+    data-page-id="document_four"
+    data-page-title="Document Four — Release Notes"
+    Sub-docs → document_4.1.html
+
+  document_1.1.html / 1.2 / 2.1 / 3.1 / 4.1
+    data-page-id="document_1.1"  (etc.)
+    data-page-title="Document 1.1 — SSO Advanced"
+    Remove sub-docs section
+    Breadcrumb: KB / Document One / Document 1.1
+═══════════════════════════════════════════════════
+-->

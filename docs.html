@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Knowledge Base</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Inter, sans-serif; background: #0f172a; color: #f1f5f9; padding: 40px 24px; }
+    h1   { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+    p.sub{ color: #64748b; font-size: 14px; margin-bottom: 32px; }
+    .grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .card{
+      background: #1e293b; border: 1px solid #334155; border-radius: 14px;
+      padding: 24px; text-decoration: none; color: #f1f5f9;
+      transition: border-color .2s, transform .2s; display: block;
+    }
+    .card:hover { border-color: #6366f1; transform: translateY(-3px); }
+    .card .icon { font-size: 28px; margin-bottom: 12px; }
+    .card h2    { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .card p     { font-size: 12px; color: #64748b; line-height: 1.6; }
+    .card .tag  {
+      display: inline-block; margin-top: 14px;
+      background: #6366f122; color: #818cf8;
+      border: 1px solid #6366f144; border-radius: 20px;
+      padding: 2px 10px; font-size: 10px; font-weight: 600;
+    }
+    /* tracker panel */
+    #kb-panel{
+      position:fixed; bottom:16px; right:16px; z-index:9999;
+      background:#0f172a; color:#f1f5f9; font-family:monospace; font-size:11px;
+      border:1px solid #6366f1; border-radius:10px; padding:12px 14px;
+      width:270px; box-shadow:0 4px 24px rgba(0,0,0,.6); line-height:1.9;
+    }
+    #kb-panel .ph{ display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+    #kb-panel .pt{ color:#6366f1; font-weight:700; font-size:12px; }
+    #kb-panel .ps{ border-radius:20px; padding:1px 8px; font-size:10px; }
+    #kb-panel .lbl{ color:#64748b; }
+    #kb-panel .sep{ border:none; border-top:1px solid #1e293b; margin:6px 0; }
+  </style>
+  <script type="text/javascript" src="js/scripts.js"></script> 
+</head>
+
+<!-- Change data-page-id and data-page-title on every page -->
+<body data-page-id="docs" data-page-title="Knowledge Base Home">
+
+  <h1>📚 Knowledge Base</h1>
+  <p class="sub">Browse articles below. Your reading session is tracked for quality insights.</p>
+
+  <div class="grid">
+    <a class="card" href="document_one.html">
+      <div class="icon">🔐</div>
+      <h2>Document One</h2>
+      <p>Authentication, SSO setup, password reset and login troubleshooting.</p>
+      <span class="tag">~5 min read</span>
+    </a>
+    <a class="card" href="document_two.html">
+      <div class="icon">💳</div>
+      <h2>Document Two</h2>
+      <p>Billing, invoices, refund policy and payment management.</p>
+      <span class="tag">~5 min read</span>
+    </a>
+    <a class="card" href="document_three.html">
+      <div class="icon">⚙️</div>
+      <h2>Document Three</h2>
+      <p>Feature walkthroughs, settings and advanced usage tips.</p>
+      <span class="tag">~5 min read</span>
+    </a>
+    <a class="card" href="document_four.html">
+      <div class="icon">🚀</div>
+      <h2>Document Four</h2>
+      <p>Beta features, release notes and product roadmap updates.</p>
+      <span class="tag">~5 min read</span>
+    </a>
+  </div>
+
+  <!-- ── TRACKER (fully inlined — no external file needed) ───── -->
+  <div id="kb-panel">
+    <div class="ph">
+      <span class="pt">📡 KB Tracker</span>
+      <span class="ps" id="ps" style="background:#10b98122;color:#10b981">ACTIVE</span>
+    </div>
+    <div><span class="lbl">Page: </span><span id="p-title"></span></div>
+    <div><span class="lbl">Surfaces: </span><span id="p-surf"></span></div>
+    <div><span class="lbl">Dwell: </span><span id="p-dwell"></span></div>
+    <div><span class="lbl">Active: </span><span id="p-active"></span></div>
+    <div><span class="lbl">Idle: </span><span id="p-idle"></span></div>
+    <div><span class="lbl">Scroll: </span><span id="p-scroll"></span></div>
+    <div><span class="lbl">CTA Clicks: </span><span id="p-cta"></span></div>
+    <div><span class="lbl">Hint: </span><span id="p-hint"></span></div>
+    <hr class="sep"/>
+    <div><span class="lbl">Last CTA: </span><span id="p-lastcta" style="color:#f59e0b">—</span></div>
+  </div>
+
+  <script>
+    (function () {
+      const PAGE_ID    = document.body.dataset.pageId    || location.pathname;
+      const PAGE_TITLE = document.body.dataset.pageTitle || document.title;
+      const IDLE_MS    = 30000;
+      const BOUNCE_MS  = 3000;
+      const STORE_KEY  = 'kb_' + PAGE_ID;
+
+      // ── state
+      const t = {
+        surfaceTime:   Date.now(),
+        activeStart:   Date.now(),
+        totalActiveMs: 0,
+        isActive:      true,
+        idleTimer:     null,
+        maxScroll:     0,
+        scrollDone:    new Set(),
+        ctaClicks:     [],
+      };
+
+      // surface count (persisted across revisits in same browser session)
+      let stored = {};
+      try { stored = JSON.parse(sessionStorage.getItem(STORE_KEY) || '{}'); } catch(_){}
+      const surfaceCount = (stored.surfaceCount || 0) + 1;
+
+      // ── helpers
+      const scrollPct = () => {
+        const d = document.documentElement;
+        const s = d.scrollTop || document.body.scrollTop;
+        const h = d.scrollHeight - d.clientHeight;
+        return h > 0 ? Math.round(s / h * 100) : 100;
+      };
+
+      const pause = () => {
+        if (!t.isActive) return;
+        t.totalActiveMs += Date.now() - t.activeStart;
+        t.isActive = false;
+      };
+
+      const resume = () => {
+        if (t.isActive) return;
+        t.activeStart = Date.now();
+        t.isActive = true;
+      };
+
+      const resetIdle = () => {
+        resume();
+        clearTimeout(t.idleTimer);
+        t.idleTimer = setTimeout(pause, IDLE_MS);
+      };
+
+      // ── build the variable object (this is what goes to PX)
+      const summary = () => {
+        pause();
+        const dMs  = Date.now() - t.surfaceTime;
+        const aMs  = t.totalActiveMs;
+        const obj  = {
+          pageId:          PAGE_ID,
+          pageTitle:       PAGE_TITLE,
+          url:             location.href,
+          surfaceCount:    surfaceCount,
+          referrer:        document.referrer || 'direct',
+          dwellSec:        Math.round(dMs / 1000),
+          activeTimeSec:   Math.round(aMs / 1000),
+          idleTimeSec:     Math.round((dMs - aMs) / 1000),
+          maxScrollPct:    t.maxScroll,
+          scrollMilestones:[...t.scrollDone],
+          ctaClicks:       t.ctaClicks,
+          ctaClickCount:   t.ctaClicks.length,
+          resolutionHint:  dMs < BOUNCE_MS        ? 'bounce'
+                         : aMs/1000 >= 30 && t.maxScroll >= 50 ? 'likely_read'
+                         : 'partial_read',
+        };
+        resume(); // restart after pause
+        return obj;
+      };
+
+      // ── events
+      ['mousemove','keydown','scroll','click','touchstart'].forEach(e =>
+        document.addEventListener(e, resetIdle, { passive: true })
+      );
+      document.addEventListener('visibilitychange', () =>
+        document.hidden ? pause() : resume()
+      );
+      window.addEventListener('blur',  pause);
+      window.addEventListener('focus', resume);
+
+      // scroll depth milestones
+      window.addEventListener('scroll', () => {
+        const p = scrollPct();
+        t.maxScroll = Math.max(t.maxScroll, p);
+        [25,50,75,100].forEach(s => {
+          if (p >= s && !t.scrollDone.has(s)) t.scrollDone.add(s);
+        });
+      }, { passive: true });
+
+      // CTA click — any <a> or <button>
+      document.addEventListener('click', e => {
+        const el = e.target.closest('a, button');
+        if (!el) return;
+        const click = {
+          label:    (el.innerText || el.getAttribute('aria-label') || 'unknown').trim().slice(0,60),
+          href:     el.href || null,
+          tag:      el.tagName.toLowerCase(),
+          activeSec:Math.round(t.totalActiveMs / 1000),
+          time:     new Date().toISOString(),
+        };
+        t.ctaClicks.push(click);
+        console.log('%c[KB] CTA clicked', 'color:#f59e0b;font-weight:bold', click);
+      });
+
+      // page exit — save + console summary
+      const onExit = () => {
+        const s = summary();
+        s.surfaceCount = surfaceCount;
+        try { sessionStorage.setItem(STORE_KEY, JSON.stringify(s)); } catch(_){}
+        if (s.dwellSec * 1000 < BOUNCE_MS) return;
+        console.group('%c[KB Tracker] Session End — ' + PAGE_TITLE, 'color:#6366f1;font-size:13px;font-weight:bold');
+        console.table({
+          'Page':           s.pageTitle,
+          'Surfaces':       s.surfaceCount,
+          'Dwell (s)':      s.dwellSec,
+          'Active (s)':     s.activeTimeSec,
+          'Idle (s)':       s.idleTimeSec,
+          'Scroll %':       s.maxScrollPct,
+          'CTA Clicks':     s.ctaClickCount,
+          'Resolution':     s.resolutionHint,
+        });
+        console.log('CTA detail:', s.ctaClicks);
+        console.log('→ Full object for aptrinsic():', s);
+        console.groupEnd();
+      };
+      window.addEventListener('pagehide',     onExit);
+      window.addEventListener('beforeunload', onExit);
+
+      // ── update panel every second
+      const $ = id => document.getElementById(id);
+      setInterval(() => {
+        const s = summary();
+        const hc = s.resolutionHint === 'likely_read' ? '#10b981'
+                 : s.resolutionHint === 'partial_read' ? '#f59e0b' : '#ef4444';
+        $('p-title').textContent  = s.pageTitle;
+        $('p-surf').textContent   = s.surfaceCount;
+        $('p-dwell').textContent  = s.dwellSec + 's';
+        $('p-active').textContent = s.activeTimeSec + 's';
+        $('p-idle').textContent   = s.idleTimeSec + 's';
+        $('p-scroll').textContent = s.maxScrollPct + '% ' + (s.scrollMilestones.length ? '(' + s.scrollMilestones.join(',') + '%)' : '');
+        $('p-cta').textContent    = s.ctaClickCount;
+        $('p-hint').innerHTML     = `<span style="color:${hc}">${s.resolutionHint}</span>`;
+        $('ps').textContent       = t.isActive ? 'ACTIVE' : 'IDLE';
+        $('ps').style.color       = t.isActive ? '#10b981' : '#f59e0b';
+        const last = s.ctaClicks.at(-1);
+        $('p-lastcta').textContent = last ? last.label : '—';
+      }, 1000);
+      aptrinsic('track', 'KB Tracker', {"name":s.pageTitle,"Hint":hc,"Surface Count" :s.surfaceCount ,"CTA Clicks" : s.ctaClickCount }); 
+
+      resetIdle();
+
+      // expose globally for console testing: window.kbTracker.getSummary()
+      window.kbTracker = { getSummary: summary };
+
+      console.log('%c[KB Tracker] Ready on: ' + PAGE_TITLE, 'color:#06b6d4;font-weight:bold');
+
+
+
+    })();
+  </script>
+
+
+</body>
+</html>
