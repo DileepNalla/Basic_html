@@ -164,6 +164,7 @@
                          : aMs/1000 >= 30 && t.maxScroll >= 50 ? 'likely_read'
                          : 'partial_read',
         };
+         aptrinsic('track', 'KB Tracker', {"name": pageTitle,"Hint":hc,"Surface Count" :surfaceCount ,"CTA Clicks" : ctaClickCount });
         resume(); // restart after pause
         return obj;
       };
@@ -245,7 +246,6 @@
         const last = s.ctaClicks.at(-1);
         $('p-lastcta').textContent = last ? last.label : '—';
       }, 1000);
-      aptrinsic('track', 'KB Tracker', {"name":s.pageTitle,"Hint":hc,"Surface Count" :s.surfaceCount ,"CTA Clicks" : s.ctaClickCount }); 
 
       resetIdle();
 

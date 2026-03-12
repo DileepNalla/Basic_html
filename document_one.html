@@ -278,8 +278,8 @@
         const last = s.ctaClicks.at(-1);
         $('p-lastcta').textContent = last ? last.label : '—';
       }, 1000);
-      aptrinsic('track', 'KB Tracker', {"name":s.pageTitle,"Hint":hc,"Surface Count" :s.surfaceCount ,"CTA Clicks" : s.ctaClickCount }); 
-
+      
+ aptrinsic('track', 'KB Tracker', {"name": pageTitle,"Hint":hc,"Surface Count" :surfaceCount ,"CTA Clicks" : ctaClickCount });
       resetIdle();
 
       // expose globally for console testing: window.kbTracker.getSummary()
